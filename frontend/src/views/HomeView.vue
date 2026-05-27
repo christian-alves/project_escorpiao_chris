@@ -188,6 +188,88 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Linha de Limpeza -->
+            <div class="mt-20 reveal-element">
+                <div
+                    class="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-slate-50 to-[#184691]/5 border border-[#184691]/20 shadow-[0_8px_40px_rgba(24,70,145,0.07)] px-8 py-12 md:px-14 md:py-14">
+
+                    <!-- Faixa de destaque no topo -->
+                    <div
+                        class="absolute top-0 left-0 w-2/3 h-1 bg-gradient-to-r from-[#184691] via-[#2a5cb5] to-transparent">
+                    </div>
+
+                    <!-- Header da linha -->
+                    <div class="flex flex-col md:flex-row md:items-end gap-4 mb-4">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="rounded-2xl w-12 h-12 flex items-center justify-center shadow-md flex-shrink-0"
+                                style="background: linear-gradient(135deg, #184691, #0f2d5e);">
+                                <Sparkles class="text-white w-5 h-5" />
+                            </div>
+                            <div>
+                                <p
+                                    class="text-xs font-bold tracking-widest uppercase font-montserrat mb-0.5"
+                                    style="color: #184691;">
+                                    Nova Linha</p>
+                                <h3
+                                    class="text-2xl font-extrabold text-gray-800 font-montserrat tracking-tight leading-tight">
+                                    Linha de Limpeza</h3>
+                            </div>
+                        </div>
+                        <p
+                            class="text-gray-500 font-montserrat text-sm md:ml-auto md:text-right max-w-xs leading-relaxed">
+                            Produtos de alta pureza para limpeza, higienização e uso doméstico ou industrial.
+                        </p>
+                    </div>
+
+                    <!-- Divisor -->
+                    <div class="h-px mb-10" style="background: linear-gradient(to right, #184691, #184691, transparent); opacity: 0.2;"></div>
+
+                    <!-- Cards dos produtos -->
+                    <div
+                        class="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 max-w-2xl mx-auto select-none">
+
+                        <!-- Percarbonato de Sódio -->
+                        <div
+                            class="group flex flex-col items-center text-center reveal-scale delay-300 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-[0_20px_40px_rgba(24,70,145,0.12)] hover:-translate-y-2 transition-all duration-500">
+                            <div class="relative w-full flex justify-center mb-4">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-br from-blue-50 to-sky-50 rounded-full scale-0 group-hover:scale-110 transition-transform duration-500 ease-out opacity-60 blur-xl">
+                                </div>
+                                <img :src="percarbonato" alt="Percarbonato de Sódio"
+                                    class="relative z-10 object-contain w-44 md:w-52 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.12)] group-hover:drop-shadow-[0_20px_30px_rgba(24,70,145,0.22)] transition-all duration-500 group-hover:-translate-y-2" />
+                            </div>
+                            <p
+                                class="text-base font-extrabold text-gray-800 font-montserrat transition-colors mb-2 group-hover:text-[#184691]">
+                                Percarbonato de Sódio</p>
+                            <p class="text-sm text-gray-500 font-montserrat leading-relaxed">
+                                Agente branqueador à base de oxigênio ativo. Ideal para alvejamento de roupas e
+                                desinfecção de superfícies sem agredir o meio ambiente.
+                            </p>
+                        </div>
+
+                        <!-- Bicarbonato de Sódio -->
+                        <div
+                            class="group flex flex-col items-center text-center reveal-scale delay-400 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-[0_20px_40px_rgba(24,70,145,0.12)] hover:-translate-y-2 transition-all duration-500">
+                            <div class="relative w-full flex justify-center mb-4">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-br from-blue-50 to-sky-50 rounded-full scale-0 group-hover:scale-110 transition-transform duration-500 ease-out opacity-60 blur-xl">
+                                </div>
+                                <img :src="bicarbonato" alt="Bicarbonato de Sódio"
+                                    class="relative z-10 object-contain w-44 md:w-52 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.12)] group-hover:drop-shadow-[0_20px_30px_rgba(24,70,145,0.22)] transition-all duration-500 group-hover:-translate-y-2" />
+                            </div>
+                            <p
+                                class="text-base font-extrabold text-gray-800 font-montserrat transition-colors mb-2 group-hover:text-[#184691]">
+                                Bicarbonato de Sódio</p>
+                            <p class="text-sm text-gray-500 font-montserrat leading-relaxed">
+                                Produto multiuso com propriedades limpantes e desodorizantes. Amplamente usado na
+                                limpeza doméstica, culinária e higiene pessoal.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Section Receitas -->
@@ -423,7 +505,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import ReceitaDetalhe from '../components/RecipeDetails.vue'
-import { ChevronRight, ChevronDown, BookMarked, Building, BookAlert, Instagram, PackageOpen, ShoppingCart } from 'lucide-vue-next'
+import { ChevronRight, ChevronDown, BookMarked, Building, BookAlert, Instagram, PackageOpen, ShoppingCart, Sparkles } from 'lucide-vue-next'
 
 import Capa from '../assets/identidade/HOME_PAGE-opt.webp'
 import Missao from '../assets/empresa/missao.png'
@@ -446,6 +528,8 @@ import local4 from '../assets/ondeComprar/4.png'
 import soda500g from '../assets/produto/novo1.png'
 import soda1kg from '../assets/produto/novo3.png'
 import sodaliquida from '../assets/produto/novo2.png'
+import percarbonato from '../assets/produto/novo4.png'
+import bicarbonato from '../assets/produto/novo5.png'
 
 const empresaImages = [
     sobre1,

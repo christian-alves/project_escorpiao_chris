@@ -19,7 +19,14 @@
         <router-link v-for="section in sections" :key="section.id" :to="`/#${section.id}`"
           class="relative px-4 py-2 transition-colors duration-300 outline-none group"
           :class="activeSection === section.id ? 'text-red-700' : 'text-gray-500 hover:text-gray-900'">
-          <span class="relative z-10">{{ section.label }}</span>
+          <span class="relative z-10 flex items-center gap-1.5">
+            {{ section.label }}
+            <span v-if="section.badge"
+              class="inline-flex items-center text-[10px] font-bold px-1.5 py-0.5 rounded-full text-white leading-none badge-novo"
+              style="background-color: #184691;">
+              {{ section.badge }}
+            </span>
+          </span>
 
           <!-- Animated Underline Indicator -->
           <span
@@ -93,9 +100,12 @@
             @click="menuOpen = false">EMPRESA</router-link>
 
           <router-link to="/#produtos"
-            class="relative z-10 block py-3 px-6 font-semibold rounded-2xl transition-all duration-300 active:scale-[0.98] hover:translate-x-1 origin-left"
+            class="relative z-10 flex items-center gap-2 py-3 px-6 font-semibold rounded-2xl transition-all duration-300 active:scale-[0.98] hover:translate-x-1 origin-left"
             :class="activeSection === 'produtos' ? 'bg-red-50 text-red-700 tracking-wide translate-x-1 shadow-sm' : 'text-gray-600 hover:bg-gray-50 hover:text-red-600'"
-            @click="menuOpen = false">PRODUTOS</router-link>
+            @click="menuOpen = false">
+            PRODUTOS
+            <span class="inline-flex items-center text-[10px] font-bold px-1.5 py-0.5 rounded-full text-white leading-none badge-novo" style="background-color: #184691;">NOVO</span>
+          </router-link>
 
           <router-link to="/#receitas"
             class="relative z-10 block py-3 px-6 font-semibold rounded-2xl transition-all duration-300 active:scale-[0.98] hover:translate-x-1 origin-left"
@@ -161,7 +171,7 @@ const menuOpen = ref(false)
 
 const sections = [
   { id: 'empresa', label: 'EMPRESA' },
-  { id: 'produtos', label: 'PRODUTOS' },
+  { id: 'produtos', label: 'PRODUTOS', badge: 'NOVO' },
   { id: 'receitas', label: 'RECEITAS' },
   { id: 'ondecomprar', label: 'ONDE COMPRAR' }
 ]
@@ -234,6 +244,15 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+.badge-novo {
+  animation: badge-pulse 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.08); }
+}
+
 /* Transições do menu mobile (Slide and Fade in) */
 .slide-fade-enter-active {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);

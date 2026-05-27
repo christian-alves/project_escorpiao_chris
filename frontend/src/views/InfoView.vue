@@ -45,22 +45,41 @@
 
         <!-- Ficha de Dados de Segurança -->
         <div
-          class="flex flex-col items-center flex-1 fds-col reveal-element delay-300 bg-white p-8 rounded-3xl shadow-sm border border-gray-100/50 hover:shadow-[0_20px_40px_rgba(185,28,28,0.08)] transition-all duration-500 hover:-translate-y-2 mt-8 md:mt-0">
+          class="flex flex-col items-center flex-1 fds-col reveal-element delay-300 bg-white p-8 rounded-3xl shadow-sm border border-gray-100/50 hover:shadow-[0_20px_40px_rgba(185,28,28,0.08)] transition-all duration-500 mt-8 md:mt-0">
           <div class="bg-red-50 p-4 rounded-full mb-4">
             <FileText class="w-8 h-8 text-red-600" />
           </div>
-          <span class="mb-4 text-center text-lg font-bold text-gray-800 font-montserrat">
+          <span class="mb-2 text-center text-lg font-bold text-gray-800 font-montserrat">
             Ficha de Dados de Segurança
           </span>
           <p class="text-center text-sm text-gray-500 mb-6 font-montserrat px-2">
             Acesso rápido às informações detalhadas sobre segurança e propriedades da soda cáustica.
           </p>
-          <button
-            class="group relative overflow-hidden flex items-center justify-center gap-2 w-full bg-red-700 text-white px-8 py-3.5 rounded-full font-semibold font-montserrat tracking-wide transition-all duration-300 hover:bg-white border border-red-700 hover:shadow-[0_8px_30px_rgb(185,28,28,0.3)] hover:-translate-y-1"
-            @click="openPdf">
-            <span class="relative z-10 group-hover:text-red-700">VISUALIZAR FDS</span>
-            <Download class="w-5 h-5 relative z-10 group-hover:text-red-700 group-hover:animate-bounce" />
-          </button>
+
+          <!-- FDS Líquido -->
+          <div class="w-full mb-3">
+            <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 font-montserrat text-center">Soda Cáustica Líquida</p>
+            <button
+              class="group relative overflow-hidden flex items-center justify-center gap-2 w-full bg-red-700 text-white px-8 py-3.5 rounded-full font-semibold font-montserrat tracking-wide transition-all duration-300 hover:bg-white border border-red-700 hover:shadow-[0_8px_30px_rgb(185,28,28,0.3)] hover:-translate-y-1"
+              @click="openPdf">
+              <span class="relative z-10 group-hover:text-red-700">VISUALIZAR FDS</span>
+              <Download class="w-5 h-5 relative z-10 group-hover:text-red-700 group-hover:animate-bounce" />
+            </button>
+          </div>
+
+          <!-- Divisor -->
+          <div class="w-full h-px bg-gray-100 my-3"></div>
+
+          <!-- FDS Escamas -->
+          <div class="w-full mt-1">
+            <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 font-montserrat text-center">Soda Cáustica em Escamas</p>
+            <button
+              class="group relative overflow-hidden flex items-center justify-center gap-2 w-full bg-white text-red-700 px-8 py-3.5 rounded-full font-semibold font-montserrat tracking-wide transition-all duration-300 hover:bg-red-700 hover:text-white border border-red-700 hover:shadow-[0_8px_30px_rgb(185,28,28,0.3)] hover:-translate-y-1"
+              @click="openPdfEscama">
+              <span class="relative z-10">VISUALIZAR FDS</span>
+              <Download class="w-5 h-5 relative z-10 group-hover:animate-bounce" />
+            </button>
+          </div>
         </div>
       </div>
 
@@ -193,6 +212,10 @@ import { ref, onMounted, onUnmounted } from 'vue';
 
 function openPdf() {
   window.open('/static/uploads/FDS-ESCORPIAO-2026-ATUALIZADA.pdf', '_blank')
+}
+
+function openPdfEscama() {
+  window.open('/static/uploads/FDS-ESCORPIAO-ESCAMA-2025.pdf', '_blank')
 }
 
 // Detecta se é mobile (≤ 767px)
