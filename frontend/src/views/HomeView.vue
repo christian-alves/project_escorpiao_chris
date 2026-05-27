@@ -118,73 +118,109 @@
 
         <!-- Section Produtos -->
         <section id="produtos" class="max-w-6xl mx-auto px-6 pt-32 pb-6 scroll-mt-32">
-            <!-- Título -->
-            <div class="flex items-center gap-4 reveal-element mb-0 mt-4 text-red-700">
+            <!-- Título principal da seção -->
+            <div class="flex items-center gap-4 reveal-element mb-8 mt-4 text-red-700">
                 <h2 class="text-3xl font-extrabold font-montserrat tracking-tight m-0">PRODUTOS</h2>
                 <PackageOpen stroke-width="2" size="32" class="mb-1" />
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-                <div class="reveal-element delay-100 flex flex-col justify-center">
-                    <!-- Texto descritivo -->
-                    <p
-                        class="text-gray-700 text-lg mb-6 leading-relaxed font-montserrat relative pl-6 border-l-4 border-red-700">
-                        A soda cáustica em escamas é obtida a partir do processo de evaporação da soda cáustica líquida,
-                        da
-                        fusão do produto anidro e do processo de escamação. Este produto apresenta-se na forma de
-                        escamas brancas,
-                        altamente deliquescentes (absorve a umidade do ar e nela se dissolve) e com concentração média
-                        de 98% de hidróxido de
-                        sódio em peso, conforme a especificação.
-                    </p>
-                    <p
-                        class="text-gray-700 text-lg leading-relaxed font-montserrat relative pl-6 border-l-4 border-red-400">
-                        É utilizada na fabricação de sabões e detergentes, no tratamento de superfícies de metais
-                        ferrosos, na
-                        formulação de banhos de eletrodeposição, na mercerização de têxteis, na regeneração de resinas
-                        de troca
-                        iônica e na correção de pH em vários processos industriais, como os da indústria de alimento,
-                        álcool e
-                        farmacêutica.
-                    </p>
-                </div>
+            <!-- Container Soda Cáustica -->
+            <div class="reveal-element">
+                <div
+                    class="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-white to-red-50/50 border border-red-200/50 shadow-[0_8px_40px_rgba(185,28,28,0.07)] px-8 py-12 md:px-14 md:py-14">
 
-                <!-- Grid de produtos -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-x-4 md:gap-y-8 select-none">
-                    <!-- Produto 500g -->
-                    <div class="flex flex-col items-center text-center reveal-scale delay-200 group relative">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-br from-red-50 to-orange-50 rounded-full scale-0 group-hover:scale-110 transition-transform duration-500 ease-out z-0 opacity-50 blur-xl">
-                        </div>
-                        <img :src="soda500g" alt="Soda Cáustica 500g"
-                            class="relative z-10 product-img object-contain w-52 md:w-60 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] group-hover:drop-shadow-[0_25px_35px_rgba(185,28,28,0.25)] transition-all duration-500 hover:-translate-y-4" />
-                        <p
-                            class="text-lg font-bold mt-4 text-gray-800 font-montserrat group-hover:text-red-700 transition-colors">
-                            Soda Cáustica 500g</p>
-                    </div>
-
-                    <!-- Produto 1kg -->
-                    <div class="flex flex-col items-center text-center reveal-scale delay-300 group relative">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-br from-red-50 to-orange-50 rounded-full scale-0 group-hover:scale-110 transition-transform duration-500 ease-out z-0 opacity-50 blur-xl">
-                        </div>
-                        <img :src="soda1kg" alt="Soda Cáustica 1kg"
-                            class="relative z-10 product-img object-contain w-52 md:w-60 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] group-hover:drop-shadow-[0_25px_35px_rgba(185,28,28,0.25)] transition-all duration-500 hover:-translate-y-4" />
-                        <p
-                            class="text-lg font-bold mt-4 text-gray-800 font-montserrat group-hover:text-red-700 transition-colors">
-                            Soda Cáustica 1kg</p>
-                    </div>
-
+                    <!-- Faixa de destaque no topo -->
                     <div
-                        class="flex flex-col items-center text-center reveal-scale delay-400 group relative sm:col-span-2 lg:col-span-1 lg:col-start-1 lg:col-end-3 lg:mx-auto">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-br from-red-50 to-orange-50 rounded-full scale-0 group-hover:scale-110 transition-transform duration-500 ease-out z-0 opacity-50 blur-xl">
+                        class="absolute top-0 left-0 w-2/3 h-1 bg-gradient-to-r from-red-700 via-red-400 to-transparent">
+                    </div>
+
+                    <!-- Header da linha -->
+                    <div class="flex flex-col md:flex-row md:items-end gap-4 mb-4">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="bg-gradient-to-br from-red-700 to-red-900 rounded-2xl w-12 h-12 flex items-center justify-center shadow-md flex-shrink-0">
+                                <FlaskConical class="text-white w-5 h-5" />
+                            </div>
+                            <div>
+                                <p
+                                    class="text-xs font-bold tracking-widest text-red-400 uppercase font-montserrat mb-0.5">
+                                    Linha Principal</p>
+                                <h3
+                                    class="text-2xl font-extrabold text-gray-800 font-montserrat tracking-tight leading-tight">
+                                    Soda Cáustica</h3>
+                            </div>
                         </div>
-                        <img :src="sodaliquida" alt="Soda Cáustica Líquida"
-                            class="relative z-10 product-img object-contain w-52 md:w-60 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] group-hover:drop-shadow-[0_25px_35px_rgba(185,28,28,0.25)] transition-all duration-500 hover:-translate-y-4" />
                         <p
-                            class="text-lg font-bold mt-4 text-gray-800 font-montserrat group-hover:text-red-700 transition-colors">
-                            Soda Cáustica Líquida</p>
+                            class="text-gray-500 font-montserrat text-sm md:ml-auto md:text-right max-w-xs leading-relaxed">
+                            Hidróxido de sódio com 98% de pureza, referência nacional em qualidade e agilidade.
+                        </p>
+                    </div>
+
+                    <!-- Divisor -->
+                    <div
+                        class="h-px bg-gradient-to-r from-red-300 via-red-100 to-transparent mb-10 opacity-60">
+                    </div>
+
+                    <!-- Grid: texto + produtos -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+                        <div class="reveal-element delay-100 flex flex-col justify-center">
+                            <!-- Texto descritivo -->
+                            <p
+                                class="text-gray-700 text-lg mb-6 leading-relaxed font-montserrat relative pl-6 border-l-4 border-red-700">
+                                A soda cáustica em escamas é obtida a partir do processo de evaporação da soda cáustica
+                                líquida, da fusão do produto anidro e do processo de escamação. Apresenta-se na forma de
+                                escamas brancas, altamente deliquescentes, com concentração média de 98% de hidróxido de
+                                sódio em peso.
+                            </p>
+                            <p
+                                class="text-gray-700 text-lg leading-relaxed font-montserrat relative pl-6 border-l-4 border-red-300">
+                                É utilizada na fabricação de sabões e detergentes, no tratamento de superfícies metálicas,
+                                na mercerização de têxteis, na regeneração de resinas de troca iônica e na correção de pH
+                                em processos industriais de alimentos, álcool e farmácia.
+                            </p>
+                        </div>
+
+                        <!-- Grid de produtos -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-x-4 md:gap-y-8 select-none">
+                            <!-- Produto 500g -->
+                            <div
+                                class="flex flex-col items-center text-center reveal-scale delay-200 group relative bg-white/70 rounded-2xl p-4 border border-red-50 hover:border-red-200/60 hover:shadow-[0_16px_32px_rgba(185,28,28,0.10)] hover:-translate-y-1 transition-all duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 opacity-40">
+                                </div>
+                                <img :src="soda500g" alt="Soda Cáustica 500g"
+                                    class="relative z-10 product-img object-contain w-40 md:w-48 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] group-hover:drop-shadow-[0_25px_35px_rgba(185,28,28,0.25)] transition-all duration-500 group-hover:-translate-y-2" />
+                                <p
+                                    class="relative z-10 text-base font-bold mt-4 text-gray-800 font-montserrat group-hover:text-red-700 transition-colors">
+                                    Soda Cáustica 500g</p>
+                            </div>
+
+                            <!-- Produto 1kg -->
+                            <div
+                                class="flex flex-col items-center text-center reveal-scale delay-300 group relative bg-white/70 rounded-2xl p-4 border border-red-50 hover:border-red-200/60 hover:shadow-[0_16px_32px_rgba(185,28,28,0.10)] hover:-translate-y-1 transition-all duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 opacity-40">
+                                </div>
+                                <img :src="soda1kg" alt="Soda Cáustica 1kg"
+                                    class="relative z-10 product-img object-contain w-40 md:w-48 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] group-hover:drop-shadow-[0_25px_35px_rgba(185,28,28,0.25)] transition-all duration-500 group-hover:-translate-y-2" />
+                                <p
+                                    class="relative z-10 text-base font-bold mt-4 text-gray-800 font-montserrat group-hover:text-red-700 transition-colors">
+                                    Soda Cáustica 1kg</p>
+                            </div>
+
+                            <!-- Produto Líquida -->
+                            <div
+                                class="flex flex-col items-center text-center reveal-scale delay-400 group relative bg-white/70 rounded-2xl p-4 border border-red-50 hover:border-red-200/60 hover:shadow-[0_16px_32px_rgba(185,28,28,0.10)] hover:-translate-y-1 transition-all duration-500 sm:col-span-2 lg:col-span-1 lg:col-start-1 lg:col-end-3 lg:mx-auto lg:w-1/2">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 opacity-40">
+                                </div>
+                                <img :src="sodaliquida" alt="Soda Cáustica Líquida"
+                                    class="relative z-10 product-img object-contain w-40 md:w-48 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] group-hover:drop-shadow-[0_25px_35px_rgba(185,28,28,0.25)] transition-all duration-500 group-hover:-translate-y-2" />
+                                <p
+                                    class="relative z-10 text-base font-bold mt-4 text-gray-800 font-montserrat group-hover:text-red-700 transition-colors">
+                                    Soda Cáustica Líquida</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -505,7 +541,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import ReceitaDetalhe from '../components/RecipeDetails.vue'
-import { ChevronRight, ChevronDown, BookMarked, Building, BookAlert, Instagram, PackageOpen, ShoppingCart, Sparkles } from 'lucide-vue-next'
+import { ChevronRight, ChevronDown, BookMarked, Building, BookAlert, Instagram, PackageOpen, ShoppingCart, Sparkles, FlaskConical } from 'lucide-vue-next'
 
 import Capa from '../assets/identidade/HOME_PAGE-opt.webp'
 import Missao from '../assets/empresa/missao.png'
