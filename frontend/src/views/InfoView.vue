@@ -74,8 +74,42 @@
           <div class="w-full mt-1">
             <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 font-montserrat text-center">Soda Cáustica em Escamas</p>
             <button
-              class="group relative overflow-hidden flex items-center justify-center gap-2 w-full bg-white text-red-700 px-8 py-3.5 rounded-full font-semibold font-montserrat tracking-wide transition-all duration-300 hover:bg-red-700 hover:text-white border border-red-700 hover:shadow-[0_8px_30px_rgb(185,28,28,0.3)] hover:-translate-y-1"
+              class="group relative overflow-hidden flex items-center justify-center gap-2 w-full bg-red-700 text-white px-8 py-3.5 rounded-full font-semibold font-montserrat tracking-wide transition-all duration-300 hover:bg-white border border-red-700 hover:shadow-[0_8px_30px_rgb(185,28,28,0.3)] hover:-translate-y-1"
               @click="openPdfEscama">
+              <span class="relative z-10 group-hover:text-red-700">VISUALIZAR FDS</span>
+              <Download class="w-5 h-5 relative z-10 group-hover:text-red-700 group-hover:animate-bounce" />
+            </button>
+          </div>
+
+          <!-- Divisor Linha Casa -->
+          <div class="w-full flex items-center gap-3 my-6">
+            <div class="h-px flex-1" style="background: linear-gradient(to right, transparent, rgba(33,48,103,0.15));"></div>
+            <span class="text-[11px] font-bold uppercase tracking-widest font-montserrat" style="color: #6ABFEB;">Linha Casa</span>
+            <div class="h-px flex-1" style="background: linear-gradient(to left, transparent, rgba(106,191,235,0.2));"></div>
+          </div>
+
+          <!-- FDS Percarbonato -->
+          <div class="w-full mb-3">
+            <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 font-montserrat text-center">Percarbonato de Sódio</p>
+            <button
+              class="fds-btn-casa group relative overflow-hidden flex items-center justify-center gap-2 w-full text-white px-8 py-3.5 rounded-full font-semibold font-montserrat tracking-wide transition-all duration-300 border hover:-translate-y-1"
+              style="background: linear-gradient(135deg, #213067, #1a2855); border-color: #213067; --hover-shadow: rgba(33,48,103,0.35);"
+              @click="openPdfPercarbonato">
+              <span class="relative z-10">VISUALIZAR FDS</span>
+              <Download class="w-5 h-5 relative z-10 group-hover:animate-bounce" />
+            </button>
+          </div>
+
+          <!-- Divisor -->
+          <div class="w-full h-px bg-gray-100 my-3"></div>
+
+          <!-- FDS Bicarbonato -->
+          <div class="w-full mt-1">
+            <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 font-montserrat text-center">Bicarbonato de Sódio</p>
+            <button
+              class="fds-btn-casa group relative overflow-hidden flex items-center justify-center gap-2 w-full text-white px-8 py-3.5 rounded-full font-semibold font-montserrat tracking-wide transition-all duration-300 border hover:-translate-y-1"
+              style="background: linear-gradient(135deg, #213067, #1a2855); border-color: #213067; --hover-shadow: rgba(33,48,103,0.35);"
+              @click="openPdfBicarbonato">
               <span class="relative z-10">VISUALIZAR FDS</span>
               <Download class="w-5 h-5 relative z-10 group-hover:animate-bounce" />
             </button>
@@ -218,6 +252,14 @@ function openPdfEscama() {
   window.open('/static/uploads/FDS-ESCORPIAO-ESCAMA-2025.pdf', '_blank')
 }
 
+function openPdfPercarbonato() {
+  window.open('/static/uploads/FDS-ESCORPIAO-PERCARBONATO-2026.pdf', '_blank')
+}
+
+function openPdfBicarbonato() {
+  window.open('/static/uploads/FDS-ESCORPIAO-BICARBONATO-2026.pdf', '_blank')
+}
+
 // Detecta se é mobile (≤ 767px)
 const isMobile = ref(window.innerWidth <= 767);
 
@@ -278,6 +320,10 @@ onUnmounted(() => {
 
 .fds-col {
   flex: 3;
+}
+
+.fds-btn-casa:hover {
+  box-shadow: 0 8px 30px var(--hover-shadow);
 }
 
 /* Responsividade mobile */
