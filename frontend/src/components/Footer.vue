@@ -30,6 +30,10 @@
                             <Phone size="18" />
                             <li>(27) 99850-7166</li>
                         </div>
+                        <div class="flex gap-2">
+                            <FileText size="18" />
+                            <li>CNPJ: 04.548.633/0001-90</li>
+                        </div>
                     </ul>
                 </div>
 
@@ -74,5 +78,5 @@
 
 
 <script setup>
-import { Instagram, Facebook, MapPinned, Mail, Phone } from 'lucide-vue-next';
+import { Instagram, Facebook, MapPinned, Mail, Phone, FileText } from 'lucide-vue-next';
 </script>

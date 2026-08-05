@@ -62,7 +62,7 @@
                             *</label>
                         <textarea name="mensagem" v-model="form.mensagem" required rows="4"
                             class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:bg-white focus:border-red-400 focus:ring-2 focus:ring-red-100 focus:outline-none transition-all duration-300 text-gray-800 resize-none"
-                            placeholder="Como podemos ajudá-mo a se tornar um revendedor?"></textarea>
+                            placeholder="Como podemos ajudá-lo a se tornar um revendedor?"></textarea>
                     </div>
 
                     <div
