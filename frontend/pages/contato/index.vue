@@ -4,7 +4,7 @@
       <!-- Título -->
       <div class="flex items-center gap-4 mb-8 reveal-element">
         <div class="flex items-center gap-4 mb-6 pt-6">
-          <h2 class="text-3xl font-extrabold text-red-700 font-montserrat tracking-tight uppercase">CONTATO</h2>
+          <h1 class="text-3xl font-extrabold text-red-700 font-montserrat tracking-tight uppercase">CONTATO</h1>
           <ContactRound class="text-red-700 " stroke-width="2" size="36" />
         </div>
       </div>
@@ -30,7 +30,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl mx-auto font-montserrat mb-24">
 
         <!-- Seja Revendedor Card -->
-        <router-link to="/contato/revendedor" class="group outline-none">
+        <NuxtLink to="/contato/revendedor" class="group outline-none">
           <div
             class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-[0_20px_50px_rgba(185,28,28,0.08)] transition-all duration-500 hover:-translate-y-2 h-full flex flex-col items-center text-center reveal-scale delay-300 relative overflow-hidden">
             <!-- Decorativo -->
@@ -56,10 +56,10 @@
               </button>
             </div>
           </div>
-        </router-link>
+        </NuxtLink>
 
         <!-- Fale Conosco Card -->
-        <router-link to="/contato/fale-conosco" class="group outline-none">
+        <NuxtLink to="/contato/fale-conosco" class="group outline-none">
           <div
             class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-[0_20px_50px_rgba(185,28,28,0.08)] transition-all duration-500 hover:-translate-y-2 h-full flex flex-col items-center text-center reveal-scale delay-400 relative overflow-hidden">
             <!-- Decorativo -->
@@ -85,7 +85,7 @@
               </button>
             </div>
           </div>
-        </router-link>
+        </NuxtLink>
 
       </div>
 
@@ -96,29 +96,18 @@
 
 <script setup>
 import { ContactRound, Store, MessageCircle } from 'lucide-vue-next';
-import { onMounted } from 'vue';
 
-onMounted(() => {
-  // Scroll Animations
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px 0px -50px 0px', // Trigger slighly before bottom
-    threshold: 0.1
-  }
+useSeoMeta({
+  title: 'Contato',
+  description:
+    'Fale com a Soda Cáustica Escorpião. Seja um revendedor ou entre em contato com nossa equipe. Tradição capixaba, presença nacional.',
+  ogTitle: 'Contato — Soda Cáustica Escorpião',
+  ogDescription: 'Seja revendedor ou fale conosco. Atendimento em todo o Brasil.',
+  ogType: 'website',
+  ogLocale: 'pt_BR',
+})
 
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible')
-        observer.unobserve(entry.target) // Only animate once
-      }
-    })
-  }, observerOptions)
-
-  // Select elements to animate
-  const revealElements = document.querySelectorAll('.reveal-element, .reveal-scale, .reveal-left, .reveal-right')
-  revealElements.forEach(el => observer.observe(el))
-});
+useScrollReveal()
 
 </script>
 

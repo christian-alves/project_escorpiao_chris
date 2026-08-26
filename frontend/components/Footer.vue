@@ -13,10 +13,10 @@
 
                 <!-- Contato -->
                 <div class="md:w-1/4">
-                    <RouterLink to="/contato">
+                    <NuxtLink to="/contato">
                         <h3 class="text-lg font-bold text-gray-900 mb-4 font-montserrat hover:text-gray-700">CONTATO
                         </h3>
-                    </RouterLink>
+                    </NuxtLink>
                     <ul class="space-y-2 text-sm text-gray-700 font-montserrat tracking-wide">
                         <div class="flex gap-2">
                             <MapPinned size="18" />

@@ -3,14 +3,14 @@
         <section id="contato" class="max-w-6xl mx-auto px-6 pt-24 scroll-mt-32">
 
             <div class="flex items-center gap-4 mb-10 reveal-element">
-                <router-link to="/contato"
+                <NuxtLink to="/contato"
                     class="transition-transform duration-300 hover:-translate-x-1 group bg-white p-2 rounded-full shadow-sm hover:shadow-md border border-gray-100">
                     <ChevronLeft
                         class="w-8 h-8 text-gray-500 group-hover:text-red-700 transition-colors duration-300" />
-                </router-link>
+                </NuxtLink>
                 <div class="flex items-center gap-4">
-                    <h2 class="text-3xl font-extrabold text-red-700 font-montserrat tracking-tight uppercase">SEJA
-                        REVENDEDOR</h2>
+                    <h1 class="text-3xl font-extrabold text-red-700 font-montserrat tracking-tight uppercase">SEJA
+                        REVENDEDOR</h1>
                     <HeartHandshake class="text-red-700" stroke-width="2" :size="isMobile ? 45 : 36" />
                 </div>
             </div>
@@ -111,9 +111,21 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref } from 'vue'
 import { ChevronLeft, LoaderCircle, HeartHandshake, CircleAlert } from 'lucide-vue-next'
 import emailjs from '@emailjs/browser'
+
+useSeoMeta({
+    title: 'Seja Revendedor',
+    description:
+        'Torne-se um revendedor da Soda Cáustica Escorpião. Junte-se à nossa rede de parceiros e ofereça a melhor soda cáustica do mercado.',
+    ogTitle: 'Seja Revendedor — Soda Cáustica Escorpião',
+    ogDescription: 'Junte-se à nossa rede nacional de distribuidores.',
+    ogLocale: 'pt_BR',
+})
+
+const config = useRuntimeConfig()
+const { isMobile } = useIsMobile()
 
 const form = ref({
     nome: '',
@@ -135,10 +147,10 @@ function sendEmail() {
     error.value = false
 
     emailjs.sendForm(
-        'service_qkfa5mv',      // Substitua pelo seu Service ID do EmailJS
-        'template_63ypqqb',     // Substitua pelo seu Template ID do EmailJS
+        config.public.emailjs.serviceId,
+        config.public.emailjs.templateDealer,
         formRef.value,
-        'tbViC79WPqnsOHWBi'       // Substitua pelo seu Public Key do EmailJS
+        config.public.emailjs.publicKey
     ).then(() => {
         loading.value = false
         success.value = true
@@ -152,39 +164,7 @@ function sendEmail() {
 }
 
 
-const isMobile = ref(window.innerWidth <= 767);
-
-function handleResize() {
-    isMobile.value = window.innerWidth <= 767;
-}
-
-onMounted(() => {
-    window.addEventListener('resize', handleResize);
-
-    // Scroll Animations
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px 0px -50px 0px', // Trigger slighly before bottom
-        threshold: 0.1
-    }
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible')
-                observer.unobserve(entry.target) // Only animate once
-            }
-        })
-    }, observerOptions)
-
-    // Select elements to animate
-    const revealElements = document.querySelectorAll('.reveal-element, .reveal-scale')
-    revealElements.forEach(el => observer.observe(el))
-});
-
-onUnmounted(() => {
-    window.removeEventListener('resize', handleResize);
-});
+useScrollReveal()
 </script>
 
 <style scoped>

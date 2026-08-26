@@ -3,11 +3,11 @@ import fs from 'fs';
 import path from 'path';
 
 const imagesToOptimize = [
-  'src/assets/empresa/sobre_1.jpg',
-  'src/assets/empresa/sobre_2.jpg',
-  'src/assets/empresa/sobre_6.jpg',
-  'src/assets/empresa/sobre_8.jpg',
-  'src/assets/identidade/HOME_PAGE.png'
+  'assets/empresa/sobre_1.jpg',
+  'assets/empresa/sobre_2.jpg',
+  'assets/empresa/sobre_6.jpg',
+  'assets/empresa/sobre_8.jpg',
+  'assets/identidade/HOME_PAGE.png'
 ];
 
 async function optimizeImages() {

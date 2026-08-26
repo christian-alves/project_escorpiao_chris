@@ -141,7 +141,7 @@
                 <div v-for="(video, idx) in instagramVideos" :key="idx"
                     class="rounded-xl overflow-hidden relative group cursor-pointer h-48 flex items-center justify-center"
                     @click="openInstagram(video.link)">
-                    <img :src="video.thumb" alt="Receita"
+                    <img :src="video.thumb" alt="Receita" loading="lazy" decoding="async"
                         class="card-img absolute inset-0 w-full h-full object-cover z-0 transition-all duration-500" />
                     <div class="relative z-10 flex flex-col items-center justify-center w-full">
                         <!-- <SquarePlay size="48" class="text-red-600 mb-2" /> -->
@@ -183,7 +183,7 @@
                     </h4>
                     <div class="rounded-xl overflow-hidden relative group cursor-pointer h-56 w-56 flex items-center justify-center max-w-md mx-auto"
                         @click="openInstagram('https://www.instagram.com/reel/DQKq8EMkdP4/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==')">
-                        <img :src="thumb4" alt="Sabão com Soda Líquida"
+                        <img :src="thumb4" alt="Sabão com Soda Líquida" loading="lazy" decoding="async"
                             class="card-img absolute inset-0 w-full h-full object-cover z-0 transition-all duration-500" />
                         <div class="relative z-10 flex flex-col items-center justify-center w-full">
                             <span
