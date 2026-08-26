@@ -3,14 +3,14 @@
         <section id="history" class="max-w-4xl mx-auto px-6 pt-24 pb-24 scroll-mt-32">
 
             <div class="flex items-center gap-4 mb-10 reveal-element">
-                <router-link to="/#empresa"
+                <NuxtLink to="/#empresa"
                     class="transition-transform duration-300 hover:-translate-x-1 group bg-white p-2 rounded-full shadow-sm hover:shadow-md border border-gray-100">
                     <ChevronLeft
                         class="w-8 h-8 text-gray-500 group-hover:text-red-700 transition-colors duration-300" />
-                </router-link>
+                </NuxtLink>
                 <div class="flex items-center gap-4">
-                    <h2 class="text-3xl font-extrabold text-red-700 font-montserrat tracking-tight uppercase">NOSSA
-                        HISTÓRIA</h2>
+                    <h1 class="text-3xl font-extrabold text-red-700 font-montserrat tracking-tight uppercase">NOSSA
+                        HISTÓRIA</h1>
                     <BookOpenText class="text-red-700 " stroke-width="2" :size="36" />
                 </div>
             </div>
@@ -70,29 +70,18 @@
 
 <script setup>
 import { ChevronLeft, BookOpenText } from 'lucide-vue-next'
-import { onMounted, onUnmounted } from 'vue'
 
-onMounted(() => {
-    // Scroll Animations
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px 0px -50px 0px', // Trigger slighly before bottom
-        threshold: 0.1
-    }
+useSeoMeta({
+    title: 'Nossa História',
+    description:
+        'A história da Soda Cáustica Escorpião: da década de 70 em Vitória - ES ao parque fabril em Jardim Limoeiro, Serra. Meio século de tradição, qualidade e pureza.',
+    ogTitle: 'Nossa História — Soda Cáustica Escorpião',
+    ogDescription: 'Meio século de tradição capixaba na fabricação de soda cáustica.',
+    ogType: 'article',
+    ogLocale: 'pt_BR',
+})
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible')
-                observer.unobserve(entry.target) // Only animate once
-            }
-        })
-    }, observerOptions)
-
-    // Select elements to animate
-    const revealElements = document.querySelectorAll('.reveal-element, .reveal-scale')
-    revealElements.forEach(el => observer.observe(el))
-});
+useScrollReveal()
 </script>
 
 <style scoped>

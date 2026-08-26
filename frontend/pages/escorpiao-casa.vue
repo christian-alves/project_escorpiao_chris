@@ -173,7 +173,7 @@
                   <div class="relative group cursor-default select-none">
                     <div class="absolute inset-0 rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-700"
                       style="background: radial-gradient(circle, #6ABFEB 40%, #213067 100%);"></div>
-                    <img :src="percarbonato" alt="Percarbonato de Sódio"
+                    <img :src="percarbonato" alt="Percarbonato de Sódio" loading="lazy" decoding="async"
                       class="relative z-10 object-contain w-56 md:w-72 h-auto filter drop-shadow-[0_20px_40px_rgba(33,48,103,0.18)] group-hover:drop-shadow-[0_30px_50px_rgba(33,48,103,0.32)] transition-all duration-500 group-hover:-translate-y-4" />
                   </div>
                 </div>
@@ -279,7 +279,7 @@
                   <div class="relative group cursor-default select-none">
                     <div class="absolute inset-0 rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-700"
                       style="background: radial-gradient(circle, #7FB14E 40%, #6ABFEB 100%);"></div>
-                    <img :src="bicarbonato" alt="Bicarbonato de Sódio"
+                    <img :src="bicarbonato" alt="Bicarbonato de Sódio" loading="lazy" decoding="async"
                       class="relative z-10 object-contain w-56 md:w-72 h-auto filter drop-shadow-[0_20px_40px_rgba(127,177,78,0.18)] group-hover:drop-shadow-[0_30px_50px_rgba(127,177,78,0.32)] transition-all duration-500 group-hover:-translate-y-4" />
                   </div>
                 </div>
@@ -343,18 +343,18 @@
           Entre em contato conosco ou localize nossos distribuidores para adquirir os produtos da linha Escorpião Casa.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <router-link to="/contato">
+          <NuxtLink to="/contato">
             <button class="px-10 py-4 rounded-full font-bold font-montserrat tracking-wide text-white transition-all duration-300 hover:shadow-[0_8px_30px_rgba(33,48,103,0.35)] hover:-translate-y-1 w-full sm:w-auto"
               style="background: linear-gradient(135deg, #213067, #1a2855);">
               ENTRE EM CONTATO
             </button>
-          </router-link>
-          <router-link to="/#ondecomprar">
+          </NuxtLink>
+          <NuxtLink to="/#ondecomprar">
             <button class="px-10 py-4 rounded-full font-bold font-montserrat tracking-wide transition-all duration-300 hover:-translate-y-1 border-2 w-full sm:w-auto"
               style="color: #213067; border-color: #213067; background: transparent;">
               ONDE COMPRAR
             </button>
-          </router-link>
+          </NuxtLink>
         </div>
       </div>
     </section>
@@ -363,11 +363,20 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
 import { Sparkles, Leaf, ShieldCheck, Droplets, BadgeCheck, Check, Star, Recycle, Award } from 'lucide-vue-next'
 
 import percarbonato from '../assets/produto/novo4.png'
 import bicarbonato from '../assets/produto/novo5.png'
+
+useSeoMeta({
+  title: 'Escorpião Casa — Linha de produtos para o lar',
+  description:
+    'Linha Escorpião Casa: Percarbonato de Sódio e Bicarbonato de Sódio. Produtos de alta pureza, eco-friendly e seguros para limpeza e uso doméstico.',
+  ogTitle: 'Escorpião Casa — Nova linha para o seu lar',
+  ogDescription: 'Percarbonato e Bicarbonato de Sódio: eficazes, seguros e sustentáveis.',
+  ogType: 'website',
+  ogLocale: 'pt_BR',
+})
 
 const percarbonateUses = [
   'Alvejamento de roupas brancas e coloridas sem dano às fibras',
@@ -413,24 +422,7 @@ const benefits = [
   },
 ]
 
-onMounted(() => {
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px 0px -60px 0px',
-    threshold: 0.1,
-  }
-
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible')
-        obs.unobserve(entry.target)
-      }
-    })
-  }, observerOptions)
-
-  document.querySelectorAll('.reveal-element, .reveal-scale, .reveal-left').forEach(el => observer.observe(el))
-})
+useScrollReveal()
 </script>
 
 <style scoped>

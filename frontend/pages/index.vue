@@ -1,8 +1,13 @@
 <template>
     <div id="background" style="background-color: #faf4ef; overflow-x: hidden;">
 
+        <h1 class="sr-only">
+            Soda Cáustica Escorpião — fabricante de soda cáustica desde 1970, na Serra, Espírito Santo
+        </h1>
+
         <div id="inicio" name="Capa Inicial" class="relative pt-24 md:pt-28">
-            <img :src="Capa" alt="Capa Inicial" class="w-full h-auto object-cover" fetchpriority="high" />
+            <img :src="Capa" alt="Soda Cáustica Escorpião - referência nacional em soda cáustica"
+                class="w-full h-auto object-cover" fetchpriority="high" />
         </div>
 
         <!-- Empresa Section -->
@@ -34,18 +39,18 @@
 
                 <!-- Grade de Imagens (Staggered) -->
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-                    <img v-for="(img, index) in empresaImages" :key="index" :src="img" alt="Imagem Empresa"
+                    <img v-for="(img, index) in empresaImages" :key="index" :src="img" alt="Imagem Empresa" loading="lazy" decoding="async"
                         class="rounded-xl object-cover w-full h-auto icon-container3 reveal-scale shadow-md hover:shadow-xl hover:shadow-red-900/10"
                         :style="{ transitionDelay: `${index * 100}ms` }" />
                 </div>
 
                 <div class="flex justify-center mt-12 reveal-element delay-300">
-                    <router-link to="/nossa-historia">
+                    <NuxtLink to="/nossa-historia">
                         <button
                             class="group relative overflow-hidden border border-red-700 bg-red-700 text-white px-10 py-3 rounded-full font-semibold tracking-wide transition-all duration-300 hover:bg-white z-10 hover:shadow-[0_8px_30px_rgb(185,28,28,0.4)] hover:-translate-y-1">
                             <span class="relative z-10 group-hover:text-red-700">SOBRE NÓS</span>
                         </button>
-                    </router-link>
+                    </NuxtLink>
                 </div>
             </div>
 
@@ -69,7 +74,7 @@
                         class="flex-1 flex flex-col items-center text-center bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 reveal-element hover:-translate-y-2 transition-transform duration-500 hover:bg-white/10 hover:shadow-2xl hover:shadow-black/40">
                         <div
                             class="bg-gradient-to-br from-[#d32f2f] to-[#a4221e] rounded-2xl w-24 h-24 flex items-center justify-center mb-6 shadow-[0_8px_30px_rgba(0,0,0,0.3)] icon-float">
-                            <img :src="Missao" alt="Missão" class="w-12 h-12 drop-shadow-lg" />
+                            <img :src="Missao" alt="Missão" loading="lazy" decoding="async" class="w-12 h-12 drop-shadow-lg" />
                         </div>
                         <h3 class="text-xl font-bold mb-4 tracking-wider text-red-100">MISSÃO</h3>
                         <p class="text-sm md:text-base leading-relaxed text-gray-200">
@@ -83,7 +88,7 @@
                         class="flex-1 flex flex-col items-center text-center bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 reveal-element delay-200 hover:-translate-y-2 transition-transform duration-500 hover:bg-white/10 hover:shadow-2xl hover:shadow-black/40">
                         <div class="bg-gradient-to-br from-[#d32f2f] to-[#a4221e] rounded-2xl w-24 h-24 flex items-center justify-center mb-6 shadow-[0_8px_30px_rgba(0,0,0,0.3)] icon-float"
                             style="animation-delay: 0.2s;">
-                            <img :src="Visao" alt="Visão" class="w-12 h-12 drop-shadow-lg" />
+                            <img :src="Visao" alt="Visão" loading="lazy" decoding="async" class="w-12 h-12 drop-shadow-lg" />
                         </div>
                         <h3 class="text-xl font-bold mb-4 tracking-wider text-red-100">VISÃO</h3>
                         <p class="text-sm md:text-base leading-relaxed text-gray-200">
@@ -96,7 +101,7 @@
                         class="flex-1 flex flex-col items-center text-center bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 reveal-element delay-400 hover:-translate-y-2 transition-transform duration-500 hover:bg-white/10 hover:shadow-2xl hover:shadow-black/40">
                         <div class="bg-gradient-to-br from-[#d32f2f] to-[#a4221e] rounded-2xl w-24 h-24 flex items-center justify-center mb-6 shadow-[0_8px_30px_rgba(0,0,0,0.3)] icon-float"
                             style="animation-delay: 0.4s;">
-                            <img :src="Valor" alt="Valores" class="w-12 h-12 drop-shadow-lg" />
+                            <img :src="Valor" alt="Valores" loading="lazy" decoding="async" class="w-12 h-12 drop-shadow-lg" />
                         </div>
                         <h3 class="text-xl font-bold mb-4 tracking-wider text-red-100">VALORES</h3>
                         <p class="text-sm md:text-base leading-relaxed text-gray-200">
@@ -188,7 +193,7 @@
                                 <div
                                     class="absolute inset-0 bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 opacity-40">
                                 </div>
-                                <img :src="soda500g" alt="Soda Cáustica 500g"
+                                <img :src="soda500g" alt="Soda Cáustica 500g" loading="lazy" decoding="async"
                                     class="relative z-10 product-img object-contain w-40 md:w-48 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] group-hover:drop-shadow-[0_25px_35px_rgba(185,28,28,0.25)] transition-all duration-500 group-hover:-translate-y-2" />
                                 <p
                                     class="relative z-10 text-base font-bold mt-4 text-gray-800 font-montserrat group-hover:text-red-700 transition-colors">
@@ -201,7 +206,7 @@
                                 <div
                                     class="absolute inset-0 bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 opacity-40">
                                 </div>
-                                <img :src="soda1kg" alt="Soda Cáustica 1kg"
+                                <img :src="soda1kg" alt="Soda Cáustica 1kg" loading="lazy" decoding="async"
                                     class="relative z-10 product-img object-contain w-40 md:w-48 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] group-hover:drop-shadow-[0_25px_35px_rgba(185,28,28,0.25)] transition-all duration-500 group-hover:-translate-y-2" />
                                 <p
                                     class="relative z-10 text-base font-bold mt-4 text-gray-800 font-montserrat group-hover:text-red-700 transition-colors">
@@ -214,7 +219,7 @@
                                 <div
                                     class="absolute inset-0 bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 opacity-40">
                                 </div>
-                                <img :src="sodaliquida" alt="Soda Cáustica Líquida"
+                                <img :src="sodaliquida" alt="Soda Cáustica Líquida" loading="lazy" decoding="async"
                                     class="relative z-10 product-img object-contain w-40 md:w-48 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] group-hover:drop-shadow-[0_25px_35px_rgba(185,28,28,0.25)] transition-all duration-500 group-hover:-translate-y-2" />
                                 <p
                                     class="relative z-10 text-base font-bold mt-4 text-gray-800 font-montserrat group-hover:text-red-700 transition-colors">
@@ -273,7 +278,7 @@
                                 <div
                                     class="absolute inset-0 bg-gradient-to-br from-blue-50 to-sky-50 rounded-full scale-0 group-hover:scale-110 transition-transform duration-500 ease-out opacity-60 blur-xl">
                                 </div>
-                                <img :src="percarbonato" alt="Percarbonato de Sódio"
+                                <img :src="percarbonato" alt="Percarbonato de Sódio" loading="lazy" decoding="async"
                                     class="relative z-10 object-contain w-44 md:w-52 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.12)] group-hover:drop-shadow-[0_20px_30px_rgba(24,70,145,0.22)] transition-all duration-500 group-hover:-translate-y-2" />
                             </div>
                             <p
@@ -292,7 +297,7 @@
                                 <div
                                     class="absolute inset-0 bg-gradient-to-br from-blue-50 to-sky-50 rounded-full scale-0 group-hover:scale-110 transition-transform duration-500 ease-out opacity-60 blur-xl">
                                 </div>
-                                <img :src="bicarbonato" alt="Bicarbonato de Sódio"
+                                <img :src="bicarbonato" alt="Bicarbonato de Sódio" loading="lazy" decoding="async"
                                     class="relative z-10 object-contain w-44 md:w-52 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.12)] group-hover:drop-shadow-[0_20px_30px_rgba(24,70,145,0.22)] transition-all duration-500 group-hover:-translate-y-2" />
                             </div>
                             <p
@@ -303,6 +308,17 @@
                                 limpeza doméstica, culinária e higiene pessoal.
                             </p>
                         </div>
+                    </div>
+
+                    <!-- CTA para a página da Linha Casa -->
+                    <div class="flex justify-center mt-12 reveal-element delay-300">
+                        <NuxtLink to="/escorpiao-casa">
+                            <button
+                                class="group relative overflow-hidden border font-semibold tracking-wide px-10 py-3 rounded-full text-white transition-all duration-300 hover:-translate-y-1"
+                                style="background: linear-gradient(135deg, #184691, #0f2d5e); border-color: #184691;">
+                                <span class="relative z-10">CONHEÇA A LINHA ESCORPIÃO CASA</span>
+                            </button>
+                        </NuxtLink>
                     </div>
                 </div>
             </div>
@@ -409,11 +425,11 @@
 
                     <!-- Botão Info -->
                     <div class="reveal-left delay-500 mt-6 !mt-8">
-                        <router-link to="/info"
+                        <NuxtLink to="/info"
                             class="flex justify-between items-center text-lg font-bold text-red-800 px-6 py-5 rounded-2xl bg-red-50 border border-red-200 hover:bg-red-600 hover:text-white hover:border-red-600 hover:shadow-lg hover:shadow-red-600/30 transition-all duration-300 shadow-sm active:scale-[0.98] w-full group">
                             Informações de Manuseio
                             <BookAlert class="w-6 h-6 text-red-600 group-hover:text-white transition-colors" />
-                        </router-link>
+                        </NuxtLink>
                     </div>
 
                     <!-- MOBILE PLACEHOLDER -->
@@ -477,7 +493,7 @@
                         <div
                             class="absolute inset-0 bg-gradient-to-b from-transparent to-red-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         </div>
-                        <img :src="ondeComprarImages[0]" alt="Mercados"
+                        <img :src="ondeComprarImages[0]" alt="Mercados" loading="lazy" decoding="async"
                             class="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500 self-center z-10" />
                     </div>
                     <figcaption
@@ -492,7 +508,7 @@
                         <div
                             class="absolute inset-0 bg-gradient-to-b from-transparent to-red-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         </div>
-                        <img :src="ondeComprarImages[1]" alt="Agropecuárias"
+                        <img :src="ondeComprarImages[1]" alt="Agropecuárias" loading="lazy" decoding="async"
                             class="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500 self-center z-10" />
                     </div>
                     <figcaption
@@ -507,7 +523,7 @@
                         <div
                             class="absolute inset-0 bg-gradient-to-b from-transparent to-red-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         </div>
-                        <img :src="ondeComprarImages[2]" alt="Lojas de produtos de limpeza"
+                        <img :src="ondeComprarImages[2]" alt="Lojas de produtos de limpeza" loading="lazy" decoding="async"
                             class="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500 self-center z-10" />
                     </div>
                     <figcaption
@@ -522,7 +538,7 @@
                         <div
                             class="absolute inset-0 bg-gradient-to-b from-transparent to-red-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         </div>
-                        <img :src="ondeComprarImages[3]" alt="Loja de material de construção"
+                        <img :src="ondeComprarImages[3]" alt="Loja de material de construção" loading="lazy" decoding="async"
                             class="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500 self-center z-10" />
                     </div>
                     <figcaption
@@ -539,8 +555,20 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref } from 'vue'
 import ReceitaDetalhe from '../components/RecipeDetails.vue'
+
+useSeoMeta({
+    title: 'Soda Cáustica Escorpião — Tradição capixaba, presença nacional',
+    description:
+        'Fabricante de soda cáustica em escamas (98% de pureza) desde 1970, na Serra - ES. Linha de limpeza, receitas de sabão caseiro e rede nacional de distribuidores.',
+    ogTitle: 'Soda Cáustica Escorpião',
+    ogDescription:
+        'Referência nacional em soda cáustica desde 1970. Produtos, receitas de sabão e onde comprar.',
+    ogType: 'website',
+    ogLocale: 'pt_BR',
+    twitterCard: 'summary_large_image',
+})
 import { ChevronRight, ChevronDown, BookMarked, Building, BookAlert, Instagram, PackageOpen, ShoppingCart, Sparkles, FlaskConical } from 'lucide-vue-next'
 
 import Capa from '../assets/identidade/HOME_PAGE-opt.webp'
@@ -589,48 +617,16 @@ function toggleReceita(num) {
     receitaAberta.value = receitaAberta.value === num ? null : num
 }
 
-// Responsividade mobile
-const isMobile = ref(false)
-function handleResize() {
-    isMobile.value = window.innerWidth < 768
-}
+// Responsividade mobile (SSR-safe)
+const { isMobile } = useIsMobile()
 
 const videoReceitas = {
     1: "https://www.youtube.com/embed/azPRpXrowmo",
     2: "https://www.youtube.com/embed/djV11Xbc914"
 }
 
-// Intersection Observer for Scroll Animations
-onMounted(() => {
-    handleResize()
-    window.addEventListener('resize', handleResize)
-
-
-
-    // Scroll Animations
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px 0px -50px 0px', // Trigger slighly before bottom
-        threshold: 0.1
-    }
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible')
-                observer.unobserve(entry.target) // Only animate once
-            }
-        })
-    }, observerOptions)
-
-    // Select elements to animate
-    const revealElements = document.querySelectorAll('.reveal-element, .reveal-scale, .reveal-left, .reveal-right')
-    revealElements.forEach(el => observer.observe(el))
-})
-
-onUnmounted(() => {
-    window.removeEventListener('resize', handleResize)
-})
+// Animações de scroll (IntersectionObserver) via composable
+useScrollReveal()
 
 </script>
 

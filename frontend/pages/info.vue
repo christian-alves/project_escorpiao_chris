@@ -4,7 +4,7 @@
       <!-- Título -->
       <div class="flex items-center gap-4 mb-4 reveal-element">
         <div class="flex items-center gap-4 mb-6 pt-6">
-          <h2 class="text-3xl font-extrabold text-red-700 font-montserrat tracking-tight">INFORMAÇÕES</h2>
+          <h1 class="text-3xl font-extrabold text-red-700 font-montserrat tracking-tight">INFORMAÇÕES</h1>
           <Info class="text-red-700" :stroke-width="2" :size="30" />
         </div>
       </div>
@@ -242,7 +242,16 @@
 
 <script setup>
 import { Info, Download, ShieldAlert, CircleAlert, Phone, FileText, Beaker, Shirt, Flame, Package } from 'lucide-vue-next'
-import { ref, onMounted, onUnmounted } from 'vue';
+
+useSeoMeta({
+  title: 'Informações e Manuseio da Soda Cáustica',
+  description:
+    'Fichas de Dados de Segurança (FDS), orientações de manuseio, EPIs, armazenamento e central de emergência da Soda Cáustica Escorpião.',
+  ogTitle: 'Informações de Segurança — Soda Cáustica Escorpião',
+  ogDescription: 'FDS, manuseio seguro, EPIs e armazenamento da soda cáustica.',
+  ogType: 'article',
+  ogLocale: 'pt_BR',
+})
 
 function openPdf() {
   window.open('/static/uploads/FDS-ESCORPIAO-2026-ATUALIZADA.pdf', '_blank')
@@ -260,41 +269,10 @@ function openPdfBicarbonato() {
   window.open('/static/uploads/FDS-ESCORPIAO-BICARBONATO-2026.pdf', '_blank')
 }
 
-// Detecta se é mobile (≤ 767px)
-const isMobile = ref(window.innerWidth <= 767);
+// Detecta se é mobile (SSR-safe)
+const { isMobile } = useIsMobile()
 
-function handleResize() {
-  isMobile.value = window.innerWidth <= 767;
-}
-
-onMounted(() => {
-  window.addEventListener('resize', handleResize);
-  handleResize();
-
-  // Scroll Animations
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px 0px -50px 0px', // Trigger slighly before bottom
-    threshold: 0.1
-  }
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible')
-        observer.unobserve(entry.target) // Only animate once
-      }
-    })
-  }, observerOptions)
-
-  // Select elements to animate
-  const revealElements = document.querySelectorAll('.reveal-element, .reveal-scale, .reveal-left, .reveal-right')
-  revealElements.forEach(el => observer.observe(el))
-});
-
-onUnmounted(() => {
-  window.removeEventListener('resize', handleResize);
-});
+useScrollReveal()
 </script>
 
 <style scoped>
