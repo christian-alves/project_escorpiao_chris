@@ -244,13 +244,6 @@
 import { ScrollText, Youtube, ListChecks, Instagram, SquarePlay } from 'lucide-vue-next'
 defineProps(['tipo', 'videoReceitas'])
 
-import { ref, computed, onMounted, onUnmounted } from 'vue'
-const windowWidth = ref(window.innerWidth)
-function onResize() { windowWidth.value = window.innerWidth }
-onMounted(() => { window.addEventListener('resize', onResize) })
-onUnmounted(() => { window.removeEventListener('resize', onResize) })
-const isDesktop = computed(() => windowWidth.value >= 768)
-
 import thumb1 from '../assets/receitas/sabao_multiuso.jpg'
 import thumb2 from '../assets/receitas/sabao_fuba.png'
 import thumb3 from '../assets/receitas/sabao_limao.png'
