@@ -124,9 +124,15 @@
         <!-- Section Produtos -->
         <section id="produtos" class="max-w-6xl mx-auto px-6 pt-32 pb-6 scroll-mt-32">
             <!-- Título principal da seção -->
-            <div class="flex items-center gap-4 reveal-element mb-8 mt-4 text-red-700">
-                <h2 class="text-3xl font-extrabold font-montserrat tracking-tight m-0">PRODUTOS</h2>
-                <PackageOpen stroke-width="2" size="32" class="mb-1" />
+            <div class="flex items-center justify-between gap-4 reveal-element mb-8 mt-4 flex-wrap">
+                <div class="flex items-center gap-4 text-red-700">
+                    <h2 class="text-3xl font-extrabold font-montserrat tracking-tight m-0">PRODUTOS</h2>
+                    <PackageOpen stroke-width="2" size="32" class="mb-1" />
+                </div>
+                <NuxtLink to="/produtos"
+                    class="text-sm font-bold text-red-700 hover:text-red-900 hover:underline font-montserrat tracking-wide">
+                    VER TODOS OS PRODUTOS →
+                </NuxtLink>
             </div>
 
             <!-- Container Soda Cáustica -->
@@ -188,7 +194,7 @@
                         <!-- Grid de produtos -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-x-4 md:gap-y-8 select-none">
                             <!-- Produto 500g -->
-                            <div
+                            <NuxtLink to="/produto/soda-caustica-500g"
                                 class="flex flex-col items-center text-center reveal-scale delay-200 group relative bg-white/70 rounded-2xl p-4 border border-red-50 hover:border-red-200/60 hover:shadow-[0_16px_32px_rgba(185,28,28,0.10)] hover:-translate-y-1 transition-all duration-500">
                                 <div
                                     class="absolute inset-0 bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 opacity-40">
@@ -198,10 +204,10 @@
                                 <p
                                     class="relative z-10 text-base font-bold mt-4 text-gray-800 font-montserrat group-hover:text-red-700 transition-colors">
                                     Soda Cáustica 500g</p>
-                            </div>
+                            </NuxtLink>
 
                             <!-- Produto 1kg -->
-                            <div
+                            <NuxtLink to="/produto/soda-caustica-1kg"
                                 class="flex flex-col items-center text-center reveal-scale delay-300 group relative bg-white/70 rounded-2xl p-4 border border-red-50 hover:border-red-200/60 hover:shadow-[0_16px_32px_rgba(185,28,28,0.10)] hover:-translate-y-1 transition-all duration-500">
                                 <div
                                     class="absolute inset-0 bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 opacity-40">
@@ -211,10 +217,10 @@
                                 <p
                                     class="relative z-10 text-base font-bold mt-4 text-gray-800 font-montserrat group-hover:text-red-700 transition-colors">
                                     Soda Cáustica 1kg</p>
-                            </div>
+                            </NuxtLink>
 
                             <!-- Produto Líquida -->
-                            <div
+                            <NuxtLink to="/produto/soda-caustica-liquida"
                                 class="flex flex-col items-center text-center reveal-scale delay-400 group relative bg-white/70 rounded-2xl p-4 border border-red-50 hover:border-red-200/60 hover:shadow-[0_16px_32px_rgba(185,28,28,0.10)] hover:-translate-y-1 transition-all duration-500 sm:col-span-2 lg:col-span-1 lg:col-start-1 lg:col-end-3 lg:mx-auto lg:w-1/2">
                                 <div
                                     class="absolute inset-0 bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 opacity-40">
@@ -224,7 +230,7 @@
                                 <p
                                     class="relative z-10 text-base font-bold mt-4 text-gray-800 font-montserrat group-hover:text-red-700 transition-colors">
                                     Soda Cáustica Líquida</p>
-                            </div>
+                            </NuxtLink>
                         </div>
                     </div>
                 </div>
@@ -272,7 +278,7 @@
                         class="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 max-w-2xl mx-auto select-none">
 
                         <!-- Percarbonato de Sódio -->
-                        <div
+                        <NuxtLink to="/produto/percarbonato-de-sodio"
                             class="group flex flex-col items-center text-center reveal-scale delay-300 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-[0_20px_40px_rgba(24,70,145,0.12)] hover:-translate-y-2 transition-all duration-500">
                             <div class="relative w-full flex justify-center mb-4">
                                 <div
@@ -288,10 +294,10 @@
                                 Agente branqueador à base de oxigênio ativo. Ideal para alvejamento de roupas e
                                 desinfecção de superfícies sem agredir o meio ambiente.
                             </p>
-                        </div>
+                        </NuxtLink>
 
                         <!-- Bicarbonato de Sódio -->
-                        <div
+                        <NuxtLink to="/produto/bicarbonato-de-sodio"
                             class="group flex flex-col items-center text-center reveal-scale delay-400 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-[0_20px_40px_rgba(24,70,145,0.12)] hover:-translate-y-2 transition-all duration-500">
                             <div class="relative w-full flex justify-center mb-4">
                                 <div
@@ -307,7 +313,7 @@
                                 Produto multiuso com propriedades limpantes e desodorizantes. Amplamente usado na
                                 limpeza doméstica, culinária e higiene pessoal.
                             </p>
-                        </div>
+                        </NuxtLink>
                     </div>
 
                     <!-- CTA para a página da Linha Casa -->
@@ -327,9 +333,15 @@
         <!-- Section Receitas -->
         <section id="receitas"
             class="max-w-6xl mx-auto px-6 py-20 scroll-mt-32 font-montserrat relative before:absolute before:inset-0 before:bg-white/40 before:rounded-[3rem] before:-z-10 shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-red-50 mx-4 md:mx-auto mt-16 mb-16">
-            <div class="flex items-center gap-4 reveal-element">
-                <h2 class="text-3xl font-extrabold mt-2 text-red-700 mb-6 font-montserrat tracking-tight">RECEITAS</h2>
-                <BookMarked class="text-red-700 mb-4" stroke-width="2" size="32" />
+            <div class="flex items-center justify-between gap-4 reveal-element flex-wrap">
+                <div class="flex items-center gap-4">
+                    <h2 class="text-3xl font-extrabold mt-2 text-red-700 mb-6 font-montserrat tracking-tight">RECEITAS</h2>
+                    <BookMarked class="text-red-700 mb-4" stroke-width="2" size="32" />
+                </div>
+                <NuxtLink to="/receitas"
+                    class="text-sm font-bold text-red-700 hover:text-red-900 hover:underline font-montserrat tracking-wide mb-4">
+                    VER TODAS AS RECEITAS →
+                </NuxtLink>
             </div>
 
             <div class="flex flex-col md:flex-row gap-8 items-stretch mt-4">
@@ -472,10 +484,16 @@
 
         <!-- Section Onde Comprar -->
         <section id="ondecomprar" class="max-w-6xl mx-auto px-6 py-20 scroll-mt-32 font-montserrat">
-            <div class="flex items-center gap-4 reveal-element">
-                <h2 class="text-3xl font-extrabold mt-6 text-red-700 mb-6 font-montserrat tracking-tight">ONDE COMPRAR?
-                </h2>
-                <ShoppingCart class="text-red-700 mb-4" stroke-width="2" size="32" />
+            <div class="flex items-center justify-between gap-4 reveal-element flex-wrap">
+                <div class="flex items-center gap-4">
+                    <h2 class="text-3xl font-extrabold mt-6 text-red-700 mb-6 font-montserrat tracking-tight">ONDE COMPRAR?
+                    </h2>
+                    <ShoppingCart class="text-red-700 mb-4" stroke-width="2" size="32" />
+                </div>
+                <NuxtLink to="/onde-comprar"
+                    class="text-sm font-bold text-red-700 hover:text-red-900 hover:underline font-montserrat tracking-wide mb-4">
+                    VER PÁGINA COMPLETA →
+                </NuxtLink>
             </div>
 
             <p

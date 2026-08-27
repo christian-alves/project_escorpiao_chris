@@ -5,7 +5,7 @@
     <div class="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 h-full">
 
       <!-- Logo -->
-      <NuxtLink to="/#inicio" class="flex-shrink-0 outline-none">
+      <NuxtLink to="/" class="flex-shrink-0 outline-none">
         <div class="flex items-center justify-center h-full sm:ml-2 md:ml-6 group">
           <img :src="Logo" alt="Logo Soda Escorpião"
             class="h-16 sm:h-20 w-auto object-contain transition-transform duration-500 ease-out group-hover:scale-105" />
@@ -16,8 +16,8 @@
       <nav
         class="hidden lg:flex items-center space-x-2 xl:space-x-4 flex-grow justify-center font-montserrat tracking-wider text-[13px] xl:text-[14px]">
 
-        <NuxtLink v-for="section in sections" :key="section.id" :to="`/#${section.id}`"
-          class="relative px-4 py-2 transition-colors duration-300 outline-none group"
+        <NuxtLink v-for="section in sections" :key="section.id" :to="section.to"
+          class="relative px-4 py-2 whitespace-nowrap transition-colors duration-300 outline-none group"
           :class="activeSection === section.id ? 'text-red-700' : 'text-gray-500 hover:text-gray-900'">
           <span class="relative z-10 flex items-center gap-1.5">
             {{ section.label }}
@@ -34,20 +34,8 @@
             :class="activeSection === section.id ? 'w-[80%] bg-red-600 opacity-100' : 'w-0 bg-gray-300 opacity-0 group-hover:w-[40%] group-hover:opacity-100'"></span>
         </NuxtLink>
 
-        <NuxtLink to="/escorpiao-casa" class="relative px-4 py-2 transition-colors duration-300 outline-none group"
-          :class="activeSection === 'escorpiao-casa' ? 'text-red-700' : 'text-gray-500 hover:text-gray-900'">
-          <span class="relative z-10 flex items-center gap-1.5">
-            ESCORPIÃO CASA
-            <span
-              class="inline-flex items-center text-[10px] font-bold px-1.5 py-0.5 rounded-full text-white leading-none badge-novo"
-              style="background-color: #184691;">NOVO</span>
-          </span>
-          <span
-            class="absolute bottom-0 left-1/2 -translate-x-1/2 h-[4px] rounded-t-lg transition-all duration-500 ease-out"
-            :class="activeSection === 'escorpiao-casa' ? 'w-[80%] bg-red-600 opacity-100' : 'w-0 bg-gray-300 opacity-0 group-hover:w-[40%] group-hover:opacity-100'"></span>
-        </NuxtLink>
-
-        <NuxtLink to="/info" class="relative px-4 py-2 transition-colors duration-300 outline-none group"
+        <NuxtLink to="/info"
+          class="relative px-4 py-2 whitespace-nowrap transition-colors duration-300 outline-none group"
           :class="activeSection === 'info' ? 'text-red-700' : 'text-gray-500 hover:text-gray-900'">
           <span class="relative z-10">INFORMAÇÕES</span>
           <span
@@ -55,7 +43,8 @@
             :class="activeSection === 'info' ? 'w-[80%] bg-red-600 opacity-100' : 'w-0 bg-gray-300 opacity-0 group-hover:w-[40%] group-hover:opacity-100'"></span>
         </NuxtLink>
 
-        <NuxtLink to="/contato" class="relative px-4 py-2 transition-colors duration-300 outline-none group"
+        <NuxtLink to="/contato"
+          class="relative px-4 py-2 whitespace-nowrap transition-colors duration-300 outline-none group"
           :class="activeSection === 'contato' ? 'text-red-700' : 'text-gray-500 hover:text-gray-900'">
           <span class="relative z-10">CONTATO</span>
           <span
@@ -112,31 +101,20 @@
             :class="activeSection === 'empresa' ? 'bg-red-50 text-red-700 tracking-wide translate-x-1 shadow-sm' : 'text-gray-600 hover:bg-gray-50 hover:text-red-600'"
             @click="menuOpen = false">EMPRESA</NuxtLink>
 
-          <NuxtLink to="/#produtos"
-            class="relative z-10 flex items-center gap-2 py-3 px-6 font-semibold rounded-2xl transition-all duration-300 active:scale-[0.98] hover:translate-x-1 origin-left"
+          <NuxtLink to="/produtos"
+            class="relative z-10 block py-3 px-6 font-semibold rounded-2xl transition-all duration-300 active:scale-[0.98] hover:translate-x-1 origin-left"
             :class="activeSection === 'produtos' ? 'bg-red-50 text-red-700 tracking-wide translate-x-1 shadow-sm' : 'text-gray-600 hover:bg-gray-50 hover:text-red-600'"
-            @click="menuOpen = false">
-            PRODUTOS
-            <span class="inline-flex items-center text-[10px] font-bold px-1.5 py-0.5 rounded-full text-white leading-none badge-novo" style="background-color: #184691;">NOVO</span>
-          </NuxtLink>
+            @click="menuOpen = false">PRODUTOS</NuxtLink>
 
-          <NuxtLink to="/#receitas"
+          <NuxtLink to="/receitas"
             class="relative z-10 block py-3 px-6 font-semibold rounded-2xl transition-all duration-300 active:scale-[0.98] hover:translate-x-1 origin-left"
             :class="activeSection === 'receitas' ? 'bg-red-50 text-red-700 tracking-wide translate-x-1 shadow-sm' : 'text-gray-600 hover:bg-gray-50 hover:text-red-600'"
             @click="menuOpen = false">RECEITAS</NuxtLink>
 
-          <NuxtLink to="/#ondecomprar"
+          <NuxtLink to="/onde-comprar"
             class="relative z-10 block py-3 px-6 font-semibold rounded-2xl transition-all duration-300 active:scale-[0.98] hover:translate-x-1 origin-left"
             :class="activeSection === 'ondecomprar' ? 'bg-red-50 text-red-700 tracking-wide translate-x-1 shadow-sm' : 'text-gray-600 hover:bg-gray-50 hover:text-red-600'"
             @click="menuOpen = false">ONDE COMPRAR</NuxtLink>
-
-          <NuxtLink to="/escorpiao-casa"
-            class="relative z-10 flex items-center gap-2 py-3 px-6 font-semibold rounded-2xl transition-all duration-300 active:scale-[0.98] hover:translate-x-1 origin-left"
-            :class="activeSection === 'escorpiao-casa' ? 'bg-red-50 text-red-700 tracking-wide translate-x-1 shadow-sm' : 'text-gray-600 hover:bg-gray-50 hover:text-red-600'"
-            @click="menuOpen = false">
-            ESCORPIÃO CASA
-            <span class="inline-flex items-center text-[10px] font-bold px-1.5 py-0.5 rounded-full text-white leading-none badge-novo" style="background-color: #184691;">NOVO</span>
-          </NuxtLink>
 
           <div class="w-full h-px bg-gray-100 my-2 relative z-10"></div> <!-- Divisória -->
 
@@ -190,24 +168,20 @@ const mobileMenu = ref(null)
 const menuOpen = ref(false)
 
 const sections = [
-  { id: 'empresa', label: 'EMPRESA' },
-  { id: 'produtos', label: 'PRODUTOS', badge: 'NOVO' },
-  { id: 'receitas', label: 'RECEITAS' },
-  { id: 'ondecomprar', label: 'ONDE COMPRAR' }
+  { id: 'empresa', label: 'EMPRESA', to: '/#empresa' },
+  { id: 'produtos', label: 'PRODUTOS', to: '/produtos' },
+  { id: 'receitas', label: 'RECEITAS', to: '/receitas' },
+  { id: 'ondecomprar', label: 'ONDE COMPRAR', to: '/onde-comprar' }
 ]
 
 function handleScroll() {
   if (route.path !== '/') return
+  const el = document.getElementById('empresa')
   let current = ''
-  for (const section of sections) {
-    const el = document.getElementById(section.id)
-    if (el) {
-      const rect = el.getBoundingClientRect()
-      // Adjust offsets for new navbar height tracking
-      if (rect.top <= 200 && rect.bottom > 200) {
-        current = section.id
-        break
-      }
+  if (el) {
+    const rect = el.getBoundingClientRect()
+    if (rect.top <= 200 && rect.bottom > 200) {
+      current = 'empresa'
     }
   }
   activeSection.value = current
@@ -238,6 +212,16 @@ watch(() => route.path, (newPath) => {
     // Se for '/contato' ou qualquer subrota de contato, destaca 'contato'
     else if (newPath.startsWith('/contato')) {
       activeSection.value = 'contato'
+    }
+    // Rotas dedicadas de produtos, receitas e onde-comprar
+    else if (newPath.startsWith('/produto')) {
+      activeSection.value = 'produtos'
+    }
+    else if (newPath.startsWith('/receita')) {
+      activeSection.value = 'receitas'
+    }
+    else if (newPath.startsWith('/onde-comprar')) {
+      activeSection.value = 'ondecomprar'
     }
     // Caso contrário, tenta pegar o nome da rota principal
     else {
