@@ -25,13 +25,13 @@
                     <p
                         class="text-gray-700 text-lg mb-8 leading-relaxed font-montserrat relative pl-6 border-l-4 border-red-700">
                         Desde nossa fundação em 1970, nos definimos como uma empresa responsável com nossos parceiros de
-                        negócios em todo Brasil. Dedicação, conhecimento, flexibilidade e respeito aos clientes são
+                        negócios em todo o Brasil. Dedicação, conhecimento, flexibilidade e respeito aos clientes são
                         princípios que
                         julgamos imprescindíveis e sobre os quais conduzimos os nossos negócios. A prática deles no dia
                         a dia de
                         nossas atividades nos faz crescer e evoluir.
                         <br /><br />
-                        Ao mesmo tempo construímos uma empresa sólida, moderna e com produtos de qualidade, buscando
+                        Ao mesmo tempo, construímos uma empresa sólida, moderna e com produtos de qualidade, buscando
                         sempre
                         atender aos mais exigentes padrões de mercado.
                     </p>

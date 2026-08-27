@@ -27,7 +27,7 @@ export const produtos = [
         img: soda1kg,
         resumo: 'Soda cáustica em escamas, embalagem de 1kg, com 98% de pureza.',
         descricao:
-            'A soda cáustica em escamas é obtida a partir do processo de evaporação da soda cáustica líquida, da fusão do produto anidro e do processo de escamação. Apresenta-se na forma de escamas brancas, altamente deliquescentes, com concentração média de 98% de hidróxido de sódio em peso. A embalagem de 1kg atende com agilidade distribuidores e uso industrial de menor escala.',
+            'A soda cáustica em escamas é obtida a partir do processo de evaporação da soda cáustica líquida, da fusão do produto anidro e do processo de escamação. Apresenta-se na forma de escamas brancas, altamente deliquescentes, com concentração média de 98% de hidróxido de sódio em peso. A embalagem de 1kg atende com agilidade a distribuidores e ao uso industrial de menor escala.',
         usos: [
             'Fabricação de sabões e detergentes',
             'Tratamento de superfícies metálicas',

@@ -31,17 +31,25 @@ const orgJsonLd = {
   ],
 }
 
+const route = useRoute()
+const siteConfig = useSiteConfig()
+const canonicalUrl = computed(() => `${siteConfig.url}${route.path}`.replace(/\/{2,}$/, '/'))
+
 // Defaults globais de Open Graph (páginas podem sobrescrever ogImage/description).
 useSeoMeta({
   ogSiteName: 'Soda Cáustica Escorpião',
   ogImage: 'https://sodaescorpiao.com.br/IconeEscorpiaoQuadrado.png',
   twitterImage: 'https://sodaescorpiao.com.br/IconeEscorpiaoQuadrado.png',
+  ogUrl: canonicalUrl,
 })
 
 useHead({
   // Evita duplicar a marca quando o título da página já a contém (ex.: home).
   titleTemplate: (title) =>
     title && title.includes('Escorpião') ? title : `${title} | Soda Cáustica Escorpião`,
+  link: [
+    { rel: 'canonical', href: canonicalUrl },
+  ],
   script: [
     {
       type: 'application/ld+json',
