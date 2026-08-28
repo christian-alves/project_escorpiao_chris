@@ -136,7 +136,7 @@
 
         <div v-if="tipo === 3" class="w-full">
             <h3 class="text-2xl font-bold mb-2 text-red-700 text-center">Nossas receitas no Instagram!</h3>
-            <p class="mb-4 text-center text-gray-600 font-semibold">clique para assistir</p>
+            <p class="mb-4 text-center text-gray-600 font-semibold">Clique para assistir</p>
             <div class="grid gap-6 md:grid-cols-3">
                 <div v-for="(video, idx) in instagramVideos" :key="idx"
                     class="rounded-xl overflow-hidden relative group cursor-pointer h-48 flex items-center justify-center"
@@ -205,7 +205,7 @@
                         álcool.
                     </p>
                     <p>
-                        <span class="font-semibold">Passo 2:</span> Adicione em seguida, a Soda Líquida e misture um
+                        <span class="font-semibold">Passo 2:</span> Em seguida, adicione a Soda Líquida e misture um
                         pouco para dissolver.
                     </p>
                     <p>
@@ -218,9 +218,9 @@
                         temperatura ambiente, 5 colheres de sal e 5 colheres de bicarbonato.
                     </p>
                     <p>
-                        <span class="font-semibold">Passo 5:</span> Após diluir, adicione a mistura com Soda Líquida na
+                        <span class="font-semibold">Passo 5:</span> Após diluir, junte o conteúdo com Soda Líquida à
                         mistura
-                        com água e continue a mexer.
+                        de água e continue mexendo.
                     </p>
                     <p>
                         <span class="font-semibold">Passo 6:</span> Acrescente água sanitária e mais água até chegar no

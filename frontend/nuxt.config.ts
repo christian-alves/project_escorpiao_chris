@@ -19,6 +19,10 @@ export default defineNuxtConfig({
     name: 'Soda Cáustica Escorpião',
   },
 
+  sitemap: {
+    autoLastmod: true,
+  },
+
   // Chaves públicas do EmailJS centralizadas (expostas ao client por design do EmailJS).
   runtimeConfig: {
     public: {
