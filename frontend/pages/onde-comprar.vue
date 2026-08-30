@@ -1,14 +1,14 @@
 <template>
-    <div style="background-color: #faf4ef; overflow-x: hidden;">
+    <div style="background-color: rgb(var(--color-cream)); overflow-x: hidden;">
         <section class="max-w-6xl mx-auto px-6 pt-32 pb-20 font-montserrat">
             <div class="flex items-center gap-4 reveal-element">
-                <h1 class="text-3xl font-extrabold mt-6 text-red-700 mb-6 font-montserrat tracking-tight">ONDE COMPRAR?
+                <h1 class="text-3xl font-extrabold mt-6 text-brand-700 mb-6 font-montserrat tracking-tight">ONDE COMPRAR?
                 </h1>
-                <ShoppingCart class="text-red-700 mb-4" stroke-width="2" size="32" />
+                <ShoppingCart class="text-brand-700 mb-4" stroke-width="2" size="32" />
             </div>
 
             <p
-                class="text-gray-700 text-lg mb-12 leading-relaxed font-montserrat max-w-4xl border-l-4 border-red-700 pl-6 reveal-element delay-100">
+                class="text-gray-700 text-lg mb-12 leading-relaxed font-montserrat max-w-4xl border-l-4 border-brand-700 pl-6 reveal-element delay-100">
                 A Soda Cáustica Escorpião, localizada em Serra - Espírito Santo, é referência nacional no fornecimento
                 de soda cáustica para distribuidores que valorizam tradição, qualidade e agilidade.
                 <br><br>
@@ -20,15 +20,15 @@
                     class="flex flex-col items-center reveal-scale group"
                     :style="{ transitionDelay: `${(index + 2) * 100}ms` }">
                     <div
-                        class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100 group-hover:shadow-[0_20px_40px_rgba(185,28,28,0.08)] group-hover:-translate-y-3 transition-all duration-500 w-full flex justify-center h-[200px] mb-4 relative overflow-hidden">
+                        class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100 group-hover:shadow-[0_20px_40px_rgb(var(--color-brand-700)/0.08)] group-hover:-translate-y-3 transition-all duration-500 w-full flex justify-center h-[200px] mb-4 relative overflow-hidden">
                         <div
-                            class="absolute inset-0 bg-gradient-to-b from-transparent to-red-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         </div>
                         <img :src="local.img" :alt="local.nome" loading="lazy" decoding="async"
                             class="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500 self-center z-10" />
                     </div>
                     <figcaption
-                        class="text-center text-gray-800 font-bold text-lg leading-tight group-hover:text-red-700 transition-colors"
+                        class="text-center text-gray-800 font-bold text-lg leading-tight group-hover:text-brand-700 transition-colors"
                         v-html="local.nome">
                     </figcaption>
                 </figure>
@@ -37,8 +37,8 @@
             <div class="flex justify-center reveal-element delay-500">
                 <NuxtLink to="/contato">
                     <button
-                        class="group relative overflow-hidden border border-red-700 bg-red-700 text-white px-10 py-3 rounded-full font-semibold tracking-wide transition-all duration-300 hover:bg-white z-10 hover:shadow-[0_8px_30px_rgb(185,28,28,0.4)] hover:-translate-y-1">
-                        <span class="relative z-10 group-hover:text-red-700">FALE COM UM DISTRIBUIDOR</span>
+                        class="group relative overflow-hidden border border-brand-700 bg-brand-700 text-white px-10 py-3 rounded-full font-semibold tracking-wide transition-all duration-300 hover:bg-white z-10 hover:shadow-[0_8px_30px_rgb(185,28,28,0.4)] hover:-translate-y-1">
+                        <span class="relative z-10 group-hover:text-brand-700">FALE COM UM DISTRIBUIDOR</span>
                     </button>
                 </NuxtLink>
             </div>

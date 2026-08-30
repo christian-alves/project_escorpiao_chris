@@ -1,8 +1,8 @@
 <template>
-    <div v-if="receita" style="background-color: #faf4ef; overflow-x: hidden;">
+    <div v-if="receita" style="background-color: rgb(var(--color-cream)); overflow-x: hidden;">
         <section class="max-w-4xl mx-auto px-6 pt-32 pb-20 font-montserrat">
             <NuxtLink to="/receitas"
-                class="inline-flex items-center gap-2 text-sm font-semibold text-red-700 hover:text-red-900 transition-colors mb-8">
+                class="inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:text-brand-900 transition-colors mb-8">
                 <ArrowLeft class="w-4 h-4" /> Voltar para receitas
             </NuxtLink>
 

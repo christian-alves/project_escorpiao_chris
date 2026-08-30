@@ -2,7 +2,7 @@
   <div>
     <NavBar />
     <WhatsappButton />
-    <slot />
+    <main id="main-content" tabindex="-1"><slot /></main>
     <Footer />
   </div>
 </template>

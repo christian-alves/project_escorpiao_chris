@@ -1,29 +1,66 @@
 <template>
-    <div id="background" style="background-color: #faf4ef; overflow-x: hidden;">
+    <div id="background" class="bg-cream" style="overflow-x: hidden;">
 
         <h1 class="sr-only">
             Soda Cáustica Escorpião — fabricante de soda cáustica desde 1970, na Serra, Espírito Santo
         </h1>
 
-        <div id="inicio" name="Capa Inicial" class="relative pt-24 md:pt-28">
-            <img :src="Capa" alt="Soda Cáustica Escorpião - referência nacional em soda cáustica"
-                class="w-full h-auto object-cover" fetchpriority="high" />
+        <div id="inicio" name="Capa Inicial" class="relative pt-24 md:pt-28"
+            aria-roledescription="carrossel" aria-label="Banners em destaque">
+            <div class="relative overflow-hidden aspect-[1888/618] md:aspect-[1888/560] rounded-b-[1.5rem] md:rounded-b-[2.5rem]"
+                @mouseenter="pausarRotacao" @mouseleave="retomarRotacao" @focusin="pausarRotacao" @focusout="retomarRotacao">
+                <div class="flex h-full transition-transform duration-700 ease-in-out" :style="{ transform: `translateX(-${bannerAtual * 100}%)` }">
+                    <div v-for="(banner, index) in banners" :key="banner.alt" class="w-full h-full flex-none">
+                        <NuxtLink :to="banner.to" class="block w-full h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white">
+                            <img :src="banner.src" :alt="banner.alt" class="w-full h-full object-cover"
+                                :fetchpriority="index === 0 ? 'high' : 'auto'" :loading="index === 0 ? 'eager' : 'lazy'" />
+                        </NuxtLink>
+                    </div>
+                </div>
+
+                <button type="button" class="banner-control left-3 md:left-6" aria-label="Banner anterior" @click="bannerAnterior">
+                    <ChevronLeft :size="28" aria-hidden="true" />
+                </button>
+                <button type="button" class="banner-control right-3 md:right-6" aria-label="Próximo banner" @click="proximoBanner">
+                    <ChevronRight :size="28" aria-hidden="true" />
+                </button>
+
+                <button type="button" class="banner-pause" :aria-label="rotacaoPausada ? 'Retomar rotação automática' : 'Pausar rotação automática'"
+                    :aria-pressed="rotacaoPausada" @click="alternarRotacao">
+                    {{ rotacaoPausada ? 'Retomar' : 'Pausar' }}
+                </button>
+
+                <div class="absolute bottom-3 md:bottom-5 left-1/2 -translate-x-1/2 flex gap-2" role="tablist" aria-label="Selecionar banner">
+                    <button v-for="(banner, index) in banners" :key="`indicador-${banner.alt}`" type="button"
+                        class="h-2.5 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white"
+                        :class="bannerAtual === index ? 'w-7 bg-white' : 'w-2.5 bg-white/60 hover:bg-white'"
+                        :aria-label="`Exibir banner ${index + 1}`" :aria-selected="bannerAtual === index" role="tab"
+                        @click="selecionarBanner(index)" />
+                </div>
+            </div>
         </div>
+
+        <section aria-label="Números da Soda Cáustica Escorpião"
+            class="hidden md:block relative z-10 mt-6 md:mt-10 max-w-5xl mx-auto px-6 reveal-element">
+            <div
+                class="bg-white/95 backdrop-blur-md rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-brand-100/70 px-6 py-6 md:px-10 md:py-8 grid grid-cols-2 md:grid-cols-4 gap-y-6 divide-y divide-brand-50 md:divide-y-0 md:divide-x">
+                <UiStatCard value="1970" label="Ano de fundação" class="pb-4 md:pb-0" />
+                <UiStatCard value="98" suffix="%" label="Pureza da soda cáustica" class="pt-4 md:pt-0 md:pl-4 pb-4 md:pb-0" />
+                <UiStatCard value="ES" label="Sede em Serra - Espírito Santo" class="pt-4 md:pt-0 md:pl-4 pb-4 md:pb-0" />
+                <UiStatCard value="BR" label="Rede nacional de distribuidores" class="pt-4 md:pt-0 md:pl-4" />
+            </div>
+        </section>
 
         <!-- Empresa Section -->
         <section id="empresa" class="relative">
-            <div class="max-w-6xl mx-auto px-6 pt-32 scroll-mt-32">
+            <div class="max-w-6xl mx-auto px-6 pt-24 scroll-mt-32">
                 <!-- Título -->
-                <div class="flex items-center gap-4 reveal-element">
-                    <h2 class="text-3xl font-extrabold mt-6 text-red-700 mb-6 font-montserrat tracking-tight">EMPRESA
-                    </h2>
-                    <Building class="text-red-700 mb-4" stroke-width="2" size="32" />
-                </div>
+                <UiSectionHeader title="EMPRESA" :icon="Building" link-to="/nossa-historia" link-label="NOSSA HISTÓRIA" />
 
                 <!-- Texto -->
                 <div class="reveal-element delay-100">
                     <p
-                        class="text-gray-700 text-lg mb-8 leading-relaxed font-montserrat relative pl-6 border-l-4 border-red-700">
+                        class="text-gray-700 text-lg mb-8 leading-relaxed font-montserrat relative pl-6 border-l-4 border-brand-700">
                         Desde nossa fundação em 1970, nos definimos como uma empresa responsável com nossos parceiros de
                         negócios em todo o Brasil. Dedicação, conhecimento, flexibilidade e respeito aos clientes são
                         princípios que
@@ -40,17 +77,12 @@
                 <!-- Grade de Imagens (Staggered) -->
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
                     <img v-for="(img, index) in empresaImages" :key="index" :src="img" alt="Imagem Empresa" loading="lazy" decoding="async"
-                        class="rounded-xl object-cover w-full h-auto icon-container3 reveal-scale shadow-md hover:shadow-xl hover:shadow-red-900/10"
+                        class="rounded-xl object-cover w-full h-auto icon-container3 reveal-scale shadow-md hover:shadow-xl hover:shadow-brand-900/10"
                         :style="{ transitionDelay: `${index * 100}ms` }" />
                 </div>
 
                 <div class="flex justify-center mt-12 reveal-element delay-300">
-                    <NuxtLink to="/nossa-historia">
-                        <button
-                            class="group relative overflow-hidden border border-red-700 bg-red-700 text-white px-10 py-3 rounded-full font-semibold tracking-wide transition-all duration-300 hover:bg-white z-10 hover:shadow-[0_8px_30px_rgb(185,28,28,0.4)] hover:-translate-y-1">
-                            <span class="relative z-10 group-hover:text-red-700">SOBRE NÓS</span>
-                        </button>
-                    </NuxtLink>
+                    <UiBaseButton to="/nossa-historia">SOBRE NÓS</UiBaseButton>
                 </div>
             </div>
 
@@ -58,11 +90,11 @@
 
             <!-- Seção Missão, Visão e Valores -->
             <div
-                class="relative w-full bg-gradient-to-b from-[#720e0e] to-[#5a0a0a] text-white overflow-hidden py-20 font-montserrat border-none shadow-inner">
+                class="relative w-full bg-gradient-to-b from-brand-dark to-brand-darker text-white overflow-hidden py-20 font-montserrat border-none shadow-inner">
                 <!-- Topo orgânico -->
                 <div class="absolute top-0 left-0 w-full" style="z-index:1;">
                     <svg viewBox="0 0 1440 120" class="w-full h-16 md:h-24 rotate-180" preserveAspectRatio="none">
-                        <path d="M0,80 Q360,120 720,90 Q1080,60 1440,100 L1440,120 L0,120 Z" fill="#faf4ef" />
+                        <path d="M0,80 Q360,120 720,90 Q1080,60 1440,100 L1440,120 L0,120 Z" fill="rgb(var(--color-cream))" />
                     </svg>
                 </div>
 
@@ -73,10 +105,10 @@
                     <div
                         class="flex-1 flex flex-col items-center text-center bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 reveal-element hover:-translate-y-2 transition-transform duration-500 hover:bg-white/10 hover:shadow-2xl hover:shadow-black/40">
                         <div
-                            class="bg-gradient-to-br from-[#d32f2f] to-[#a4221e] rounded-2xl w-24 h-24 flex items-center justify-center mb-6 shadow-[0_8px_30px_rgba(0,0,0,0.3)] icon-float">
+                            class="bg-gradient-to-br from-brand-icon-from to-brand-icon-to rounded-2xl w-24 h-24 flex items-center justify-center mb-6 shadow-[0_8px_30px_rgba(0,0,0,0.3)] icon-float">
                             <img :src="Missao" alt="Missão" loading="lazy" decoding="async" class="w-12 h-12 drop-shadow-lg" />
                         </div>
-                        <h3 class="text-xl font-bold mb-4 tracking-wider text-red-100">MISSÃO</h3>
+                        <h3 class="text-xl font-bold mb-4 tracking-wider text-brand-100">MISSÃO</h3>
                         <p class="text-sm md:text-base leading-relaxed text-gray-200">
                             Fornecer produtos químicos com excelência, garantindo qualidade, agilidade e segurança para
                             distribuidores em todo o Brasil, promovendo parcerias duradouras e contribuindo para o
@@ -86,11 +118,11 @@
                     <!-- Visão -->
                     <div
                         class="flex-1 flex flex-col items-center text-center bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 reveal-element delay-200 hover:-translate-y-2 transition-transform duration-500 hover:bg-white/10 hover:shadow-2xl hover:shadow-black/40">
-                        <div class="bg-gradient-to-br from-[#d32f2f] to-[#a4221e] rounded-2xl w-24 h-24 flex items-center justify-center mb-6 shadow-[0_8px_30px_rgba(0,0,0,0.3)] icon-float"
+                        <div class="bg-gradient-to-br from-brand-icon-from to-brand-icon-to rounded-2xl w-24 h-24 flex items-center justify-center mb-6 shadow-[0_8px_30px_rgba(0,0,0,0.3)] icon-float"
                             style="animation-delay: 0.2s;">
                             <img :src="Visao" alt="Visão" loading="lazy" decoding="async" class="w-12 h-12 drop-shadow-lg" />
                         </div>
-                        <h3 class="text-xl font-bold mb-4 tracking-wider text-red-100">VISÃO</h3>
+                        <h3 class="text-xl font-bold mb-4 tracking-wider text-brand-100">VISÃO</h3>
                         <p class="text-sm md:text-base leading-relaxed text-gray-200">
                             Ser referência nacional em distribuição de soda cáustica, reconhecida pela confiabilidade,
                             compromisso, agilidade e excelência.
@@ -99,11 +131,11 @@
                     <!-- Valores -->
                     <div
                         class="flex-1 flex flex-col items-center text-center bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 reveal-element delay-400 hover:-translate-y-2 transition-transform duration-500 hover:bg-white/10 hover:shadow-2xl hover:shadow-black/40">
-                        <div class="bg-gradient-to-br from-[#d32f2f] to-[#a4221e] rounded-2xl w-24 h-24 flex items-center justify-center mb-6 shadow-[0_8px_30px_rgba(0,0,0,0.3)] icon-float"
+                        <div class="bg-gradient-to-br from-brand-icon-from to-brand-icon-to rounded-2xl w-24 h-24 flex items-center justify-center mb-6 shadow-[0_8px_30px_rgba(0,0,0,0.3)] icon-float"
                             style="animation-delay: 0.4s;">
                             <img :src="Valor" alt="Valores" loading="lazy" decoding="async" class="w-12 h-12 drop-shadow-lg" />
                         </div>
-                        <h3 class="text-xl font-bold mb-4 tracking-wider text-red-100">VALORES</h3>
+                        <h3 class="text-xl font-bold mb-4 tracking-wider text-brand-100">VALORES</h3>
                         <p class="text-sm md:text-base leading-relaxed text-gray-200">
                             Foco no cliente, qualidade, confiança, responsabilidade socioambiental, inovação e
                             valorização das pessoas.
@@ -114,7 +146,7 @@
                 <!-- Faixa inferior -->
                 <div class="absolute bottom-0 left-0 w-full" style="z-index:1;">
                     <svg viewBox="0 0 1440 120" class="w-full h-16 md:h-24" preserveAspectRatio="none">
-                        <path d="M0,80 Q360,120 720,90 Q1080,60 1440,100 L1440,120 L0,120 Z" fill="#faf4ef" />
+                        <path d="M0,80 Q360,120 720,90 Q1080,60 1440,100 L1440,120 L0,120 Z" fill="rgb(var(--color-cream))" />
                     </svg>
                 </div>
             </div>
@@ -124,37 +156,28 @@
         <!-- Section Produtos -->
         <section id="produtos" class="max-w-6xl mx-auto px-6 pt-32 pb-6 scroll-mt-32">
             <!-- Título principal da seção -->
-            <div class="flex items-center justify-between gap-4 reveal-element mb-8 mt-4 flex-wrap">
-                <div class="flex items-center gap-4 text-red-700">
-                    <h2 class="text-3xl font-extrabold font-montserrat tracking-tight m-0">PRODUTOS</h2>
-                    <PackageOpen stroke-width="2" size="32" class="mb-1" />
-                </div>
-                <NuxtLink to="/produtos"
-                    class="text-sm font-bold text-red-700 hover:text-red-900 hover:underline font-montserrat tracking-wide">
-                    VER TODOS OS PRODUTOS →
-                </NuxtLink>
-            </div>
+            <UiSectionHeader title="PRODUTOS" :icon="PackageOpen" link-to="/produtos" link-label="VER TODOS OS PRODUTOS" />
 
             <!-- Container Soda Cáustica -->
             <div class="reveal-element">
                 <div
-                    class="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-white to-red-50/50 border border-red-200/50 shadow-[0_8px_40px_rgba(185,28,28,0.07)] px-8 py-12 md:px-14 md:py-14">
+                    class="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-white to-brand-50/50 border border-brand-200/50 shadow-[0_8px_40px_rgb(var(--color-brand-700)/0.07)] px-8 py-12 md:px-14 md:py-14">
 
                     <!-- Faixa de destaque no topo -->
                     <div
-                        class="absolute top-0 left-0 w-2/3 h-1 bg-gradient-to-r from-red-700 via-red-400 to-transparent">
+                        class="absolute top-0 left-0 w-2/3 h-1 bg-gradient-to-r from-brand-700 via-brand-400 to-transparent">
                     </div>
 
                     <!-- Header da linha -->
                     <div class="flex flex-col md:flex-row md:items-end gap-4 mb-4">
                         <div class="flex items-center gap-4">
                             <div
-                                class="bg-gradient-to-br from-red-700 to-red-900 rounded-2xl w-12 h-12 flex items-center justify-center shadow-md flex-shrink-0">
+                                class="bg-gradient-to-br from-brand-700 to-brand-900 rounded-2xl w-12 h-12 flex items-center justify-center shadow-md flex-shrink-0">
                                 <FlaskConical class="text-white w-5 h-5" />
                             </div>
                             <div>
                                 <p
-                                    class="text-xs font-bold tracking-widest text-red-400 uppercase font-montserrat mb-0.5">
+                                    class="text-xs font-bold tracking-widest text-brand-400 uppercase font-montserrat mb-0.5">
                                     Linha Principal</p>
                                 <h3
                                     class="text-2xl font-extrabold text-gray-800 font-montserrat tracking-tight leading-tight">
@@ -169,7 +192,7 @@
 
                     <!-- Divisor -->
                     <div
-                        class="h-px bg-gradient-to-r from-red-300 via-red-100 to-transparent mb-10 opacity-60">
+                        class="h-px bg-gradient-to-r from-brand-300 via-brand-100 to-transparent mb-10 opacity-60">
                     </div>
 
                     <!-- Grid: texto + produtos -->
@@ -177,14 +200,14 @@
                         <div class="reveal-element delay-100 flex flex-col justify-center">
                             <!-- Texto descritivo -->
                             <p
-                                class="text-gray-700 text-lg mb-6 leading-relaxed font-montserrat relative pl-6 border-l-4 border-red-700">
+                                class="text-gray-700 text-lg mb-6 leading-relaxed font-montserrat relative pl-6 border-l-4 border-brand-700">
                                 A soda cáustica em escamas é obtida a partir do processo de evaporação da soda cáustica
                                 líquida, da fusão do produto anidro e do processo de escamação. Apresenta-se na forma de
                                 escamas brancas, altamente deliquescentes, com concentração média de 98% de hidróxido de
                                 sódio em peso.
                             </p>
                             <p
-                                class="text-gray-700 text-lg leading-relaxed font-montserrat relative pl-6 border-l-4 border-red-300">
+                                class="text-gray-700 text-lg leading-relaxed font-montserrat relative pl-6 border-l-4 border-brand-300">
                                 É utilizada na fabricação de sabões e detergentes, no tratamento de superfícies metálicas,
                                 na mercerização de têxteis, na regeneração de resinas de troca iônica e na correção de pH
                                 em processos industriais de alimentos, álcool e farmácia.
@@ -195,40 +218,40 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-x-4 md:gap-y-8 select-none">
                             <!-- Produto 500g -->
                             <NuxtLink to="/produto/soda-caustica-500g"
-                                class="flex flex-col items-center text-center reveal-scale delay-200 group relative bg-white/70 rounded-2xl p-4 border border-red-50 hover:border-red-200/60 hover:shadow-[0_16px_32px_rgba(185,28,28,0.10)] hover:-translate-y-1 transition-all duration-500">
+                                class="flex flex-col items-center text-center reveal-scale delay-200 group relative bg-white/70 rounded-2xl p-4 border border-brand-50 hover:border-brand-200/60 hover:shadow-[0_16px_32px_rgb(var(--color-brand-700)/0.10)] hover:-translate-y-1 transition-all duration-500">
                                 <div
-                                    class="absolute inset-0 bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 opacity-40">
+                                    class="absolute inset-0 bg-gradient-to-br from-brand-50 to-orange-50 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 opacity-40">
                                 </div>
                                 <img :src="soda500g" alt="Soda Cáustica 500g" loading="lazy" decoding="async"
-                                    class="relative z-10 product-img object-contain w-40 md:w-48 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] group-hover:drop-shadow-[0_25px_35px_rgba(185,28,28,0.25)] transition-all duration-500 group-hover:-translate-y-2" />
+                                    class="relative z-10 product-img object-contain w-40 md:w-48 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] group-hover:drop-shadow-[0_25px_35px_rgb(var(--color-brand-700)/0.25)] transition-all duration-500 group-hover:-translate-y-2" />
                                 <p
-                                    class="relative z-10 text-base font-bold mt-4 text-gray-800 font-montserrat group-hover:text-red-700 transition-colors">
+                                    class="relative z-10 text-base font-bold mt-4 text-gray-800 font-montserrat group-hover:text-brand-700 transition-colors">
                                     Soda Cáustica 500g</p>
                             </NuxtLink>
 
                             <!-- Produto 1kg -->
                             <NuxtLink to="/produto/soda-caustica-1kg"
-                                class="flex flex-col items-center text-center reveal-scale delay-300 group relative bg-white/70 rounded-2xl p-4 border border-red-50 hover:border-red-200/60 hover:shadow-[0_16px_32px_rgba(185,28,28,0.10)] hover:-translate-y-1 transition-all duration-500">
+                                class="flex flex-col items-center text-center reveal-scale delay-300 group relative bg-white/70 rounded-2xl p-4 border border-brand-50 hover:border-brand-200/60 hover:shadow-[0_16px_32px_rgb(var(--color-brand-700)/0.10)] hover:-translate-y-1 transition-all duration-500">
                                 <div
-                                    class="absolute inset-0 bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 opacity-40">
+                                    class="absolute inset-0 bg-gradient-to-br from-brand-50 to-orange-50 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 opacity-40">
                                 </div>
                                 <img :src="soda1kg" alt="Soda Cáustica 1kg" loading="lazy" decoding="async"
-                                    class="relative z-10 product-img object-contain w-40 md:w-48 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] group-hover:drop-shadow-[0_25px_35px_rgba(185,28,28,0.25)] transition-all duration-500 group-hover:-translate-y-2" />
+                                    class="relative z-10 product-img object-contain w-40 md:w-48 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] group-hover:drop-shadow-[0_25px_35px_rgb(var(--color-brand-700)/0.25)] transition-all duration-500 group-hover:-translate-y-2" />
                                 <p
-                                    class="relative z-10 text-base font-bold mt-4 text-gray-800 font-montserrat group-hover:text-red-700 transition-colors">
+                                    class="relative z-10 text-base font-bold mt-4 text-gray-800 font-montserrat group-hover:text-brand-700 transition-colors">
                                     Soda Cáustica 1kg</p>
                             </NuxtLink>
 
                             <!-- Produto Líquida -->
                             <NuxtLink to="/produto/soda-caustica-liquida"
-                                class="flex flex-col items-center text-center reveal-scale delay-400 group relative bg-white/70 rounded-2xl p-4 border border-red-50 hover:border-red-200/60 hover:shadow-[0_16px_32px_rgba(185,28,28,0.10)] hover:-translate-y-1 transition-all duration-500 sm:col-span-2 lg:col-span-1 lg:col-start-1 lg:col-end-3 lg:mx-auto lg:w-1/2">
+                                class="flex flex-col items-center text-center reveal-scale delay-400 group relative bg-white/70 rounded-2xl p-4 border border-brand-50 hover:border-brand-200/60 hover:shadow-[0_16px_32px_rgb(var(--color-brand-700)/0.10)] hover:-translate-y-1 transition-all duration-500 sm:col-span-2 lg:col-span-1 lg:col-start-1 lg:col-end-3 lg:mx-auto lg:w-1/2">
                                 <div
-                                    class="absolute inset-0 bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 opacity-40">
+                                    class="absolute inset-0 bg-gradient-to-br from-brand-50 to-orange-50 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 opacity-40">
                                 </div>
                                 <img :src="sodaliquida" alt="Soda Cáustica Líquida" loading="lazy" decoding="async"
-                                    class="relative z-10 product-img object-contain w-40 md:w-48 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] group-hover:drop-shadow-[0_25px_35px_rgba(185,28,28,0.25)] transition-all duration-500 group-hover:-translate-y-2" />
+                                    class="relative z-10 product-img object-contain w-40 md:w-48 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] group-hover:drop-shadow-[0_25px_35px_rgb(var(--color-brand-700)/0.25)] transition-all duration-500 group-hover:-translate-y-2" />
                                 <p
-                                    class="relative z-10 text-base font-bold mt-4 text-gray-800 font-montserrat group-hover:text-red-700 transition-colors">
+                                    class="relative z-10 text-base font-bold mt-4 text-gray-800 font-montserrat group-hover:text-brand-700 transition-colors">
                                     Soda Cáustica Líquida</p>
                             </NuxtLink>
                         </div>
@@ -239,25 +262,22 @@
             <!-- Linha de Limpeza -->
             <div class="mt-20 reveal-element">
                 <div
-                    class="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-slate-50 to-[#184691]/5 border border-[#184691]/20 shadow-[0_8px_40px_rgba(24,70,145,0.07)] px-8 py-12 md:px-14 md:py-14">
+                    class="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-slate-50 to-accent/5 border border-accent/20 shadow-[0_8px_40px_rgb(var(--color-accent-700)/0.07)] px-8 py-12 md:px-14 md:py-14">
 
                     <!-- Faixa de destaque no topo -->
                     <div
-                        class="absolute top-0 left-0 w-2/3 h-1 bg-gradient-to-r from-[#184691] via-[#2a5cb5] to-transparent">
+                        class="absolute top-0 left-0 w-2/3 h-1 bg-gradient-to-r from-accent via-accent-glow to-transparent">
                     </div>
 
                     <!-- Header da linha -->
                     <div class="flex flex-col md:flex-row md:items-end gap-4 mb-4">
                         <div class="flex items-center gap-4">
                             <div
-                                class="rounded-2xl w-12 h-12 flex items-center justify-center shadow-md flex-shrink-0"
-                                style="background: linear-gradient(135deg, #184691, #0f2d5e);">
+                                class="rounded-2xl w-12 h-12 flex items-center justify-center shadow-md flex-shrink-0 bg-gradient-to-br from-accent to-accent-dark">
                                 <Sparkles class="text-white w-5 h-5" />
                             </div>
                             <div>
-                                <p
-                                    class="text-xs font-bold tracking-widest uppercase font-montserrat mb-0.5"
-                                    style="color: #184691;">
+                                <p class="text-xs font-bold tracking-widest uppercase font-montserrat mb-0.5 text-accent">
                                     Nova Linha</p>
                                 <h3
                                     class="text-2xl font-extrabold text-gray-800 font-montserrat tracking-tight leading-tight">
@@ -271,7 +291,7 @@
                     </div>
 
                     <!-- Divisor -->
-                    <div class="h-px mb-10" style="background: linear-gradient(to right, #184691, #184691, transparent); opacity: 0.2;"></div>
+                    <div class="h-px mb-10 bg-gradient-to-r from-accent to-transparent opacity-20"></div>
 
                     <!-- Cards dos produtos -->
                     <div
@@ -279,16 +299,16 @@
 
                         <!-- Percarbonato de Sódio -->
                         <NuxtLink to="/produto/percarbonato-de-sodio"
-                            class="group flex flex-col items-center text-center reveal-scale delay-300 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-[0_20px_40px_rgba(24,70,145,0.12)] hover:-translate-y-2 transition-all duration-500">
+                            class="group flex flex-col items-center text-center reveal-scale delay-300 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-[0_20px_40px_rgb(var(--color-accent-700)/0.12)] hover:-translate-y-2 transition-all duration-500">
                             <div class="relative w-full flex justify-center mb-4">
                                 <div
                                     class="absolute inset-0 bg-gradient-to-br from-blue-50 to-sky-50 rounded-full scale-0 group-hover:scale-110 transition-transform duration-500 ease-out opacity-60 blur-xl">
                                 </div>
                                 <img :src="percarbonato" alt="Percarbonato de Sódio" loading="lazy" decoding="async"
-                                    class="relative z-10 object-contain w-44 md:w-52 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.12)] group-hover:drop-shadow-[0_20px_30px_rgba(24,70,145,0.22)] transition-all duration-500 group-hover:-translate-y-2" />
+                                    class="relative z-10 object-contain w-44 md:w-52 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.12)] group-hover:drop-shadow-[0_20px_30px_rgb(var(--color-accent-700)/0.22)] transition-all duration-500 group-hover:-translate-y-2" />
                             </div>
                             <p
-                                class="text-base font-extrabold text-gray-800 font-montserrat transition-colors mb-2 group-hover:text-[#184691]">
+                                class="text-base font-extrabold text-gray-800 font-montserrat transition-colors mb-2 group-hover:text-accent">
                                 Percarbonato de Sódio</p>
                             <p class="text-sm text-gray-500 font-montserrat leading-relaxed">
                                 Agente branqueador à base de oxigênio ativo. Ideal para alvejamento de roupas e
@@ -298,16 +318,16 @@
 
                         <!-- Bicarbonato de Sódio -->
                         <NuxtLink to="/produto/bicarbonato-de-sodio"
-                            class="group flex flex-col items-center text-center reveal-scale delay-400 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-[0_20px_40px_rgba(24,70,145,0.12)] hover:-translate-y-2 transition-all duration-500">
+                            class="group flex flex-col items-center text-center reveal-scale delay-400 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-[0_20px_40px_rgb(var(--color-accent-700)/0.12)] hover:-translate-y-2 transition-all duration-500">
                             <div class="relative w-full flex justify-center mb-4">
                                 <div
                                     class="absolute inset-0 bg-gradient-to-br from-blue-50 to-sky-50 rounded-full scale-0 group-hover:scale-110 transition-transform duration-500 ease-out opacity-60 blur-xl">
                                 </div>
                                 <img :src="bicarbonato" alt="Bicarbonato de Sódio" loading="lazy" decoding="async"
-                                    class="relative z-10 object-contain w-44 md:w-52 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.12)] group-hover:drop-shadow-[0_20px_30px_rgba(24,70,145,0.22)] transition-all duration-500 group-hover:-translate-y-2" />
+                                    class="relative z-10 object-contain w-44 md:w-52 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.12)] group-hover:drop-shadow-[0_20px_30px_rgb(var(--color-accent-700)/0.22)] transition-all duration-500 group-hover:-translate-y-2" />
                             </div>
                             <p
-                                class="text-base font-extrabold text-gray-800 font-montserrat transition-colors mb-2 group-hover:text-[#184691]">
+                                class="text-base font-extrabold text-gray-800 font-montserrat transition-colors mb-2 group-hover:text-accent">
                                 Bicarbonato de Sódio</p>
                             <p class="text-sm text-gray-500 font-montserrat leading-relaxed">
                                 Produto multiuso com propriedades limpantes e desodorizantes. Amplamente usado na
@@ -318,13 +338,7 @@
 
                     <!-- CTA para a página da Linha Casa -->
                     <div class="flex justify-center mt-12 reveal-element delay-300">
-                        <NuxtLink to="/escorpiao-casa">
-                            <button
-                                class="group relative overflow-hidden border font-semibold tracking-wide px-10 py-3 rounded-full text-white transition-all duration-300 hover:-translate-y-1"
-                                style="background: linear-gradient(135deg, #184691, #0f2d5e); border-color: #184691;">
-                                <span class="relative z-10">CONHEÇA A LINHA ESCORPIÃO CASA</span>
-                            </button>
-                        </NuxtLink>
+                        <UiBaseButton to="/escorpiao-casa" variant="accent">CONHEÇA A LINHA ESCORPIÃO CASA</UiBaseButton>
                     </div>
                 </div>
             </div>
@@ -332,17 +346,8 @@
 
         <!-- Section Receitas -->
         <section id="receitas"
-            class="max-w-6xl mx-auto px-6 py-20 scroll-mt-32 font-montserrat relative before:absolute before:inset-0 before:bg-white/40 before:rounded-[3rem] before:-z-10 shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-red-50 mx-4 md:mx-auto mt-16 mb-16">
-            <div class="flex items-center justify-between gap-4 reveal-element flex-wrap">
-                <div class="flex items-center gap-4">
-                    <h2 class="text-3xl font-extrabold mt-2 text-red-700 mb-6 font-montserrat tracking-tight">RECEITAS</h2>
-                    <BookMarked class="text-red-700 mb-4" stroke-width="2" size="32" />
-                </div>
-                <NuxtLink to="/receitas"
-                    class="text-sm font-bold text-red-700 hover:text-red-900 hover:underline font-montserrat tracking-wide mb-4">
-                    VER TODAS AS RECEITAS →
-                </NuxtLink>
-            </div>
+            class="max-w-6xl mx-auto px-6 py-20 scroll-mt-32 font-montserrat relative before:absolute before:inset-0 before:bg-white/40 before:rounded-[3rem] before:-z-10 shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-brand-50 mx-4 md:mx-auto mt-16 mb-16">
+            <UiSectionHeader title="RECEITAS" :icon="BookMarked" link-to="/receitas" link-label="VER TODAS AS RECEITAS" />
 
             <div class="flex flex-col md:flex-row gap-8 items-stretch mt-4">
                 <!-- Coluna de BOTÕES -->
@@ -350,15 +355,15 @@
 
                     <!-- Receita Líquida (Novidade) -->
                     <div class="relative reveal-left delay-100">
-                        <span
-                            class="absolute -top-3 left-7 z-10 bg-gradient-to-r from-red-600 to-red-500 text-white text-xs font-bold rounded-full px-3 py-0.5 shadow-md flex items-center gap-1 select-none pointer-events-none animate-pulse-soft">
-                            ✨ Novidade
-                        </span>
+                        <UiBadge class="absolute -top-3 left-7 z-10 animate-pulse-soft">
+                            <Sparkles :size="12" stroke-width="2.5" aria-hidden="true" />
+                            Novidade
+                        </UiBadge>
                         <button @click="toggleReceita(4)" class="recipe-btn w-full"
-                            :class="{ 'active bg-red-50 border-red-400 text-red-700': receitaAberta === 4 }">
+                            :class="{ 'active bg-brand-50 border-brand-400 text-brand-700': receitaAberta === 4 }">
                             <span class="recipe-btn-text">Receita Sabão Líquido</span>
                             <div class="recipe-btn-icon-wrapper"
-                                :class="{ 'bg-red-600 text-white shadow-md': receitaAberta === 4, 'bg-gray-100 text-gray-400': receitaAberta !== 4 }">
+                                :class="{ 'bg-brand-600 text-white shadow-md': receitaAberta === 4, 'bg-gray-100 text-gray-400': receitaAberta !== 4 }">
                                 <ChevronRight v-if="!isMobile" class="w-5 h-5 transition-transform duration-300"
                                     :class="{ 'rotate-90': receitaAberta === 4 }" />
                                 <ChevronDown v-else class="w-5 h-5 transition-transform duration-300"
@@ -375,10 +380,10 @@
                     <!-- Botão Receita 1 -->
                     <div class="reveal-left delay-200">
                         <button @click="toggleReceita(1)" class="recipe-btn w-full"
-                            :class="{ 'active bg-red-50 border-red-400 text-red-700': receitaAberta === 1 }">
+                            :class="{ 'active bg-brand-50 border-brand-400 text-brand-700': receitaAberta === 1 }">
                             <span class="recipe-btn-text">Receita Sabão em Barra</span>
                             <div class="recipe-btn-icon-wrapper"
-                                :class="{ 'bg-red-600 text-white shadow-md': receitaAberta === 1, 'bg-gray-100 text-gray-400': receitaAberta !== 1 }">
+                                :class="{ 'bg-brand-600 text-white shadow-md': receitaAberta === 1, 'bg-gray-100 text-gray-400': receitaAberta !== 1 }">
                                 <ChevronRight v-if="!isMobile" class="w-5 h-5 transition-transform duration-300"
                                     :class="{ 'rotate-90': receitaAberta === 1 }" />
                                 <ChevronDown v-else class="w-5 h-5 transition-transform duration-300"
@@ -395,10 +400,10 @@
                     <!-- Botão Receita 2 -->
                     <div class="reveal-left delay-300">
                         <button @click="toggleReceita(2)" class="recipe-btn w-full"
-                            :class="{ 'active bg-red-50 border-red-400 text-red-700': receitaAberta === 2 }">
+                            :class="{ 'active bg-brand-50 border-brand-400 text-brand-700': receitaAberta === 2 }">
                             <span class="recipe-btn-text">Receita Sabão do Pará</span>
                             <div class="recipe-btn-icon-wrapper"
-                                :class="{ 'bg-red-600 text-white shadow-md': receitaAberta === 2, 'bg-gray-100 text-gray-400': receitaAberta !== 2 }">
+                                :class="{ 'bg-brand-600 text-white shadow-md': receitaAberta === 2, 'bg-gray-100 text-gray-400': receitaAberta !== 2 }">
                                 <ChevronRight v-if="!isMobile" class="w-5 h-5 transition-transform duration-300"
                                     :class="{ 'rotate-90': receitaAberta === 2 }" />
                                 <ChevronDown v-else class="w-5 h-5 transition-transform duration-300"
@@ -415,13 +420,13 @@
                     <!-- Botão Vídeos -->
                     <div class="reveal-left delay-400">
                         <button @click="toggleReceita(3)" class="recipe-btn w-full"
-                            :class="{ 'active bg-red-50 border-red-400 text-red-700': receitaAberta === 3 }">
+                            :class="{ 'active bg-brand-50 border-brand-400 text-brand-700': receitaAberta === 3 }">
                             <span class="flex items-center gap-2 recipe-btn-text">
                                 Vídeos de Sabão
                                 <Instagram class="w-5 h-5 text-pink-600 ml-1" />
                             </span>
                             <div class="recipe-btn-icon-wrapper"
-                                :class="{ 'bg-red-600 text-white shadow-md': receitaAberta === 3, 'bg-gray-100 text-gray-400': receitaAberta !== 3 }">
+                                :class="{ 'bg-brand-600 text-white shadow-md': receitaAberta === 3, 'bg-gray-100 text-gray-400': receitaAberta !== 3 }">
                                 <ChevronRight v-if="!isMobile" class="w-5 h-5 transition-transform duration-300"
                                     :class="{ 'rotate-90': receitaAberta === 3 }" />
                                 <ChevronDown v-else class="w-5 h-5 transition-transform duration-300"
@@ -438,9 +443,9 @@
                     <!-- Botão Info -->
                     <div class="reveal-left delay-500 mt-6 !mt-8">
                         <NuxtLink to="/info"
-                            class="flex justify-between items-center text-lg font-bold text-red-800 px-6 py-5 rounded-2xl bg-red-50 border border-red-200 hover:bg-red-600 hover:text-white hover:border-red-600 hover:shadow-lg hover:shadow-red-600/30 transition-all duration-300 shadow-sm active:scale-[0.98] w-full group">
+                            class="flex justify-between items-center text-lg font-bold text-brand-800 px-6 py-5 rounded-2xl bg-brand-50 border border-brand-200 hover:bg-brand-600 hover:text-white hover:border-brand-600 hover:shadow-lg hover:shadow-brand-600/30 transition-all duration-300 shadow-sm active:scale-[0.98] w-full group">
                             Informações de Manuseio
-                            <BookAlert class="w-6 h-6 text-red-600 group-hover:text-white transition-colors" />
+                            <BookAlert class="w-6 h-6 text-brand-600 group-hover:text-white transition-colors" />
                         </NuxtLink>
                     </div>
 
@@ -468,9 +473,9 @@
                         <div v-else
                             class="absolute inset-0 flex flex-col items-center justify-center bg-white rounded-3xl border border-dashed border-gray-200 p-12 text-center shadow-sm h-full max-h-[500px]">
                             <div
-                                class="bg-red-50 p-6 rounded-full mb-6 relative hover:scale-110 transition-transform duration-500 cursor-default">
-                                <div class="absolute inset-0 bg-red-100 rounded-full animate-ping opacity-20"></div>
-                                <BookMarked class="w-16 h-16 text-red-400" />
+                                class="bg-brand-50 p-6 rounded-full mb-6 relative hover:scale-110 transition-transform duration-500 cursor-default">
+                                <div class="absolute inset-0 bg-brand-100 rounded-full animate-ping opacity-20"></div>
+                                <BookMarked class="w-16 h-16 text-brand-400" />
                             </div>
                             <h3 class="text-2xl font-bold text-gray-800 mb-2">Desperte sua Criatividade</h3>
                             <p class="text-gray-500 max-w-sm text-lg leading-relaxed">Selecione uma receita ao lado para
@@ -484,20 +489,10 @@
 
         <!-- Section Onde Comprar -->
         <section id="ondecomprar" class="max-w-6xl mx-auto px-6 py-20 scroll-mt-32 font-montserrat">
-            <div class="flex items-center justify-between gap-4 reveal-element flex-wrap">
-                <div class="flex items-center gap-4">
-                    <h2 class="text-3xl font-extrabold mt-6 text-red-700 mb-6 font-montserrat tracking-tight">ONDE COMPRAR?
-                    </h2>
-                    <ShoppingCart class="text-red-700 mb-4" stroke-width="2" size="32" />
-                </div>
-                <NuxtLink to="/onde-comprar"
-                    class="text-sm font-bold text-red-700 hover:text-red-900 hover:underline font-montserrat tracking-wide mb-4">
-                    VER PÁGINA COMPLETA →
-                </NuxtLink>
-            </div>
+            <UiSectionHeader title="ONDE COMPRAR?" :icon="ShoppingCart" link-to="/onde-comprar" link-label="VER PÁGINA COMPLETA" />
 
             <p
-                class="text-gray-700 text-lg mb-12 leading-relaxed font-montserrat max-w-4xl border-l-4 border-red-700 pl-6 reveal-element delay-100">
+                class="text-gray-700 text-lg mb-12 leading-relaxed font-montserrat max-w-4xl border-l-4 border-brand-700 pl-6 reveal-element delay-100">
                 A Soda Cáustica Escorpião, localizada em Serra - Espírito Santo, é referência nacional no fornecimento
                 de soda cáustica para distribuidores que valorizam tradição, qualidade e agilidade.
                 <br><br>
@@ -507,60 +502,60 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-10 mb-8">
                 <figure class="flex flex-col items-center reveal-scale delay-200 group">
                     <div
-                        class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100 group-hover:shadow-[0_20px_40px_rgba(185,28,28,0.08)] group-hover:-translate-y-3 transition-all duration-500 w-full flex justify-center h-[200px] mb-4 relative overflow-hidden">
+                        class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100 group-hover:shadow-[0_20px_40px_rgb(var(--color-brand-700)/0.08)] group-hover:-translate-y-3 transition-all duration-500 w-full flex justify-center h-[200px] mb-4 relative overflow-hidden">
                         <div
-                            class="absolute inset-0 bg-gradient-to-b from-transparent to-red-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         </div>
                         <img :src="ondeComprarImages[0]" alt="Mercados" loading="lazy" decoding="async"
                             class="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500 self-center z-10" />
                     </div>
                     <figcaption
-                        class="text-center text-gray-800 font-bold text-lg group-hover:text-red-700 transition-colors">
+                        class="text-center text-gray-800 font-bold text-lg group-hover:text-brand-700 transition-colors">
                         Mercados
                     </figcaption>
                 </figure>
 
                 <figure class="flex flex-col items-center reveal-scale delay-300 group">
                     <div
-                        class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100 group-hover:shadow-[0_20px_40px_rgba(185,28,28,0.08)] group-hover:-translate-y-3 transition-all duration-500 w-full flex justify-center h-[200px] mb-4 relative overflow-hidden">
+                        class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100 group-hover:shadow-[0_20px_40px_rgb(var(--color-brand-700)/0.08)] group-hover:-translate-y-3 transition-all duration-500 w-full flex justify-center h-[200px] mb-4 relative overflow-hidden">
                         <div
-                            class="absolute inset-0 bg-gradient-to-b from-transparent to-red-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         </div>
                         <img :src="ondeComprarImages[1]" alt="Agropecuárias" loading="lazy" decoding="async"
                             class="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500 self-center z-10" />
                     </div>
                     <figcaption
-                        class="text-center text-gray-800 font-bold text-lg group-hover:text-red-700 transition-colors">
+                        class="text-center text-gray-800 font-bold text-lg group-hover:text-brand-700 transition-colors">
                         Agropecuárias
                     </figcaption>
                 </figure>
 
                 <figure class="flex flex-col items-center reveal-scale delay-400 group">
                     <div
-                        class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100 group-hover:shadow-[0_20px_40px_rgba(185,28,28,0.08)] group-hover:-translate-y-3 transition-all duration-500 w-full flex justify-center h-[200px] mb-4 relative overflow-hidden">
+                        class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100 group-hover:shadow-[0_20px_40px_rgb(var(--color-brand-700)/0.08)] group-hover:-translate-y-3 transition-all duration-500 w-full flex justify-center h-[200px] mb-4 relative overflow-hidden">
                         <div
-                            class="absolute inset-0 bg-gradient-to-b from-transparent to-red-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         </div>
                         <img :src="ondeComprarImages[2]" alt="Lojas de produtos de limpeza" loading="lazy" decoding="async"
                             class="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500 self-center z-10" />
                     </div>
                     <figcaption
-                        class="text-center text-gray-800 font-bold text-lg leading-tight group-hover:text-red-700 transition-colors">
+                        class="text-center text-gray-800 font-bold text-lg leading-tight group-hover:text-brand-700 transition-colors">
                         Produtos de<br>Limpeza
                     </figcaption>
                 </figure>
 
                 <figure class="flex flex-col items-center reveal-scale delay-500 group">
                     <div
-                        class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100 group-hover:shadow-[0_20px_40px_rgba(185,28,28,0.08)] group-hover:-translate-y-3 transition-all duration-500 w-full flex justify-center h-[200px] mb-4 relative overflow-hidden">
+                        class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100 group-hover:shadow-[0_20px_40px_rgb(var(--color-brand-700)/0.08)] group-hover:-translate-y-3 transition-all duration-500 w-full flex justify-center h-[200px] mb-4 relative overflow-hidden">
                         <div
-                            class="absolute inset-0 bg-gradient-to-b from-transparent to-red-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         </div>
                         <img :src="ondeComprarImages[3]" alt="Loja de material de construção" loading="lazy" decoding="async"
                             class="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500 self-center z-10" />
                     </div>
                     <figcaption
-                        class="text-center text-gray-800 font-bold text-lg leading-tight group-hover:text-red-700 transition-colors">
+                        class="text-center text-gray-800 font-bold text-lg leading-tight group-hover:text-brand-700 transition-colors">
                         Materiais de<br>Construção
                     </figcaption>
                 </figure>
@@ -573,7 +568,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import ReceitaDetalhe from '../components/RecipeDetails.vue'
 
 useSeoMeta({
@@ -587,9 +582,12 @@ useSeoMeta({
     ogLocale: 'pt_BR',
     twitterCard: 'summary_large_image',
 })
-import { ChevronRight, ChevronDown, BookMarked, Building, BookAlert, Instagram, PackageOpen, ShoppingCart, Sparkles, FlaskConical } from 'lucide-vue-next'
+import { ChevronLeft, ChevronRight, ChevronDown, BookMarked, Building, BookAlert, Instagram, PackageOpen, ShoppingCart, Sparkles, FlaskConical } from 'lucide-vue-next'
 
-import Capa from '../assets/identidade/HOME_PAGE-opt.webp'
+import Capa from '../assets/identidade/home-page-hero-banner.jpg'
+import BannerProdutos from '../assets/identidade/produtos-homepage.jpg'
+import BannerRevendedor from '../assets/identidade/revendedor-homepage.jpg'
+import BannerReceitas from '../assets/identidade/receitas-homepage-.jpg'
 import Missao from '../assets/empresa/missao.png'
 import Visao from '../assets/empresa/visao.png'
 import Valor from '../assets/empresa/valor.png'
@@ -628,6 +626,57 @@ const ondeComprarImages = [
     local3,
     local4,
 ]
+
+const banners = [
+    { src: Capa, alt: 'Soda Cáustica Escorpião - referência nacional em soda cáustica', to: '/produtos' },
+    { src: BannerProdutos, alt: 'Conheça os produtos da Soda Cáustica Escorpião', to: '/produtos' },
+    { src: BannerRevendedor, alt: 'Seja um revendedor da Soda Cáustica Escorpião', to: '/contato/revendedor' },
+    { src: BannerReceitas, alt: 'Receitas com Soda Cáustica Escorpião', to: '/receitas' },
+]
+const bannerAtual = ref(0)
+const rotacaoPausada = ref(false)
+let intervaloBanners
+
+function selecionarBanner(index) {
+    bannerAtual.value = index
+}
+
+function proximoBanner() {
+    bannerAtual.value = (bannerAtual.value + 1) % banners.length
+}
+
+function bannerAnterior() {
+    bannerAtual.value = (bannerAtual.value - 1 + banners.length) % banners.length
+}
+
+function iniciarRotacao() {
+    window.clearInterval(intervaloBanners)
+    if (!rotacaoPausada.value && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        intervaloBanners = window.setInterval(proximoBanner, 6000)
+    }
+}
+
+function pausarRotacao() {
+    window.clearInterval(intervaloBanners)
+}
+
+function retomarRotacao() {
+    if (!rotacaoPausada.value) iniciarRotacao()
+}
+
+function alternarRotacao() {
+    rotacaoPausada.value = !rotacaoPausada.value
+    pausarRotacao()
+    if (!rotacaoPausada.value) iniciarRotacao()
+}
+
+onMounted(() => {
+    iniciarRotacao()
+})
+
+onBeforeUnmount(() => {
+    window.clearInterval(intervaloBanners)
+})
 
 const receitaAberta = ref(null)
 
@@ -714,6 +763,56 @@ useScrollReveal()
 /* ----------------------------------------------------
    Component Specific Styles 
 ---------------------------------------------------- */
+.banner-control {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    color: #fff;
+    background: rgb(0 0 0 / 0.35);
+    border-radius: 9999px;
+    transform: translateY(-50%);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.banner-control:hover {
+    background: rgb(0 0 0 / 0.6);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.banner-control:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
+.banner-pause {
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    z-index: 2;
+    min-height: 2.75rem;
+    padding: 0.5rem 0.75rem;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: rgb(0 0 0 / 0.45);
+    border-radius: 9999px;
+}
+
+.banner-pause:hover { background: rgb(0 0 0 / 0.65); }
+.banner-pause:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+@media (max-width: 767px) {
+    .banner-control,
+    .banner-pause {
+        display: none;
+    }
+}
+
 /* Empresa Grid */
 .icon-container3 {
     aspect-ratio: 1 / 1;
@@ -760,13 +859,10 @@ useScrollReveal()
 }
 
 .recipe-btn:hover {
-    border-color: #fca5a5;
-    /* border-red-300 */
-    box-shadow: 0 10px 15px -3px rgba(185, 28, 28, 0.1), 0 4px 6px -2px rgba(185, 28, 28, 0.05);
-    background-color: #fef2f2;
-    /* bg-red-50 */
-    color: #b91c1c;
-    /* text-red-700 */
+    border-color: rgb(var(--color-brand-300));
+    box-shadow: 0 10px 15px -3px rgb(var(--color-brand-700) / 0.1), 0 4px 6px -2px rgb(var(--color-brand-700) / 0.05);
+    background-color: rgb(var(--color-brand-50));
+    color: rgb(var(--color-brand-700));
     transform: translateY(-2px);
 }
 

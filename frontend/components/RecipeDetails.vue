@@ -6,7 +6,7 @@
             <div class="w-full grid md:grid-cols-1 gap-8 mb-6">
                 <!-- Ingredientes -->
                 <div>
-                    <h3 class="text-2xl font-bold mb-4 text-red-700">Sabão em Barra</h3>
+                    <h3 class="text-2xl font-bold mb-4 text-brand-700">Sabão em Barra</h3>
                     <div class="flex items-center justify-start mb-3">
                         <ScrollText class="mr-1" />
                         <h4 class="text-xl font-semibold">Ingredientes:</h4>
@@ -72,7 +72,7 @@
             <!-- <div class="w-full grid md:grid-cols-2 gap-8 mb-6"> -->
             <div class="w-full grid md:grid-cols-1 gap-8 mb-6">
                 <div>
-                    <h3 class="text-2xl font-bold mb-4 text-red-700">Sabão Líquido do Pará</h3>
+                    <h3 class="text-2xl font-bold mb-4 text-brand-700">Sabão Líquido do Pará</h3>
                     <div class="flex items-center justify-start mb-3">
                         <ScrollText class="mr-1" />
                         <h4 class="text-xl font-semibold">Ingredientes:</h4>
@@ -135,7 +135,7 @@
         </div>
 
         <div v-if="tipo === 3" class="w-full">
-            <h3 class="text-2xl font-bold mb-2 text-red-700 text-center">Nossas receitas no Instagram!</h3>
+            <h3 class="text-2xl font-bold mb-2 text-brand-700 text-center">Nossas receitas no Instagram!</h3>
             <p class="mb-4 text-center text-gray-600 font-semibold">Clique para assistir</p>
             <div class="grid gap-6 md:grid-cols-3">
                 <div v-for="(video, idx) in instagramVideos" :key="idx"
@@ -144,7 +144,7 @@
                     <img :src="video.thumb" alt="Receita" loading="lazy" decoding="async"
                         class="card-img absolute inset-0 w-full h-full object-cover z-0 transition-all duration-500" />
                     <div class="relative z-10 flex flex-col items-center justify-center w-full">
-                        <!-- <SquarePlay size="48" class="text-red-600 mb-2" /> -->
+                        <!-- <SquarePlay size="48" class="text-brand-600 mb-2" /> -->
                         <span
                             class="card-title text-lg font-semibold px-1 text-white text-center transition-opacity duration-500">{{
                                 video.title }}</span>
@@ -158,7 +158,7 @@
             <div class="w-full grid md:grid-cols-2 gap-8 mb-6">
                 <!-- Ingredientes -->
                 <div>
-                    <h3 class="text-2xl font-bold mb-4 text-red-700">Sabão com Soda Líquida</h3>
+                    <h3 class="text-2xl font-bold mb-4 text-brand-700">Sabão com Soda Líquida</h3>
                     <div class="flex items-center justify-start mb-3">
                         <ScrollText class="mr-1" />
                         <h4 class="text-xl font-semibold">Ingredientes:</h4>
@@ -279,7 +279,7 @@ function openInstagram(link) {
 }
 
 .group:hover {
-    background-color: #fef2f2;
+    background-color: rgb(var(--color-brand-50));
     /* leve fundo vermelho para hover */
     transform: scale(1.05);
 }
@@ -299,7 +299,7 @@ function openInstagram(link) {
 }
 
 .drop-shadow {
-    text-shadow: 0 2px 8px #000, 0 0px 2px #b91c1c;
+    text-shadow: 0 2px 8px #000, 0 0px 2px rgb(var(--color-brand-700));
 }
 
 .card-title {
