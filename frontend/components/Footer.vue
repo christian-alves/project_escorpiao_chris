@@ -19,8 +19,8 @@
                     </NuxtLink>
                     <ul class="space-y-2 text-sm text-gray-700 font-montserrat tracking-wide">
                         <li class="flex gap-2">
-                            <MapPinned size="18" />
-                            <span>Serra, Espírito Santo</span>
+                            <MapPinned size="18" class="shrink-0 mt-0.5" />
+                            <span>R. Zilda Rodrigues de Souza Oliveira, S/N - Quadra 210 - Galpão 1 - Jardim Limoeiro, Serra - ES, 29164-009</span>
                         </li>
                         <li class="flex gap-2">
                             <Mail size="18" />
@@ -29,6 +29,13 @@
                         <li class="flex gap-2">
                             <Phone size="18" />
                             <a href="tel:+5527998507166" class="hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 rounded">(27) 99850-7166</a>
+                        </li>
+                        <li class="flex gap-2">
+                            <TriangleAlert size="18" class="text-brand-700 shrink-0" />
+                            <span>
+                                Emergência:
+                                <a href="tel:0800118270" class="font-bold hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 rounded">0800-118270</a>
+                            </span>
                         </li>
                         <li class="flex gap-2">
                             <FileText size="18" />
@@ -61,6 +68,20 @@
                         </a>
 
                     </div>
+
+                    <h3 class="text-lg font-bold text-gray-900 mb-4 mt-8 font-montserrat">LEGAL</h3>
+                    <ul class="space-y-2 text-sm text-gray-700 font-montserrat tracking-wide">
+                        <li>
+                            <NuxtLink to="/politica-de-privacidade" class="hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 rounded">
+                                Política de Privacidade
+                            </NuxtLink>
+                        </li>
+                        <li>
+                            <NuxtLink to="/termos-de-uso" class="hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 rounded">
+                                Termos de Uso
+                            </NuxtLink>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
@@ -78,5 +99,5 @@
 
 
 <script setup>
-import { Instagram, Facebook, MapPinned, Mail, Phone, FileText } from 'lucide-vue-next';
+import { Instagram, Facebook, MapPinned, Mail, Phone, FileText, TriangleAlert } from 'lucide-vue-next';
 </script>
