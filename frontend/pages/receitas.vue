@@ -1,10 +1,10 @@
 <template>
-    <div style="background-color: #faf4ef; overflow-x: hidden;">
+    <div style="background-color: rgb(var(--color-cream)); overflow-x: hidden;">
         <section
             class="max-w-6xl mx-auto px-6 pt-32 pb-20 font-montserrat relative before:absolute before:inset-0 before:bg-white/40 before:rounded-[3rem] before:-z-10">
             <div class="flex items-center gap-4 reveal-element">
-                <h1 class="text-3xl font-extrabold mt-2 text-red-700 mb-6 font-montserrat tracking-tight">RECEITAS</h1>
-                <BookMarked class="text-red-700 mb-4" stroke-width="2" size="32" />
+                <h1 class="text-3xl font-extrabold mt-2 text-brand-700 mb-6 font-montserrat tracking-tight">RECEITAS</h1>
+                <BookMarked class="text-brand-700 mb-4" stroke-width="2" size="32" />
             </div>
 
             <div class="flex flex-col md:flex-row gap-8 items-stretch mt-4">
@@ -12,17 +12,17 @@
                 <div class="flex flex-col w-full md:w-2/5 space-y-4">
                     <div v-for="receita in receitas" :key="receita.slug" class="relative reveal-left">
                         <span v-if="receita.novidade"
-                            class="absolute -top-3 left-7 z-10 bg-gradient-to-r from-red-600 to-red-500 text-white text-xs font-bold rounded-full px-3 py-0.5 shadow-md flex items-center gap-1 select-none pointer-events-none animate-pulse-soft">
+                            class="absolute -top-3 left-7 z-10 bg-gradient-to-r from-brand-600 to-brand-500 text-white text-xs font-bold rounded-full px-3 py-0.5 shadow-md flex items-center gap-1 select-none pointer-events-none animate-pulse-soft">
                             ✨ Novidade
                         </span>
                         <button @click="toggleReceita(receita.tipo)" class="recipe-btn w-full"
-                            :class="{ 'active bg-red-50 border-red-400 text-red-700': receitaAberta === receita.tipo }">
+                            :class="{ 'active bg-brand-50 border-brand-400 text-brand-700': receitaAberta === receita.tipo }">
                             <span class="flex items-center gap-2 recipe-btn-text">
                                 {{ receita.titulo }}
                                 <Instagram v-if="receita.tipo === 3" class="w-5 h-5 text-pink-600 ml-1" />
                             </span>
                             <div class="recipe-btn-icon-wrapper"
-                                :class="{ 'bg-red-600 text-white shadow-md': receitaAberta === receita.tipo, 'bg-gray-100 text-gray-400': receitaAberta !== receita.tipo }">
+                                :class="{ 'bg-brand-600 text-white shadow-md': receitaAberta === receita.tipo, 'bg-gray-100 text-gray-400': receitaAberta !== receita.tipo }">
                                 <ChevronRight v-if="!isMobile" class="w-5 h-5 transition-transform duration-300"
                                     :class="{ 'rotate-90': receitaAberta === receita.tipo }" />
                                 <ChevronDown v-else class="w-5 h-5 transition-transform duration-300"
@@ -35,16 +35,16 @@
                             </div>
                         </transition>
                         <NuxtLink :to="`/receita/${receita.slug}`"
-                            class="mt-2 inline-block text-xs font-semibold text-red-600 hover:text-red-800 hover:underline">
+                            class="mt-2 inline-block text-xs font-semibold text-brand-600 hover:text-brand-800 hover:underline">
                             Ver página completa →
                         </NuxtLink>
                     </div>
 
                     <div class="reveal-left mt-2">
                         <NuxtLink to="/info"
-                            class="flex justify-between items-center text-lg font-bold text-red-800 px-6 py-5 rounded-2xl bg-red-50 border border-red-200 hover:bg-red-600 hover:text-white hover:border-red-600 hover:shadow-lg hover:shadow-red-600/30 transition-all duration-300 shadow-sm active:scale-[0.98] w-full group">
+                            class="flex justify-between items-center text-lg font-bold text-brand-800 px-6 py-5 rounded-2xl bg-brand-50 border border-brand-200 hover:bg-brand-600 hover:text-white hover:border-brand-600 hover:shadow-lg hover:shadow-brand-600/30 transition-all duration-300 shadow-sm active:scale-[0.98] w-full group">
                             Informações de Manuseio
-                            <BookAlert class="w-6 h-6 text-red-600 group-hover:text-white transition-colors" />
+                            <BookAlert class="w-6 h-6 text-brand-600 group-hover:text-white transition-colors" />
                         </NuxtLink>
                     </div>
 
@@ -71,9 +71,9 @@
                         <div v-else
                             class="absolute inset-0 flex flex-col items-center justify-center bg-white rounded-3xl border border-dashed border-gray-200 p-12 text-center shadow-sm h-full max-h-[500px]">
                             <div
-                                class="bg-red-50 p-6 rounded-full mb-6 relative hover:scale-110 transition-transform duration-500 cursor-default">
-                                <div class="absolute inset-0 bg-red-100 rounded-full animate-ping opacity-20"></div>
-                                <BookMarked class="w-16 h-16 text-red-400" />
+                                class="bg-brand-50 p-6 rounded-full mb-6 relative hover:scale-110 transition-transform duration-500 cursor-default">
+                                <div class="absolute inset-0 bg-brand-100 rounded-full animate-ping opacity-20"></div>
+                                <BookMarked class="w-16 h-16 text-brand-400" />
                             </div>
                             <h3 class="text-2xl font-bold text-gray-800 mb-2">Desperte sua Criatividade</h3>
                             <p class="text-gray-500 max-w-sm text-lg leading-relaxed">Selecione uma receita ao lado para
@@ -159,10 +159,10 @@ useScrollReveal()
 }
 
 .recipe-btn:hover {
-    border-color: #fca5a5;
-    box-shadow: 0 10px 15px -3px rgba(185, 28, 28, 0.1), 0 4px 6px -2px rgba(185, 28, 28, 0.05);
-    background-color: #fef2f2;
-    color: #b91c1c;
+    border-color: rgb(var(--color-brand-300));
+    box-shadow: 0 10px 15px -3px rgb(var(--color-brand-700) / 0.1), 0 4px 6px -2px rgb(var(--color-brand-700) / 0.05);
+    background-color: rgb(var(--color-brand-50));
+    color: rgb(var(--color-brand-700));
     transform: translateY(-2px);
 }
 

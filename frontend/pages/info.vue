@@ -1,11 +1,11 @@
 <template>
-  <div class="mt-16" style="background-color: #faf4ef; overflow-x: hidden;">
+  <div class="mt-16" style="background-color: rgb(var(--color-cream)); overflow-x: hidden;">
     <section id="info" class="max-w-6xl mx-auto px-6 pt-24 scroll-mt-32">
       <!-- Título -->
       <div class="flex items-center gap-4 mb-4 reveal-element">
         <div class="flex items-center gap-4 mb-6 pt-6">
-          <h1 class="text-3xl font-extrabold text-red-700 font-montserrat tracking-tight">INFORMAÇÕES</h1>
-          <Info class="text-red-700" :stroke-width="2" :size="30" />
+          <h1 class="text-3xl font-extrabold text-brand-700 font-montserrat tracking-tight">INFORMAÇÕES</h1>
+          <Info class="text-brand-700" :stroke-width="2" :size="30" />
         </div>
       </div>
 
@@ -13,27 +13,27 @@
       <div class="info-container">
         <!-- Textos -->
         <div class="info-text reveal-element delay-100 space-y-6">
-          <p class="text-gray-700 text-lg leading-relaxed font-montserrat relative pl-6 border-l-4 border-red-700">
+          <p class="text-gray-700 text-lg leading-relaxed font-montserrat relative pl-6 border-l-4 border-brand-700">
             A soda cáustica é um produto muito corrosivo que pode causar queimaduras severas e irreversíveis
             na pele e nos olhos, irritação respiratória e é nocivo para organismos aquáticos.
           </p>
-          <p class="text-gray-700 text-lg leading-relaxed font-montserrat relative pl-6 border-l-4 border-red-700">
+          <p class="text-gray-700 text-lg leading-relaxed font-montserrat relative pl-6 border-l-4 border-brand-700">
             Além dos cuidados no manuseio, é fundamental atenção ao armazenamento. A ingestão do produto
             pode causar a morte.
           </p>
 
           <!-- Chamada de Emergência -->
           <div
-            class="mt-8 bg-red-50 border border-red-200 rounded-2xl p-6 shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow duration-300">
-            <div class="bg-red-100 p-3 rounded-full shrink-0">
-              <Phone class="w-6 h-6 text-red-700" />
+            class="mt-8 bg-brand-50 border border-brand-200 rounded-2xl p-6 shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow duration-300">
+            <div class="bg-brand-100 p-3 rounded-full shrink-0">
+              <Phone class="w-6 h-6 text-brand-700" />
             </div>
             <div>
-              <h3 class="text-lg font-bold text-red-800 mb-1 font-montserrat">Central de Emergência</h3>
+              <h3 class="text-lg font-bold text-brand-800 mb-1 font-montserrat">Central de Emergência</h3>
               <p class="text-gray-700 font-montserrat text-base">
                 Caso ocorra contato com a soda cáustica, ligue imediatamente para:
               </p>
-              <p class="text-2xl font-extrabold text-red-700 mt-2 font-montserrat tracking-wide">
+              <p class="text-2xl font-extrabold text-brand-700 mt-2 font-montserrat tracking-wide">
                 0800-118270
               </p>
             </div>
@@ -45,9 +45,9 @@
 
         <!-- Ficha de Dados de Segurança -->
         <div
-          class="flex flex-col items-center flex-1 fds-col reveal-element delay-300 bg-white p-8 rounded-3xl shadow-sm border border-gray-100/50 hover:shadow-[0_20px_40px_rgba(185,28,28,0.08)] transition-all duration-500 mt-8 md:mt-0">
-          <div class="bg-red-50 p-4 rounded-full mb-4">
-            <FileText class="w-8 h-8 text-red-600" />
+          class="flex flex-col items-center flex-1 fds-col reveal-element delay-300 bg-white p-8 rounded-3xl shadow-sm border border-gray-100/50 hover:shadow-[0_20px_40px_rgb(var(--color-brand-700)/0.08)] transition-all duration-500 mt-8 md:mt-0">
+          <div class="bg-brand-50 p-4 rounded-full mb-4">
+            <FileText class="w-8 h-8 text-brand-600" />
           </div>
           <span class="mb-2 text-center text-lg font-bold text-gray-800 font-montserrat">
             Ficha de Dados de Segurança
@@ -60,10 +60,10 @@
           <div class="w-full mb-3">
             <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 font-montserrat text-center">Soda Cáustica Líquida</p>
             <button
-              class="group relative overflow-hidden flex items-center justify-center gap-2 w-full bg-red-700 text-white px-8 py-3.5 rounded-full font-semibold font-montserrat tracking-wide transition-all duration-300 hover:bg-white border border-red-700 hover:shadow-[0_8px_30px_rgb(185,28,28,0.3)] hover:-translate-y-1"
+              class="group relative overflow-hidden flex items-center justify-center gap-2 w-full bg-brand-700 text-white px-8 py-3.5 rounded-full font-semibold font-montserrat tracking-wide transition-all duration-300 hover:bg-white border border-brand-700 hover:shadow-[0_8px_30px_rgb(185,28,28,0.3)] hover:-translate-y-1"
               @click="openPdf">
-              <span class="relative z-10 group-hover:text-red-700">VISUALIZAR FDS</span>
-              <Download class="w-5 h-5 relative z-10 group-hover:text-red-700 group-hover:animate-bounce" />
+              <span class="relative z-10 group-hover:text-brand-700">VISUALIZAR FDS</span>
+              <Download class="w-5 h-5 relative z-10 group-hover:text-brand-700 group-hover:animate-bounce" />
             </button>
           </div>
 
@@ -74,18 +74,18 @@
           <div class="w-full mt-1">
             <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 font-montserrat text-center">Soda Cáustica em Escamas</p>
             <button
-              class="group relative overflow-hidden flex items-center justify-center gap-2 w-full bg-red-700 text-white px-8 py-3.5 rounded-full font-semibold font-montserrat tracking-wide transition-all duration-300 hover:bg-white border border-red-700 hover:shadow-[0_8px_30px_rgb(185,28,28,0.3)] hover:-translate-y-1"
+              class="group relative overflow-hidden flex items-center justify-center gap-2 w-full bg-brand-700 text-white px-8 py-3.5 rounded-full font-semibold font-montserrat tracking-wide transition-all duration-300 hover:bg-white border border-brand-700 hover:shadow-[0_8px_30px_rgb(185,28,28,0.3)] hover:-translate-y-1"
               @click="openPdfEscama">
-              <span class="relative z-10 group-hover:text-red-700">VISUALIZAR FDS</span>
-              <Download class="w-5 h-5 relative z-10 group-hover:text-red-700 group-hover:animate-bounce" />
+              <span class="relative z-10 group-hover:text-brand-700">VISUALIZAR FDS</span>
+              <Download class="w-5 h-5 relative z-10 group-hover:text-brand-700 group-hover:animate-bounce" />
             </button>
           </div>
 
           <!-- Divisor Linha Casa -->
           <div class="w-full flex items-center gap-3 my-6">
-            <div class="h-px flex-1" style="background: linear-gradient(to right, transparent, rgba(33,48,103,0.15));"></div>
-            <span class="text-[11px] font-bold uppercase tracking-widest font-montserrat" style="color: #6ABFEB;">Linha Casa</span>
-            <div class="h-px flex-1" style="background: linear-gradient(to left, transparent, rgba(106,191,235,0.2));"></div>
+            <div class="h-px flex-1" style="background: linear-gradient(to right, transparent, rgb(var(--color-casa-primary)/0.15));"></div>
+            <span class="text-[11px] font-bold uppercase tracking-widest font-montserrat" style="color: rgb(var(--color-casa-blue));">Linha Casa</span>
+            <div class="h-px flex-1" style="background: linear-gradient(to left, transparent, rgb(var(--color-casa-blue)/0.2));"></div>
           </div>
 
           <!-- FDS Percarbonato -->
@@ -93,7 +93,7 @@
             <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 font-montserrat text-center">Percarbonato de Sódio</p>
             <button
               class="fds-btn-casa group relative overflow-hidden flex items-center justify-center gap-2 w-full text-white px-8 py-3.5 rounded-full font-semibold font-montserrat tracking-wide transition-all duration-300 border hover:-translate-y-1"
-              style="background: linear-gradient(135deg, #213067, #1a2855); border-color: #213067; --hover-shadow: rgba(33,48,103,0.35);"
+              style="background: linear-gradient(135deg, rgb(var(--color-casa-primary)), rgb(var(--color-casa-primary-dark))); border-color: rgb(var(--color-casa-primary)); --hover-shadow: rgb(var(--color-casa-primary)/0.35);"
               @click="openPdfPercarbonato">
               <span class="relative z-10">VISUALIZAR FDS</span>
               <Download class="w-5 h-5 relative z-10 group-hover:animate-bounce" />
@@ -108,7 +108,7 @@
             <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 font-montserrat text-center">Bicarbonato de Sódio</p>
             <button
               class="fds-btn-casa group relative overflow-hidden flex items-center justify-center gap-2 w-full text-white px-8 py-3.5 rounded-full font-semibold font-montserrat tracking-wide transition-all duration-300 border hover:-translate-y-1"
-              style="background: linear-gradient(135deg, #213067, #1a2855); border-color: #213067; --hover-shadow: rgba(33,48,103,0.35);"
+              style="background: linear-gradient(135deg, rgb(var(--color-casa-primary)), rgb(var(--color-casa-primary-dark))); border-color: rgb(var(--color-casa-primary)); --hover-shadow: rgb(var(--color-casa-primary)/0.35);"
               @click="openPdfBicarbonato">
               <span class="relative z-10">VISUALIZAR FDS</span>
               <Download class="w-5 h-5 relative z-10 group-hover:animate-bounce" />
@@ -120,9 +120,9 @@
       <!-- Seção: Manuseio -->
       <div class="flex items-center gap-4 mb-8 mt-16 reveal-element">
         <div class="flex items-center gap-4 mb-6 pt-6">
-          <h2 class="text-3xl font-extrabold text-red-700 font-montserrat tracking-tight uppercase">MANUSEIO DA SODA
+          <h2 class="text-3xl font-extrabold text-brand-700 font-montserrat tracking-tight uppercase">MANUSEIO DA SODA
             CÁUSTICA</h2>
-          <ShieldAlert class="text-red-700" :stroke-width="2" :size="isMobile ? 60 : 36" />
+          <ShieldAlert class="text-brand-700" :stroke-width="2" :size="isMobile ? 60 : 36" />
         </div>
       </div>
 
@@ -132,10 +132,10 @@
         <div
           class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] transition-all duration-500 hover:-translate-y-2 group reveal-scale delay-100">
           <div
-            class="bg-gradient-to-br from-red-50 to-orange-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-            <Beaker class="text-red-600 w-8 h-8" />
+            class="bg-gradient-to-br from-brand-50 to-orange-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+            <Beaker class="text-brand-600 w-8 h-8" />
           </div>
-          <h3 class="text-xl font-bold text-gray-800 font-montserrat mb-3 group-hover:text-red-700 transition-colors">
+          <h3 class="text-xl font-bold text-gray-800 font-montserrat mb-3 group-hover:text-brand-700 transition-colors">
             Utensílios Adequados</h3>
           <p class="text-gray-600 font-montserrat text-base leading-relaxed">
             Utilize plástico resistente ao aquecimento para a diluição. Nunca use para alimentos e lave abundantemente
@@ -147,10 +147,10 @@
         <div
           class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] transition-all duration-500 hover:-translate-y-2 group reveal-scale delay-200">
           <div
-            class="bg-gradient-to-br from-red-50 to-orange-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-            <ShieldAlert class="text-red-600 w-8 h-8" />
+            class="bg-gradient-to-br from-brand-50 to-orange-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+            <ShieldAlert class="text-brand-600 w-8 h-8" />
           </div>
-          <h3 class="text-xl font-bold text-gray-800 font-montserrat mb-3 group-hover:text-red-700 transition-colors">
+          <h3 class="text-xl font-bold text-gray-800 font-montserrat mb-3 group-hover:text-brand-700 transition-colors">
             Proteção Pessoal</h3>
           <p class="text-gray-600 font-montserrat text-base leading-relaxed">
             É obrigatório o uso de luvas (PVC ou nitrílica), máscara facial e óculos de proteção com vedação lateral.
@@ -161,10 +161,10 @@
         <div
           class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] transition-all duration-500 hover:-translate-y-2 group reveal-scale delay-300">
           <div
-            class="bg-gradient-to-br from-red-50 to-orange-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-            <Shirt class="text-red-600 w-8 h-8" />
+            class="bg-gradient-to-br from-brand-50 to-orange-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+            <Shirt class="text-brand-600 w-8 h-8" />
           </div>
-          <h3 class="text-xl font-bold text-gray-800 font-montserrat mb-3 group-hover:text-red-700 transition-colors">
+          <h3 class="text-xl font-bold text-gray-800 font-montserrat mb-3 group-hover:text-brand-700 transition-colors">
             Vestuário Correto</h3>
           <p class="text-gray-600 font-montserrat text-base leading-relaxed">
             As mangas devem ser compridas e justas para evitar o contato de qualquer respingo com a pele nua durante o
@@ -176,10 +176,10 @@
         <div
           class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] transition-all duration-500 hover:-translate-y-2 group reveal-scale delay-400 lg:col-start-1 lg:col-end-2">
           <div
-            class="bg-gradient-to-br from-red-50 to-orange-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-            <Flame class="text-red-600 w-8 h-8" />
+            class="bg-gradient-to-br from-brand-50 to-orange-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+            <Flame class="text-brand-600 w-8 h-8" />
           </div>
-          <h3 class="text-xl font-bold text-gray-800 font-montserrat mb-3 group-hover:text-red-700 transition-colors">
+          <h3 class="text-xl font-bold text-gray-800 font-montserrat mb-3 group-hover:text-brand-700 transition-colors">
             Combate a Fogo</h3>
           <p class="text-gray-600 font-montserrat text-base leading-relaxed">
             O produto não é inflamável, mas reage com água. Use CO₂ ou pó químico em caso de incêndio. Evite jato direto
@@ -191,10 +191,10 @@
         <div
           class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] transition-all duration-500 hover:-translate-y-2 group reveal-scale delay-500 lg:col-start-2 lg:col-end-4 md:col-span-2">
           <div
-            class="bg-gradient-to-br from-red-50 to-orange-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-            <Package class="text-red-600 w-8 h-8" />
+            class="bg-gradient-to-br from-brand-50 to-orange-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+            <Package class="text-brand-600 w-8 h-8" />
           </div>
-          <h3 class="text-xl font-bold text-gray-800 font-montserrat mb-3 group-hover:text-red-700 transition-colors">
+          <h3 class="text-xl font-bold text-gray-800 font-montserrat mb-3 group-hover:text-brand-700 transition-colors">
             Condições de Armazenamento</h3>
           <p class="text-gray-600 font-montserrat text-base leading-relaxed">
             Armazene num local ventilado, seco e fresco, mantendo em embalagens de polietileno fechadas e longe de
@@ -208,9 +208,9 @@
         <!-- Vídeo 1 -->
         <div class="video-block reveal-scale delay-200">
           <div
-            class="bg-white p-6 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_20px_50px_rgba(185,28,28,0.1)] transition-shadow duration-500 w-full group">
+            class="bg-white p-6 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_20px_50px_rgb(var(--color-brand-700)/0.1)] transition-shadow duration-500 w-full group">
             <h3
-              class="video-title font-montserrat font-bold text-xl text-gray-800 mb-4 text-center group-hover:text-red-700 transition-colors">
+              class="video-title font-montserrat font-bold text-xl text-gray-800 mb-4 text-center group-hover:text-brand-700 transition-colors">
               EPIs de Segurança</h3>
             <div class="video-box overflow-hidden rounded-2xl">
               <iframe class="video-frame w-full" :height="isMobile ? 180 : 250"
@@ -219,14 +219,14 @@
           </div>
         </div>
 
-        <div v-if="!isMobile" class="video-divider mx-8 my-auto h-32 w-px bg-red-200 reveal-element delay-300"></div>
+        <div v-if="!isMobile" class="video-divider mx-8 my-auto h-32 w-px bg-brand-200 reveal-element delay-300"></div>
 
         <!-- Vídeo 2 -->
         <div class="video-block reveal-scale delay-400">
           <div
-            class="bg-white p-6 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_20px_50px_rgba(185,28,28,0.1)] transition-shadow duration-500 w-full group">
+            class="bg-white p-6 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_20px_50px_rgb(var(--color-brand-700)/0.1)] transition-shadow duration-500 w-full group">
             <h3
-              class="video-title font-montserrat font-bold text-xl text-gray-800 mb-4 text-center group-hover:text-red-700 transition-colors">
+              class="video-title font-montserrat font-bold text-xl text-gray-800 mb-4 text-center group-hover:text-brand-700 transition-colors">
               Como Desentupir</h3>
             <div class="video-box overflow-hidden rounded-2xl">
               <iframe class="video-frame w-full" :height="isMobile ? 180 : 250"
@@ -292,7 +292,7 @@ useScrollReveal()
   width: 2px;
   height: auto;
   align-self: stretch;
-  background: linear-gradient(to bottom, transparent, #fca5a5, transparent);
+  background: linear-gradient(to bottom, transparent, rgb(var(--color-brand-300)), transparent);
   border-radius: 1px;
 }
 

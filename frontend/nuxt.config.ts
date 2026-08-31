@@ -7,6 +7,8 @@ export default defineNuxtConfig({
   // `nuxt generate` pré-renderiza todas as rotas em HTML.
   ssr: true,
 
+  css: ['~/assets/css/tokens.css'],
+
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/sitemap',

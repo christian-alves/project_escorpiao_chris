@@ -1,17 +1,17 @@
 <template>
-    <div class="mt-16" style="background-color: #faf4ef; overflow-x: hidden;">
+    <div class="mt-16" style="background-color: rgb(var(--color-cream)); overflow-x: hidden;">
         <section id="history" class="max-w-4xl mx-auto px-6 pt-24 pb-24 scroll-mt-32">
 
             <div class="flex items-center gap-4 mb-10 reveal-element">
                 <NuxtLink to="/#empresa"
                     class="transition-transform duration-300 hover:-translate-x-1 group bg-white p-2 rounded-full shadow-sm hover:shadow-md border border-gray-100">
                     <ChevronLeft
-                        class="w-8 h-8 text-gray-500 group-hover:text-red-700 transition-colors duration-300" />
+                        class="w-8 h-8 text-gray-500 group-hover:text-brand-700 transition-colors duration-300" />
                 </NuxtLink>
                 <div class="flex items-center gap-4">
-                    <h1 class="text-3xl font-extrabold text-red-700 font-montserrat tracking-tight uppercase">NOSSA
+                    <h1 class="text-3xl font-extrabold text-brand-700 font-montserrat tracking-tight uppercase">NOSSA
                         HISTÓRIA</h1>
-                    <BookOpenText class="text-red-700 " stroke-width="2" :size="36" />
+                    <BookOpenText class="text-brand-700 " stroke-width="2" :size="36" />
                 </div>
             </div>
 
@@ -19,13 +19,13 @@
                 class="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 p-8 md:p-12 font-montserrat relative overflow-hidden reveal-scale delay-100">
                 <!-- Decorative Blur -->
                 <div
-                    class="absolute -top-20 -right-20 w-80 h-80 bg-red-50 rounded-full blur-3xl opacity-60 pointer-events-none">
+                    class="absolute -top-20 -right-20 w-80 h-80 bg-brand-50 rounded-full blur-3xl opacity-60 pointer-events-none">
                 </div>
 
                 <div class="relative z-10 space-y-8">
                     <p class="text-gray-700 text-lg leading-relaxed reveal-element delay-200">
                         <span
-                            class="text-4xl font-extrabold text-red-700 float-left mr-3 mt-1 leading-none font-serif">A</span>
+                            class="text-4xl font-extrabold text-brand-700 float-left mr-3 mt-1 leading-none font-serif">A</span>
                         Soda Cáustica Escorpião nasceu na década de 70 na cidade de Vitória - Espírito Santo. Do pequeno
                         galpão no bairro de Jardim da Penha, expandimos e nos estabelecemos em nosso atual parque fabril
                         em
@@ -38,14 +38,14 @@
                     </p>
 
                     <p
-                        class="text-xl font-bold text-red-800 tracking-wide text-center italic reveal-element delay-300 py-4 my-8 border-y border-red-100">
+                        class="text-xl font-bold text-brand-800 tracking-wide text-center italic reveal-element delay-300 py-4 my-8 border-y border-brand-100">
                         "Não temos dúvida de que as estrelas das prateleiras são os potinhos alvirrubros da Soda
                         Escorpião!"
                     </p>
 
                     <p
-                        class="text-gray-700 text-lg leading-relaxed border-l-4 border-red-700 pl-6 reveal-element delay-400">
-                        É o nosso <strong class="text-red-700">compromisso com a qualidade</strong> que promove a alta
+                        class="text-gray-700 text-lg leading-relaxed border-l-4 border-brand-700 pl-6 reveal-element delay-400">
+                        É o nosso <strong class="text-brand-700">compromisso com a qualidade</strong> que promove a alta
                         fidelização do consumidor, nos permitindo
                         ser referência nacional. Durante quase meio século de vida, desenvolvemos um importante
                         conhecimento em nossa área de

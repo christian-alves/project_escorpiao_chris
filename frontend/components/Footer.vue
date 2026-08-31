@@ -18,22 +18,22 @@
                         </h3>
                     </NuxtLink>
                     <ul class="space-y-2 text-sm text-gray-700 font-montserrat tracking-wide">
-                        <div class="flex gap-2">
+                        <li class="flex gap-2">
                             <MapPinned size="18" />
-                            <li>Serra, Espírito Santo</li>
-                        </div>
-                        <div class="flex gap-2">
+                            <span>Serra, Espírito Santo</span>
+                        </li>
+                        <li class="flex gap-2">
                             <Mail size="18" />
-                            <li>adm@sodaescorpiao.com.br</li>
-                        </div>
-                        <div class="flex gap-2">
+                            <a href="mailto:adm@sodaescorpiao.com.br" class="hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 rounded">adm@sodaescorpiao.com.br</a>
+                        </li>
+                        <li class="flex gap-2">
                             <Phone size="18" />
-                            <li>(27) 99850-7166</li>
-                        </div>
-                        <div class="flex gap-2">
+                            <a href="tel:+5527998507166" class="hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 rounded">(27) 99850-7166</a>
+                        </li>
+                        <li class="flex gap-2">
                             <FileText size="18" />
-                            <li>CNPJ: 04.548.633/0001-90</li>
-                        </div>
+                            <span>CNPJ: 04.548.633/0001-90</span>
+                        </li>
                     </ul>
                 </div>
 
@@ -42,17 +42,17 @@
                     <h3 class="text-lg font-bold text-gray-900 mb-4 font-montserrat">REDES SOCIAIS</h3>
                     <div class="flex gap-4 items-center">
                         <a title="Instagram" href="https://www.instagram.com/sodaescorpiao/" target="_blank" rel="noopener noreferrer"
-                            aria-label="Instagram" class="text-red-700 hover:text-red-500 transition">
+                            aria-label="Instagram" class="text-brand-700 hover:text-brand-500 transition">
                             <Instagram class="w-6 h-6" />
                         </a>
                         <a title="Facebook" href="https://www.facebook.com/61559856353973/" target="_blank" rel="noopener noreferrer"
-                            aria-label="Facebook" class="text-red-700 hover:text-red-500 transition">
+                            aria-label="Facebook" class="text-brand-700 hover:text-brand-500 transition">
                             <Facebook class="w-6 h-6" />
                         </a>
 
                         <a title="TikTok" href="https://www.tiktok.com/@sodaescorpiao" target="_blank" rel="noopener noreferrer"
                             aria-label="TikTok"
-                            class="text-red-700 hover:text-red-500 transition rounded-lg p-1 border-2 border-red-700 hover:border-red-500">
+                            class="text-brand-700 hover:text-brand-500 transition rounded-lg p-1 border-2 border-brand-700 hover:border-brand-500">
                             <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
                                 fill="currentColor">
                                 <path
