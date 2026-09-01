@@ -22,6 +22,11 @@
             pode causar a morte.
           </p>
 
+          <p class="text-gray-600 text-base leading-relaxed font-montserrat">
+            As informações de segurança, manuseio e a FDS de cada produto também estão disponíveis diretamente
+            na página do produto correspondente.
+          </p>
+
           <!-- Chamada de Emergência -->
           <div
             class="mt-8 bg-brand-50 border border-brand-200 rounded-2xl p-6 shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow duration-300">
@@ -53,33 +58,32 @@
             Ficha de Dados de Segurança
           </span>
           <p class="text-center text-sm text-gray-500 mb-6 font-montserrat px-2">
-            Acesso rápido às informações detalhadas sobre segurança e propriedades da soda cáustica.
+            Acesso rápido à FDS de cada produto. Segurança e manuseio detalhados estão na página de cada produto.
           </p>
 
-          <!-- FDS Líquido -->
-          <div class="w-full mb-3">
-            <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 font-montserrat text-center">Soda Cáustica Líquida</p>
-            <button
-              class="group relative overflow-hidden flex items-center justify-center gap-2 w-full bg-brand-700 text-white px-8 py-3.5 rounded-full font-semibold font-montserrat tracking-wide transition-all duration-300 hover:bg-white border border-brand-700 hover:shadow-[0_8px_30px_rgb(185,28,28,0.3)] hover:-translate-y-1"
-              @click="openPdf">
-              <span class="relative z-10 group-hover:text-brand-700">VISUALIZAR FDS</span>
-              <Download class="w-5 h-5 relative z-10 group-hover:text-brand-700 group-hover:animate-bounce" />
-            </button>
-          </div>
-
-          <!-- Divisor -->
-          <div class="w-full h-px bg-gray-100 my-3"></div>
-
-          <!-- FDS Escamas -->
-          <div class="w-full mt-1">
-            <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 font-montserrat text-center">Soda Cáustica em Escamas</p>
-            <button
-              class="group relative overflow-hidden flex items-center justify-center gap-2 w-full bg-brand-700 text-white px-8 py-3.5 rounded-full font-semibold font-montserrat tracking-wide transition-all duration-300 hover:bg-white border border-brand-700 hover:shadow-[0_8px_30px_rgb(185,28,28,0.3)] hover:-translate-y-1"
-              @click="openPdfEscama">
-              <span class="relative z-10 group-hover:text-brand-700">VISUALIZAR FDS</span>
-              <Download class="w-5 h-5 relative z-10 group-hover:text-brand-700 group-hover:animate-bounce" />
-            </button>
-          </div>
+          <!-- Linha Soda Cáustica -->
+          <template v-for="(produto, i) in produtosSoda" :key="produto.slug">
+            <div class="w-full" :class="i > 0 ? 'mt-1' : 'mb-3'">
+              <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 font-montserrat text-center">
+                {{ produto.fds.label }}<span v-if="produto.slug === 'soda-caustica-500g'"> (500g e 1kg)</span>
+              </p>
+              <div class="flex gap-2">
+                <NuxtLink :to="produto.slug === 'soda-caustica-500g' ? '/produtos' : `/produto/${produto.slug}#seguranca`" class="flex-1">
+                  <button
+                    class="w-full border-2 border-brand-700 text-brand-700 px-4 py-3.5 rounded-full font-semibold font-montserrat tracking-wide text-xs transition-all duration-300 hover:bg-brand-50">
+                    VER PRODUTO
+                  </button>
+                </NuxtLink>
+                <button
+                  class="group relative overflow-hidden flex items-center justify-center gap-2 flex-1 bg-brand-700 text-white px-4 py-3.5 rounded-full font-semibold font-montserrat tracking-wide text-xs transition-all duration-300 hover:bg-white border border-brand-700 hover:shadow-[0_8px_30px_rgb(185,28,28,0.3)]"
+                  @click="openPdf(produto.fds.arquivo)">
+                  <span class="relative z-10 group-hover:text-brand-700">FDS</span>
+                  <Download class="w-4 h-4 relative z-10 group-hover:text-brand-700" />
+                </button>
+              </div>
+            </div>
+            <div v-if="i < produtosSoda.length - 1" class="w-full h-px bg-gray-100 my-3"></div>
+          </template>
 
           <!-- Divisor Linha Casa -->
           <div class="w-full flex items-center gap-3 my-6">
@@ -88,32 +92,29 @@
             <div class="h-px flex-1" style="background: linear-gradient(to left, transparent, rgb(var(--color-casa-blue)/0.2));"></div>
           </div>
 
-          <!-- FDS Percarbonato -->
-          <div class="w-full mb-3">
-            <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 font-montserrat text-center">Percarbonato de Sódio</p>
-            <button
-              class="fds-btn-casa group relative overflow-hidden flex items-center justify-center gap-2 w-full text-white px-8 py-3.5 rounded-full font-semibold font-montserrat tracking-wide transition-all duration-300 border hover:-translate-y-1"
-              style="background: linear-gradient(135deg, rgb(var(--color-casa-primary)), rgb(var(--color-casa-primary-dark))); border-color: rgb(var(--color-casa-primary)); --hover-shadow: rgb(var(--color-casa-primary)/0.35);"
-              @click="openPdfPercarbonato">
-              <span class="relative z-10">VISUALIZAR FDS</span>
-              <Download class="w-5 h-5 relative z-10 group-hover:animate-bounce" />
-            </button>
-          </div>
-
-          <!-- Divisor -->
-          <div class="w-full h-px bg-gray-100 my-3"></div>
-
-          <!-- FDS Bicarbonato -->
-          <div class="w-full mt-1">
-            <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 font-montserrat text-center">Bicarbonato de Sódio</p>
-            <button
-              class="fds-btn-casa group relative overflow-hidden flex items-center justify-center gap-2 w-full text-white px-8 py-3.5 rounded-full font-semibold font-montserrat tracking-wide transition-all duration-300 border hover:-translate-y-1"
-              style="background: linear-gradient(135deg, rgb(var(--color-casa-primary)), rgb(var(--color-casa-primary-dark))); border-color: rgb(var(--color-casa-primary)); --hover-shadow: rgb(var(--color-casa-primary)/0.35);"
-              @click="openPdfBicarbonato">
-              <span class="relative z-10">VISUALIZAR FDS</span>
-              <Download class="w-5 h-5 relative z-10 group-hover:animate-bounce" />
-            </button>
-          </div>
+          <!-- Linha Casa -->
+          <template v-for="(produto, i) in produtosCasa" :key="produto.slug">
+            <div class="w-full" :class="i > 0 ? 'mt-1' : 'mb-3'">
+              <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 font-montserrat text-center">{{ produto.fds.label }}</p>
+              <div class="flex gap-2">
+                <NuxtLink :to="`/produto/${produto.slug}#seguranca`" class="flex-1">
+                  <button
+                    class="w-full border-2 px-4 py-3.5 rounded-full font-semibold font-montserrat tracking-wide text-xs transition-all duration-300"
+                    style="border-color: rgb(var(--color-casa-primary)); color: rgb(var(--color-casa-primary));">
+                    VER PRODUTO
+                  </button>
+                </NuxtLink>
+                <button
+                  class="fds-btn-casa group relative overflow-hidden flex items-center justify-center gap-2 flex-1 text-white px-4 py-3.5 rounded-full font-semibold font-montserrat tracking-wide text-xs transition-all duration-300 border"
+                  style="background: linear-gradient(135deg, rgb(var(--color-casa-primary)), rgb(var(--color-casa-primary-dark))); border-color: rgb(var(--color-casa-primary)); --hover-shadow: rgb(var(--color-casa-primary)/0.35);"
+                  @click="openPdf(produto.fds.arquivo)">
+                  <span class="relative z-10">FDS</span>
+                  <Download class="w-4 h-4 relative z-10" />
+                </button>
+              </div>
+            </div>
+            <div v-if="i < produtosCasa.length - 1" class="w-full h-px bg-gray-100 my-3"></div>
+          </template>
         </div>
       </div>
 
@@ -242,6 +243,7 @@
 
 <script setup>
 import { Info, Download, ShieldAlert, CircleAlert, Phone, FileText, Beaker, Shirt, Flame, Package } from 'lucide-vue-next'
+import { produtos } from '../data/produtos'
 
 useSeoMeta({
   title: 'Informações e Manuseio da Soda Cáustica',
@@ -253,20 +255,12 @@ useSeoMeta({
   ogLocale: 'pt_BR',
 })
 
-function openPdf() {
-  window.open('/static/uploads/FDS-ESCORPIAO-2026-ATUALIZADA.pdf', '_blank')
-}
+// Únicos produtos com FDS distinta (500g e 1kg compartilham o mesmo arquivo de escamas)
+const produtosSoda = produtos.filter(p => p.categoria === 'soda' && p.slug !== 'soda-caustica-1kg')
+const produtosCasa = produtos.filter(p => p.categoria === 'limpeza')
 
-function openPdfEscama() {
-  window.open('/static/uploads/FDS-ESCORPIAO-ESCAMA-2025.pdf', '_blank')
-}
-
-function openPdfPercarbonato() {
-  window.open('/static/uploads/FDS-ESCORPIAO-PERCARBONATO-2026.pdf', '_blank')
-}
-
-function openPdfBicarbonato() {
-  window.open('/static/uploads/FDS-ESCORPIAO-BICARBONATO-2026.pdf', '_blank')
+function openPdf(arquivo) {
+  window.open(arquivo, '_blank')
 }
 
 // Detecta se é mobile (SSR-safe)
