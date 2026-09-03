@@ -4,6 +4,55 @@ import sodaliquida from '../assets/produto/novo2.png'
 import percarbonato from '../assets/produto/novo4.png'
 import bicarbonato from '../assets/produto/novo5.png'
 
+// Central de emergência: mesmo contato para todos os produtos (fonte: /info original).
+export const emergencia = {
+    telefone: '0800-118270',
+    texto: 'Caso ocorra contato com o produto, ligue imediatamente para:',
+}
+
+// Cards de manuseio: conteúdo específico do risco químico da soda cáustica
+// (corrosivo, reage com água). Reaproveitado nos 3 produtos de soda cáustica.
+// Fonte: pages/info.vue original.
+export const manuseioSoda = [
+    {
+        icon: 'Beaker',
+        titulo: 'Utensílios Adequados',
+        texto: 'Utilize plástico resistente ao aquecimento para a diluição. Nunca use para alimentos e lave abundantemente antes de reutilizar.',
+    },
+    {
+        icon: 'ShieldAlert',
+        titulo: 'Proteção Pessoal',
+        texto: 'É obrigatório o uso de luvas (PVC ou nitrílica), máscara facial e óculos de proteção com vedação lateral.',
+    },
+    {
+        icon: 'Shirt',
+        titulo: 'Vestuário Correto',
+        texto: 'As mangas devem ser compridas e justas para evitar o contato de qualquer respingo com a pele nua durante o manuseio.',
+    },
+    {
+        icon: 'Flame',
+        titulo: 'Combate a Fogo',
+        texto: 'O produto não é inflamável, mas reage com água. Use CO₂ ou pó químico em caso de incêndio. Evite jato direto de água.',
+    },
+    {
+        icon: 'Package',
+        titulo: 'Condições de Armazenamento',
+        texto: 'Armazene num local ventilado, seco e fresco, mantendo em embalagens de polietileno fechadas e longe de metais e ácidos para evitar reações.',
+    },
+]
+
+// Vídeos educativos específicos de soda cáustica. Fonte: pages/info.vue original.
+export const videosSoda = [
+    { titulo: 'EPIs de Segurança', src: 'https://www.youtube.com/embed/azPRpXrowmo' },
+    { titulo: 'Como Desentupir', src: 'https://www.youtube.com/embed/qX86BTFrDls' },
+]
+
+// Alertas de perigo específicos da soda cáustica. Fonte: pages/info.vue original.
+export const perigoSoda = [
+    'A soda cáustica é um produto muito corrosivo que pode causar queimaduras severas e irreversíveis na pele e nos olhos, irritação respiratória e é nocivo para organismos aquáticos.',
+    'Além dos cuidados no manuseio, é fundamental atenção ao armazenamento. A ingestão do produto pode causar a morte.',
+]
+
 export const produtos = [
     {
         slug: 'soda-caustica-500g',
@@ -19,6 +68,8 @@ export const produtos = [
             'Mercerização de têxteis',
             'Correção de pH em processos industriais',
         ],
+        fds: { label: 'Soda Cáustica em Escamas', arquivo: '/static/uploads/FDS-ESCORPIAO-ESCAMA-2025.pdf' },
+        seguranca: 'soda',
     },
     {
         slug: 'soda-caustica-1kg',
@@ -34,6 +85,8 @@ export const produtos = [
             'Regeneração de resinas de troca iônica',
             'Correção de pH em processos industriais de alimentos, álcool e farmácia',
         ],
+        fds: { label: 'Soda Cáustica em Escamas', arquivo: '/static/uploads/FDS-ESCORPIAO-ESCAMA-2025.pdf' },
+        seguranca: 'soda',
     },
     {
         slug: 'soda-caustica-liquida',
@@ -50,6 +103,8 @@ export const produtos = [
             'Regulação de pH em processos químicos',
         ],
         wide: true,
+        fds: { label: 'Soda Cáustica Líquida', arquivo: '/static/uploads/FDS-ESCORPIAO-2026-ATUALIZADA.pdf' },
+        seguranca: 'soda',
     },
     {
         slug: 'percarbonato-de-sodio',
@@ -65,6 +120,8 @@ export const produtos = [
             'Remoção de manchas difíceis em tecidos e estofados',
             'Limpeza de banheiros, pias e rejuntes',
         ],
+        fds: { label: 'Percarbonato de Sódio', arquivo: '/static/uploads/FDS-ESCORPIAO-PERCARBONATO-2026.pdf' },
+        seguranca: 'casa',
     },
     {
         slug: 'bicarbonato-de-sodio',
@@ -80,6 +137,8 @@ export const produtos = [
             'Higiene pessoal como esfoliante natural suave',
             'Desodorização de tapetes, sofás e calçados',
         ],
+        fds: { label: 'Bicarbonato de Sódio', arquivo: '/static/uploads/FDS-ESCORPIAO-BICARBONATO-2026.pdf' },
+        seguranca: 'casa',
     },
 ]
 
