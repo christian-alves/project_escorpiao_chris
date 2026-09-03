@@ -67,6 +67,15 @@
                             </NuxtLink>
                         </div>
                     </div>
+
+                    <div class="flex justify-center mt-12 reveal-element delay-300">
+                        <NuxtLink to="/soda-caustica">
+                            <button
+                                class="group relative overflow-hidden border border-brand-700 bg-brand-700 text-white px-10 py-3 rounded-full font-semibold tracking-wide transition-all duration-300 hover:bg-white z-10 hover:shadow-[0_8px_30px_rgb(185,28,28,0.4)] hover:-translate-y-1">
+                                <span class="relative z-10 group-hover:text-brand-700">CONHEÇA A LINHA SODA CÁUSTICA</span>
+                            </button>
+                        </NuxtLink>
+                    </div>
                 </div>
             </div>
 
