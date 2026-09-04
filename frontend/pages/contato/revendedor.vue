@@ -31,13 +31,6 @@
                             placeholder="Seu nome completo" />
                     </div>
                     <div class="md:col-span-1 reveal-element delay-200 relative z-10">
-                        <label for="email" class="block text-gray-700 font-bold mb-2 text-sm uppercase tracking-wide">E-mail
-                            *</label>
-                        <input id="email" type="email" name="email" v-model="form.email" required autocomplete="email"
-                            class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:bg-white focus:border-brand-400 focus:ring-2 focus:ring-brand-100 focus:outline-none transition-all duration-300 text-gray-800"
-                            placeholder="seu@email.com" />
-                    </div>
-                    <div class="md:col-span-1 reveal-element delay-300 relative z-10">
                         <label for="telefone" class="block text-gray-700 font-bold mb-2 text-sm uppercase tracking-wide">Telefone
                             *</label>
                         <input id="telefone" type="tel" name="telefone" v-model="form.telefone" required autocomplete="tel"
@@ -51,18 +44,42 @@
                             class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:bg-white focus:border-brand-400 focus:ring-2 focus:ring-brand-100 focus:outline-none transition-all duration-300 text-gray-800"
                             placeholder="Nome da sua empresa" />
                     </div>
-                    <div class="md:col-span-1 reveal-element delay-400 relative z-10 lg:col-span-2">
-                        <label for="cnpj" class="block text-gray-700 font-bold mb-2 text-sm uppercase tracking-wide">CNPJ *</label>
-                        <input id="cnpj" type="text" name="cnpj" v-model="form.cnpj" required inputmode="numeric"
-                            class="w-full md:w-1/2 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:bg-white focus:border-brand-400 focus:ring-2 focus:ring-brand-100 focus:outline-none transition-all duration-300 text-gray-800"
-                            placeholder="00.000.000/0000-00" />
+                    <div class="md:col-span-1 reveal-element delay-300 relative z-10">
+                        <label for="cidade" class="block text-gray-700 font-bold mb-2 text-sm uppercase tracking-wide">Cidade /
+                            Estado</label>
+                        <input id="cidade" type="text" name="cidade" v-model="form.cidade" autocomplete="address-level2"
+                            class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:bg-white focus:border-brand-400 focus:ring-2 focus:ring-brand-100 focus:outline-none transition-all duration-300 text-gray-800"
+                            placeholder="Ex: Serra - ES" />
                     </div>
-                    <div class="md:col-span-2 reveal-element delay-500 relative z-10">
-                        <label for="mensagem" class="block text-gray-700 font-bold mb-2 text-sm uppercase tracking-wide">Mensagem
-                            *</label>
-                        <textarea id="mensagem" name="mensagem" v-model="form.mensagem" required rows="4"
+                    <div class="md:col-span-2 reveal-element delay-400 relative z-10">
+                        <label for="mensagem" class="block text-gray-700 font-bold mb-2 text-sm uppercase tracking-wide">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" v-model="form.mensagem" rows="4"
                             class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:bg-white focus:border-brand-400 focus:ring-2 focus:ring-brand-100 focus:outline-none transition-all duration-300 text-gray-800 resize-none"
-                            placeholder="Como podemos ajudá-lo a se tornar um revendedor?"></textarea>
+                            placeholder="Como podemos ajudá-lo a se tornar um revendedor? (opcional)"></textarea>
+                    </div>
+
+                    <!-- Honeypot antispam: campo invisível, só bots preenchem.
+                         Nome propositalmente incomum para não colidir com o autofill do navegador
+                         (campos como "website"/"url" são frequentemente autopreenchidos mesmo fora da tela,
+                         o que faria o honeypot barrar envios legítimos silenciosamente). -->
+                    <div class="hp-field" aria-hidden="true">
+                        <label for="hp_confirmacao_revenda">Não preencher este campo</label>
+                        <input id="hp_confirmacao_revenda" type="text" name="hp_confirmacao_revenda"
+                            v-model="form.hpConfirmacaoRevenda" tabindex="-1" autocomplete="off" />
+                    </div>
+
+                    <div class="md:col-span-2 reveal-element delay-500 relative z-10">
+                        <label class="flex items-start gap-3 text-sm text-gray-600 cursor-pointer">
+                            <input type="checkbox" v-model="form.lgpd" required
+                                class="mt-1 h-4 w-4 rounded border-gray-300 text-brand-700 focus:ring-brand-400" />
+                            <span>
+                                Li e concordo com a
+                                <NuxtLink to="/politica-de-privacidade" class="text-brand-700 font-semibold hover:underline" target="_blank">
+                                    Política de Privacidade
+                                </NuxtLink>
+                                e autorizo o uso dos meus dados para contato sobre revenda, conforme a LGPD. *
+                            </span>
+                        </label>
                     </div>
 
                     <div
@@ -82,7 +99,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" :disabled="loading"
+                        <button type="submit" :disabled="loading || !form.lgpd"
                             class="w-full sm:w-auto bg-brand-700 hover:bg-brand-800 text-white font-bold py-3 px-10 rounded-full transition-all duration-300 shadow-[0_8px_20px_rgb(var(--color-brand-700)/0.25)] hover:shadow-[0_12px_25px_rgb(var(--color-brand-700)/0.4)] hover:-translate-y-1 active:translate-y-0 disabled:opacity-70 disabled:hover:-translate-y-0 disabled:hover:shadow-none min-w-[160px] flex items-center justify-center gap-3">
                             <span v-if="!loading">Enviar Mensagem</span>
                             <span v-else class="invisible">Enviar Mensagem</span>
@@ -92,18 +109,20 @@
                     </div>
 
                     <transition name="fade">
-                        <div v-if="success" role="status" aria-live="polite"
-                            class="md:col-span-2 bg-green-50 text-green-700 px-4 py-3 rounded-lg border border-green-200 font-semibold mt-4 text-center">
-                            Mensagem enviada com sucesso! Em breve entraremos em contato.
-                        </div>
-                    </transition>
-                    <transition name="fade">
                         <div v-if="error" role="alert"
                             class="md:col-span-2 bg-brand-50 text-brand-700 px-4 py-3 rounded-lg border border-brand-200 font-semibold mt-4 text-center">
                             Ocorreu um erro ao enviar, tente novamente mais tarde.
                         </div>
                     </transition>
                 </form>
+
+                <p class="text-center text-gray-500 font-montserrat text-sm mt-6 reveal-element delay-600">
+                    Prefere falar agora?
+                    <a :href="linkRevenda()" target="_blank" rel="noopener noreferrer"
+                        class="text-brand-700 font-semibold hover:underline">
+                        Fale com a gente pelo WhatsApp
+                    </a>
+                </p>
             </div>
         </section>
         <br><br><br>
@@ -114,6 +133,9 @@
 import { ref } from 'vue'
 import { ChevronLeft, LoaderCircle, HeartHandshake, CircleAlert } from 'lucide-vue-next'
 import emailjs from '@emailjs/browser'
+import { useWhatsapp } from '../../composables/useWhatsapp'
+
+const { linkRevenda } = useWhatsapp()
 
 useSeoMeta({
     title: 'Seja Revendedor',
@@ -129,21 +151,25 @@ const { isMobile } = useIsMobile()
 
 const form = ref({
     nome: '',
-    email: '',
     telefone: '',
     empresa: '',
-    cnpj: '',
-    mensagem: ''
+    cidade: '',
+    mensagem: '',
+    lgpd: false,
+    hpConfirmacaoRevenda: '', // honeypot antispam — deve permanecer vazio
 })
 
 const loading = ref(false)
-const success = ref(false)
 const error = ref(false)
 const formRef = ref(null)
 
 function sendEmail() {
+    // Honeypot preenchido = bot. Ignora silenciosamente sem alertar o remetente.
+    if (form.value.hpConfirmacaoRevenda) {
+        return
+    }
+
     loading.value = true
-    success.value = false
     error.value = false
 
     emailjs.sendForm(
@@ -153,10 +179,7 @@ function sendEmail() {
         config.public.emailjs.publicKey
     ).then(() => {
         loading.value = false
-        success.value = true
-        // Limpa o formulário
-        form.value = { nome: '', email: '', telefone: '', empresa: '', cnpj: '', mensagem: '' }
-        setTimeout(() => success.value = false, 5000)
+        navigateTo('/contato/obrigado')
     }).catch(() => {
         loading.value = false
         error.value = true
@@ -230,5 +253,14 @@ useScrollReveal()
 .fade-enter-from,
 .fade-leave-to {
     opacity: 0;
+}
+
+/* Honeypot: fora da tela, invisível para humanos, alcançável por bots */
+.hp-field {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    height: 0;
+    overflow: hidden;
 }
 </style>

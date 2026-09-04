@@ -170,12 +170,12 @@
 
                 <!-- Imagem -->
                 <div class="flex justify-center reveal-scale delay-100">
-                  <div class="relative group cursor-default select-none">
+                  <NuxtLink to="/produto/percarbonato-de-sodio" class="relative group block select-none">
                     <div class="absolute inset-0 rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-700"
                       style="background: radial-gradient(circle, rgb(var(--color-casa-blue)) 40%, rgb(var(--color-casa-primary)) 100%);"></div>
                     <img :src="percarbonato" alt="Percarbonato de Sódio" loading="lazy" decoding="async"
                       class="relative z-10 object-contain w-56 md:w-72 h-auto filter drop-shadow-[0_20px_40px_rgb(var(--color-casa-primary)/0.18)] group-hover:drop-shadow-[0_30px_50px_rgb(var(--color-casa-primary)/0.32)] transition-all duration-500 group-hover:-translate-y-4" />
-                  </div>
+                  </NuxtLink>
                 </div>
 
                 <!-- Texto + detalhes -->
@@ -197,13 +197,19 @@
                     </ul>
                   </div>
 
-                  <div class="flex flex-wrap gap-2">
+                  <div class="flex flex-wrap gap-2 mb-8">
                     <span v-for="chip in percarbonateChips" :key="chip"
                       class="text-xs font-semibold px-3 py-1.5 rounded-full font-montserrat transition-all duration-300 hover:scale-105 cursor-default"
                       style="background: rgb(var(--color-casa-blue)/0.12); color: rgb(var(--color-casa-primary)); border: 1px solid rgb(var(--color-casa-primary)/0.15);">
                       {{ chip }}
                     </span>
                   </div>
+
+                  <NuxtLink to="/produto/percarbonato-de-sodio"
+                    class="inline-flex items-center gap-2 text-sm font-bold hover:underline font-montserrat tracking-wide"
+                    style="color: rgb(var(--color-casa-primary));">
+                    Ver ficha técnica completa <ArrowRight class="w-4 h-4" />
+                  </NuxtLink>
                 </div>
               </div>
             </div>
@@ -265,23 +271,29 @@
                     </ul>
                   </div>
 
-                  <div class="flex flex-wrap gap-2">
+                  <div class="flex flex-wrap gap-2 mb-8">
                     <span v-for="chip in bicarbonateChips" :key="chip"
                       class="text-xs font-semibold px-3 py-1.5 rounded-full font-montserrat transition-all duration-300 hover:scale-105 cursor-default"
                       style="background: rgb(var(--color-casa-green)/0.1); color: rgb(var(--color-casa-green-dark)); border: 1px solid rgb(var(--color-casa-green)/0.25);">
                       {{ chip }}
                     </span>
                   </div>
+
+                  <NuxtLink to="/produto/bicarbonato-de-sodio"
+                    class="inline-flex items-center gap-2 text-sm font-bold hover:underline font-montserrat tracking-wide"
+                    style="color: rgb(var(--color-casa-green-dark));">
+                    Ver ficha técnica completa <ArrowRight class="w-4 h-4" />
+                  </NuxtLink>
                 </div>
 
                 <!-- Imagem -->
                 <div class="flex justify-center reveal-scale delay-200 lg:order-2 order-1">
-                  <div class="relative group cursor-default select-none">
+                  <NuxtLink to="/produto/bicarbonato-de-sodio" class="relative group block select-none">
                     <div class="absolute inset-0 rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-700"
                       style="background: radial-gradient(circle, rgb(var(--color-casa-green)) 40%, rgb(var(--color-casa-blue)) 100%);"></div>
                     <img :src="bicarbonato" alt="Bicarbonato de Sódio" loading="lazy" decoding="async"
                       class="relative z-10 object-contain w-56 md:w-72 h-auto filter drop-shadow-[0_20px_40px_rgb(var(--color-casa-green)/0.18)] group-hover:drop-shadow-[0_30px_50px_rgb(var(--color-casa-green)/0.32)] transition-all duration-500 group-hover:-translate-y-4" />
-                  </div>
+                  </NuxtLink>
                 </div>
               </div>
             </div>
@@ -363,7 +375,7 @@
 </template>
 
 <script setup>
-import { Sparkles, Leaf, ShieldCheck, Droplets, BadgeCheck, Check, Star, Recycle, Award } from 'lucide-vue-next'
+import { Sparkles, Leaf, ShieldCheck, Droplets, BadgeCheck, Check, Star, Recycle, Award, ArrowRight } from 'lucide-vue-next'
 
 import percarbonato from '../assets/produto/novo4.png'
 import bicarbonato from '../assets/produto/novo5.png'
