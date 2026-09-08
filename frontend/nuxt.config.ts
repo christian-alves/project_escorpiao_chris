@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+const GA_MEASUREMENT_ID = 'G-P986YWRNKW'
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-01-01',
   devtools: { enabled: false },
@@ -34,6 +36,7 @@ export default defineNuxtConfig({
         templateDealer: 'template_63ypqqb',
         templateContact: 'template_nmvkvpc',
       },
+      gaMeasurementId: GA_MEASUREMENT_ID,
     },
   },
 
@@ -53,6 +56,16 @@ export default defineNuxtConfig({
         {
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap',
+        },
+      ],
+      // Google Analytics (gtag.js) — pageviews de navegação client-side em plugins/gtag.client.ts
+      script: [
+        { src: `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`, async: true },
+        {
+          innerHTML: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_MEASUREMENT_ID}');`,
         },
       ],
     },
