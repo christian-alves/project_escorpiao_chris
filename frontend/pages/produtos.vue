@@ -157,6 +157,29 @@ useSeoMeta({
 const sodaProdutos = produtos.filter(p => p.categoria === 'soda')
 const limpezaProdutos = produtos.filter(p => p.categoria === 'limpeza')
 
+const siteConfig = useSiteConfig()
+
+useBreadcrumbJsonLd([
+    { name: 'Produtos', path: '/produtos' },
+])
+
+useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Produtos — Soda Cáustica Escorpião',
+    description:
+        'Linha completa de produtos Soda Escorpião: soda cáustica em escamas e líquida, percarbonato e bicarbonato de sódio.',
+    mainEntity: {
+        '@type': 'ItemList',
+        itemListElement: produtos.map((produto, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            url: `${siteConfig.url}/produto/${produto.slug}`,
+            name: produto.nome,
+        })),
+    },
+})
+
 useScrollReveal()
 </script>
 

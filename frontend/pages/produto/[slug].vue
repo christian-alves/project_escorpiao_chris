@@ -221,6 +221,25 @@ definePageMeta({
     validate: async (r) => produtos.some(p => p.slug === r.params.slug),
 })
 
+const siteConfig = useSiteConfig()
+
+useBreadcrumbJsonLd([
+    { name: 'Produtos', path: '/produtos' },
+    { name: produto.nome, path: `/produto/${produto.slug}` },
+])
+
+useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: produto.nome,
+    description: produto.descricao,
+    image: `${siteConfig.url}${produto.img}`,
+    sku: produto.slug,
+    category: produto.categoria === 'soda' ? 'Soda Cáustica' : 'Linha de Limpeza',
+    brand: { '@type': 'Brand', name: 'Soda Cáustica Escorpião' },
+    manufacturer: { '@type': 'Organization', name: 'Soda Cáustica Escorpião' },
+})
+
 const iconMap = { Beaker, ShieldAlert, Shirt, Flame, Package }
 
 const alertasSeguranca = produto.seguranca === 'soda' ? perigoSoda : []

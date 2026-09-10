@@ -111,6 +111,29 @@ function toggleReceita(num) {
 
 const { isMobile } = useIsMobile()
 
+const siteConfig = useSiteConfig()
+
+useBreadcrumbJsonLd([
+    { name: 'Receitas', path: '/receitas' },
+])
+
+useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Receitas de Sabão Caseiro — Soda Cáustica Escorpião',
+    description:
+        'Receitas passo a passo de sabão caseiro feitas com Soda Cáustica Escorpião: sabão em barra, sabão do Pará e sabão líquido.',
+    mainEntity: {
+        '@type': 'ItemList',
+        itemListElement: receitas.map((receita, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            url: `${siteConfig.url}/receita/${receita.slug}`,
+            name: receita.titulo,
+        })),
+    },
+})
+
 useScrollReveal()
 </script>
 

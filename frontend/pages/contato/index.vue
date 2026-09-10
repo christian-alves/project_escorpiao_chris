@@ -107,6 +107,18 @@ useSeoMeta({
   ogLocale: 'pt_BR',
 })
 
+useBreadcrumbJsonLd([
+  { name: 'Contato', path: '/contato' },
+])
+
+useJsonLd({
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contato — Soda Cáustica Escorpião',
+  description:
+    'Fale com a Soda Cáustica Escorpião. Seja um revendedor ou entre em contato com nossa equipe.',
+})
+
 useScrollReveal()
 
 </script>

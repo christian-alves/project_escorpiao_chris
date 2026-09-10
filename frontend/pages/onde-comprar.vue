@@ -97,6 +97,10 @@ const revendedoresFiltrados = computed(() => {
     })
 })
 
+useBreadcrumbJsonLd([
+    { name: 'Onde Comprar', path: '/onde-comprar' },
+])
+
 useScrollReveal()
 </script>
 

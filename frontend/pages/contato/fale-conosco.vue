@@ -172,6 +172,19 @@ function sendEmail() {
 }
 
 
+useBreadcrumbJsonLd([
+    { name: 'Contato', path: '/contato' },
+    { name: 'Fale Conosco', path: '/contato/fale-conosco' },
+])
+
+useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Fale Conosco — Soda Cáustica Escorpião',
+    description:
+        'Entre em contato com a Soda Cáustica Escorpião. Dúvidas, sugestões ou suporte — nossa equipe está pronta para ajudar.',
+})
+
 useScrollReveal()
 </script>
 
