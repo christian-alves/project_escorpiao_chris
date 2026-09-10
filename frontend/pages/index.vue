@@ -152,6 +152,7 @@
             </div>
         </section>
 
+        <TeamSection />
 
         <!-- Section Produtos -->
         <section id="produtos" class="max-w-6xl mx-auto px-6 pt-32 pb-6 scroll-mt-32">
@@ -581,6 +582,15 @@ useSeoMeta({
     ogType: 'website',
     ogLocale: 'pt_BR',
     twitterCard: 'summary_large_image',
+})
+
+const siteConfig = useSiteConfig()
+useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Soda Cáustica Escorpião',
+    url: siteConfig.url,
+    inLanguage: 'pt-BR',
 })
 import { ChevronLeft, ChevronRight, ChevronDown, BookMarked, Building, BookAlert, Instagram, PackageOpen, ShoppingCart, Sparkles, FlaskConical } from 'lucide-vue-next'
 

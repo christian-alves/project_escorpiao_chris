@@ -187,6 +187,19 @@ function sendEmail() {
 }
 
 
+useBreadcrumbJsonLd([
+    { name: 'Contato', path: '/contato' },
+    { name: 'Seja Revendedor', path: '/contato/revendedor' },
+])
+
+useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Seja Revendedor — Soda Cáustica Escorpião',
+    description:
+        'Torne-se um revendedor da Soda Cáustica Escorpião. Junte-se à nossa rede de parceiros.',
+})
+
 useScrollReveal()
 </script>
 

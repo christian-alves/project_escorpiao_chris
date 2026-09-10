@@ -86,4 +86,8 @@ useSeoMeta({
     ogTitle: 'Termos de Uso — Soda Cáustica Escorpião',
     ogLocale: 'pt_BR',
 })
+
+useBreadcrumbJsonLd([
+    { name: 'Termos de Uso', path: '/termos-de-uso' },
+])
 </script>

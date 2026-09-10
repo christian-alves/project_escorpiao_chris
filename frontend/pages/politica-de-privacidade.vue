@@ -76,4 +76,8 @@ useSeoMeta({
     ogTitle: 'Política de Privacidade — Soda Cáustica Escorpião',
     ogLocale: 'pt_BR',
 })
+
+useBreadcrumbJsonLd([
+    { name: 'Política de Privacidade', path: '/politica-de-privacidade' },
+])
 </script>

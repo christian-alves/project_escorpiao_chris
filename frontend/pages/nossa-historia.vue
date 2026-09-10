@@ -65,6 +65,8 @@
             </div>
 
         </section>
+
+        <TeamSection />
     </div>
 </template>
 
@@ -79,6 +81,19 @@ useSeoMeta({
     ogDescription: 'Meio século de tradição capixaba na fabricação de soda cáustica.',
     ogType: 'article',
     ogLocale: 'pt_BR',
+})
+
+useBreadcrumbJsonLd([
+    { name: 'Nossa História', path: '/nossa-historia' },
+])
+
+useJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: 'Nossa História — Soda Cáustica Escorpião',
+    description:
+        'A história da Soda Cáustica Escorpião: da década de 70 em Vitória - ES ao parque fabril em Jardim Limoeiro, Serra.',
+    about: { '@type': 'Organization', name: 'Soda Cáustica Escorpião' },
 })
 
 useScrollReveal()

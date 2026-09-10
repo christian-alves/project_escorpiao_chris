@@ -281,6 +281,29 @@ const diferenciais = [
   },
 ]
 
+const siteConfig = useSiteConfig()
+
+useBreadcrumbJsonLd([
+  { name: 'Soda Cáustica', path: '/soda-caustica' },
+])
+
+useJsonLd({
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Soda Cáustica — Linha Principal | Soda Cáustica Escorpião',
+  description:
+    'Linha principal da Soda Cáustica Escorpião: escamas 500g, 1kg e soda cáustica líquida, com 98% de pureza.',
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: sodaProdutos.map((produto, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `${siteConfig.url}/produto/${produto.slug}`,
+      name: produto.nome,
+    })),
+  },
+})
+
 useScrollReveal()
 </script>
 

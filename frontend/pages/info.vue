@@ -266,6 +266,10 @@ function openPdf(arquivo) {
 // Detecta se é mobile (SSR-safe)
 const { isMobile } = useIsMobile()
 
+useBreadcrumbJsonLd([
+  { name: 'Informações', path: '/info' },
+])
+
 useScrollReveal()
 </script>
 

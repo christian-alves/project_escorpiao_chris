@@ -434,6 +434,27 @@ const benefits = [
   },
 ]
 
+const siteConfig = useSiteConfig()
+
+useBreadcrumbJsonLd([
+  { name: 'Escorpião Casa', path: '/escorpiao-casa' },
+])
+
+useJsonLd({
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Escorpião Casa — Linha de produtos para o lar',
+  description:
+    'Linha Escorpião Casa: Percarbonato de Sódio e Bicarbonato de Sódio. Produtos de alta pureza, eco-friendly e seguros para limpeza e uso doméstico.',
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, url: `${siteConfig.url}/produto/percarbonato-de-sodio`, name: 'Percarbonato de Sódio' },
+      { '@type': 'ListItem', position: 2, url: `${siteConfig.url}/produto/bicarbonato-de-sodio`, name: 'Bicarbonato de Sódio' },
+    ],
+  },
+})
+
 useScrollReveal()
 </script>
 
