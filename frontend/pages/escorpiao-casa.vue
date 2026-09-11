@@ -365,12 +365,12 @@
               ENTRE EM CONTATO
             </button>
           </NuxtLink>
-          <NuxtLink to="/#ondecomprar">
+          <a :href="linkCompra()" target="_blank" rel="noopener noreferrer">
             <button class="px-10 py-4 rounded-full font-bold font-montserrat tracking-wide transition-all duration-300 hover:-translate-y-1 border-2 w-full sm:w-auto"
               style="color: rgb(var(--color-casa-primary)); border-color: rgb(var(--color-casa-primary)); background: transparent;">
               ONDE COMPRAR
             </button>
-          </NuxtLink>
+          </a>
         </div>
       </div>
     </section>
@@ -383,6 +383,9 @@ import { Sparkles, Leaf, ShieldCheck, Droplets, BadgeCheck, Check, Star, Recycle
 
 import percarbonato from '../assets/produto/novo4.png'
 import bicarbonato from '../assets/produto/novo5.png'
+import { useWhatsapp } from '../composables/useWhatsapp'
+
+const { linkCompra } = useWhatsapp()
 
 useSeoMeta({
   title: 'Escorpião Casa — Linha de produtos para o lar',

@@ -68,7 +68,7 @@ export const produtos = [
             'Mercerização de têxteis',
             'Correção de pH em processos industriais',
         ],
-        fds: { label: 'Soda Cáustica em Escamas', arquivo: '/static/uploads/FDS-ESCORPIAO-ESCAMA-2025.pdf' },
+        fds: { label: 'Soda Cáustica em Escamas', arquivo: '/static/uploads/FDS-ESCORPIAO-ESCAMA.pdf' },
         seguranca: 'soda',
     },
     {
@@ -85,7 +85,7 @@ export const produtos = [
             'Regeneração de resinas de troca iônica',
             'Correção de pH em processos industriais de alimentos, álcool e farmácia',
         ],
-        fds: { label: 'Soda Cáustica em Escamas', arquivo: '/static/uploads/FDS-ESCORPIAO-ESCAMA-2025.pdf' },
+        fds: { label: 'Soda Cáustica em Escamas', arquivo: '/static/uploads/FDS-ESCORPIAO-ESCAMA.pdf' },
         seguranca: 'soda',
     },
     {
@@ -103,7 +103,7 @@ export const produtos = [
             'Regulação de pH em processos químicos',
         ],
         wide: true,
-        fds: { label: 'Soda Cáustica Líquida', arquivo: '/static/uploads/FDS-ESCORPIAO-2026-ATUALIZADA.pdf' },
+        fds: { label: 'Soda Cáustica Líquida', arquivo: '/static/uploads/FDS-ESCORPIAO-LIQUIDA.pdf' },
         seguranca: 'soda',
     },
     {
