@@ -1,8 +1,8 @@
 <template>
-    <section id="equipe" class="max-w-6xl mx-auto px-6 pt-24 pb-6 scroll-mt-32 font-montserrat">
-        <UiSectionHeader title="NOSSA EQUIPE" :icon="Users" />
+    <section id="equipe" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-6 scroll-mt-32 font-montserrat">
+        <UiSectionHeader title="NOSSA EQUIPE" />
 
-        <p class="text-gray-700 text-lg mb-12 leading-relaxed font-montserrat max-w-4xl border-l-4 border-brand-700 pl-6 reveal-element delay-100">
+        <p class="text-gray-700 text-lg mb-12 leading-relaxed font-montserrat max-w-4xl reveal-element delay-100">
             Por trás de cada potinho alvirrubro da Soda Escorpião está uma equipe dedicada e apaixonada pelo que faz.
             Do chão de fábrica ao atendimento aos nossos parceiros em feiras e eventos por todo o Brasil, nosso time
             une experiência, cuidado e comprometimento com a qualidade que nos tornou referência nacional.
@@ -27,7 +27,6 @@
 </template>
 
 <script setup>
-import { Users } from 'lucide-vue-next'
 
 import equipeFeira1 from '../assets/nossa-equipe/equipe-feira-1.webp'
 import equipeProducao1 from '../assets/nossa-equipe/equipe-producao-1.webp'

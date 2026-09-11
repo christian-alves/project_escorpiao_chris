@@ -1,13 +1,18 @@
 <template>
-  <div class="mt-16 min-h-screen overflow-x-hidden" style="background-color: rgb(var(--color-cream));">
+  <div class="min-h-screen overflow-x-hidden" style="background-color: rgb(var(--color-cream));">
 
     <!-- ===================== HERO ===================== -->
-    <section class="relative overflow-hidden bg-gradient-to-b from-brand-dark to-brand-darker">
-      <div class="absolute -top-24 -right-24 w-[28rem] h-[28rem] rounded-full opacity-[0.07] bg-accent-glow"></div>
-      <div class="absolute -bottom-24 -left-24 w-72 h-72 rounded-full opacity-[0.07] bg-white"></div>
-      <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 36px 36px;"></div>
+    <section class="line-page-custom-hero relative overflow-hidden bg-brand-800">
 
-      <div class="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-20 md:pt-36 md:pb-32 text-center">
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 md:pt-36 md:pb-32 text-center">
+
+        <nav class="mb-8 flex justify-center items-center gap-1.5 text-sm text-brand-100 font-montserrat" aria-label="Breadcrumb">
+          <NuxtLink to="/" class="hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded">Início</NuxtLink>
+          <ChevronRight class="w-3.5 h-3.5 opacity-70" aria-hidden="true" />
+          <NuxtLink to="/produtos" class="hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded">Produtos</NuxtLink>
+          <ChevronRight class="w-3.5 h-3.5 opacity-70" aria-hidden="true" />
+          <span aria-current="page">Soda Cáustica</span>
+        </nav>
 
         <div class="flex justify-center mb-8 hero-fade-in" style="animation-delay: 0.1s;">
           <span class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full font-montserrat bg-white/10 text-white border border-white/20">
@@ -55,7 +60,7 @@
     </section>
 
     <!-- ===================== INTRO ===================== -->
-    <section class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
         <div class="reveal-element">
@@ -63,10 +68,10 @@
           <h2 class="text-3xl md:text-4xl font-extrabold text-brand-800 font-montserrat tracking-tight mb-6">
             Tradição capixaba,<br>presença nacional
           </h2>
-          <p class="text-gray-700 text-base md:text-lg leading-relaxed font-montserrat pl-6 border-l-4 border-brand-700 mb-5">
+          <p class="text-gray-700 text-base md:text-lg leading-relaxed font-montserrat mb-5">
             A soda cáustica em escamas é obtida a partir do processo de evaporação da soda cáustica líquida, da fusão do produto anidro e do processo de escamação, com concentração média de 98% de hidróxido de sódio em peso.
           </p>
-          <p class="text-gray-500 text-base leading-relaxed font-montserrat pl-6 border-l-4 border-brand-300">
+          <p class="text-gray-500 text-base leading-relaxed font-montserrat">
             Utilizada na fabricação de sabões e detergentes, no tratamento de superfícies metálicas, na mercerização de têxteis, na regeneração de resinas de troca iônica e na correção de pH em processos industriais de alimentos, álcool e farmácia.
           </p>
         </div>
@@ -109,7 +114,7 @@
 
     <!-- ===================== PRODUTOS ===================== -->
     <section class="py-12 pb-28 bg-gradient-to-b from-cream to-cream-dark">
-      <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="text-center mb-16 reveal-element">
           <p class="text-xs font-bold tracking-widest text-brand-400 uppercase font-montserrat mb-3">Conheça</p>
@@ -118,7 +123,7 @@
         </div>
 
         <div v-for="(produto, i) in sodaProdutos" :key="produto.slug" class="reveal-element mb-16 last:mb-0">
-          <div class="relative rounded-[2.5rem] overflow-hidden bg-white shadow-[0_8px_40px_rgb(var(--color-brand-700)/0.08)] border border-brand-100">
+          <div class="relative rounded overflow-hidden bg-white shadow-[0_8px_40px_rgb(var(--color-brand-700)/0.08)] border border-brand-100">
             <div class="absolute top-0 left-0 w-2/3 h-[3px] bg-gradient-to-r from-brand-700 via-accent-500 to-transparent"></div>
 
             <div class="px-8 py-12 md:px-14 md:py-14">
@@ -149,7 +154,7 @@
                 </div>
 
                 <div class="reveal-element delay-200">
-                  <p class="text-gray-700 text-base leading-relaxed font-montserrat pl-6 border-l-4 border-brand-700 mb-8">
+                  <p class="text-gray-700 text-base leading-relaxed font-montserrat mb-8">
                     {{ produto.resumo }}
                   </p>
 
@@ -188,7 +193,7 @@
       <div class="absolute -top-16 right-0 w-80 h-80 rounded-full opacity-[0.06] bg-accent-glow"></div>
       <div class="absolute bottom-0 left-0 w-60 h-60 rounded-full opacity-[0.06] bg-white"></div>
 
-      <div class="relative z-10 max-w-6xl mx-auto px-6 pt-6">
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         <div class="text-center mb-16 reveal-element">
           <p class="text-xs font-bold tracking-widest text-brand-300 uppercase font-montserrat mb-3">Diferenciais</p>
           <h2 class="text-3xl font-extrabold font-montserrat tracking-tight text-white">Por que escolher a Soda Cáustica Escorpião?</h2>
@@ -246,7 +251,7 @@
 </template>
 
 <script setup>
-import { FlaskConical, BadgeCheck, Factory, Truck, ShieldCheck, Check, ArrowRight, Award, Recycle } from 'lucide-vue-next'
+import { FlaskConical, BadgeCheck, Factory, Truck, ShieldCheck, Check, ArrowRight, Award, Recycle, ChevronRight } from 'lucide-vue-next'
 import { produtos } from '../data/produtos'
 import { useWhatsapp } from '../composables/useWhatsapp'
 
@@ -284,7 +289,7 @@ const diferenciais = [
 const siteConfig = useSiteConfig()
 
 useBreadcrumbJsonLd([
-  { name: 'Soda Cáustica', path: '/soda-caustica' },
+  { name: 'Soda Cáustica', path: '/linha/soda-caustica' },
 ])
 
 useJsonLd({

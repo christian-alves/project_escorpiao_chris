@@ -1,6 +1,6 @@
 <template>
     <div class="mt-16" style="background-color: rgb(var(--color-cream)); overflow-x: hidden;">
-        <section id="contato" class="max-w-6xl mx-auto px-6 pt-24 scroll-mt-32">
+        <section id="contato" class="max-w-6xl mx-auto px-6 pt-10 scroll-mt-32">
 
             <div class="flex items-center gap-4 mb-10 reveal-element">
                 <NuxtLink to="/contato"

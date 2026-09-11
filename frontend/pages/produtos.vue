@@ -1,174 +1,111 @@
 <template>
-    <div style="background-color: rgb(var(--color-cream)); overflow-x: hidden;">
+    <div class="bg-cream overflow-x-hidden">
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24 font-montserrat">
+            <header class="max-w-3xl reveal-element">
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">Produtos</h1>
+            </header>
 
-        <section class="max-w-6xl mx-auto px-6 pt-32 pb-6 scroll-mt-32">
-            <div class="flex items-center gap-4 reveal-element mb-8 mt-4 text-brand-700">
-                <h1 class="text-3xl font-extrabold font-montserrat tracking-tight m-0">PRODUTOS</h1>
-                <PackageOpen stroke-width="2" size="32" class="mb-1" />
-            </div>
-
-            <!-- Container Soda Cáustica -->
-            <div class="reveal-element">
-                <div
-                    class="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-white to-brand-50/50 border border-brand-200/50 shadow-[0_8px_40px_rgb(var(--color-brand-700)/0.07)] px-8 py-12 md:px-14 md:py-14">
-
-                    <div class="absolute top-0 left-0 w-2/3 h-1 bg-gradient-to-r from-brand-700 via-brand-400 to-transparent">
-                    </div>
-
-                    <div class="flex flex-col md:flex-row md:items-end gap-4 mb-4">
-                        <div class="flex items-center gap-4">
-                            <div
-                                class="bg-gradient-to-br from-brand-700 to-brand-900 rounded-2xl w-12 h-12 flex items-center justify-center shadow-md flex-shrink-0">
-                                <FlaskConical class="text-white w-5 h-5" />
-                            </div>
-                            <div>
-                                <p class="text-xs font-bold tracking-widest text-brand-400 uppercase font-montserrat mb-0.5">
-                                    Linha Principal</p>
-                                <h2 class="text-2xl font-extrabold text-gray-800 font-montserrat tracking-tight leading-tight">
-                                    Soda Cáustica</h2>
-                            </div>
+            <section class="product-line mt-16 reveal-element" aria-labelledby="soda-title">
+                <div class="line-intro grid gap-8 border-t-4 border-brand-700 pt-7 lg:grid-cols-[1.05fr_.95fr] lg:gap-16">
+                    <div>
+                        <div class="flex items-center gap-3 text-brand-700">
+                            <FlaskConical class="h-5 w-5" stroke-width="1.8" aria-hidden="true" />
+                            <p class="text-xs font-bold uppercase tracking-[.16em]">Linha principal</p>
                         </div>
-                        <p class="text-gray-500 font-montserrat text-sm md:ml-auto md:text-right max-w-xs leading-relaxed">
-                            Hidróxido de sódio com 98% de pureza, referência nacional em qualidade e agilidade.
+                        <h2 id="soda-title" class="mt-3 text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl">Soda Cáustica</h2>
+                        <p class="mt-4 max-w-2xl text-base leading-relaxed text-gray-700">
+                            Hidróxido de sódio com 98% de pureza, apresentado em escamas ou solução líquida para aplicações domésticas e industriais.
                         </p>
                     </div>
-
-                    <div class="h-px bg-gradient-to-r from-brand-300 via-brand-100 to-transparent mb-10 opacity-60"></div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-                        <div class="reveal-element delay-100 flex flex-col justify-center">
-                            <p
-                                class="text-gray-700 text-lg mb-6 leading-relaxed font-montserrat relative pl-6 border-l-4 border-brand-700">
-                                A soda cáustica em escamas é obtida a partir do processo de evaporação da soda cáustica
-                                líquida, da fusão do produto anidro e do processo de escamação. Apresenta-se na forma de
-                                escamas brancas, altamente deliquescentes, com concentração média de 98% de hidróxido de
-                                sódio em peso.
-                            </p>
-                            <p
-                                class="text-gray-700 text-lg leading-relaxed font-montserrat relative pl-6 border-l-4 border-brand-300">
-                                É utilizada na fabricação de sabões e detergentes, no tratamento de superfícies metálicas,
-                                na mercerização de têxteis, na regeneração de resinas de troca iônica e na correção de pH
-                                em processos industriais de alimentos, álcool e farmácia.
-                            </p>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-x-4 md:gap-y-8">
-                            <NuxtLink v-for="produto in sodaProdutos" :key="produto.slug" :to="`/produto/${produto.slug}`"
-                                class="flex flex-col items-center text-center reveal-scale delay-200 group relative bg-white/70 rounded-2xl p-4 border border-brand-50 hover:border-brand-200/60 hover:shadow-[0_16px_32px_rgb(var(--color-brand-700)/0.10)] hover:-translate-y-1 transition-all duration-500"
-                                :class="produto.wide ? 'sm:col-span-2 lg:col-span-1 lg:col-start-1 lg:col-end-3 lg:mx-auto lg:w-1/2' : ''">
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-br from-brand-50 to-orange-50 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 opacity-40">
-                                </div>
-                                <img :src="produto.img" :alt="produto.nome" loading="lazy" decoding="async"
-                                    class="relative z-10 product-img object-contain w-40 md:w-48 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] group-hover:drop-shadow-[0_25px_35px_rgb(var(--color-brand-700)/0.25)] transition-all duration-500 group-hover:-translate-y-2" />
-                                <p
-                                    class="relative z-10 text-base font-bold mt-4 text-gray-800 font-montserrat group-hover:text-brand-700 transition-colors">
-                                    {{ produto.nome }}</p>
-                            </NuxtLink>
-                        </div>
-                    </div>
-
-                    <div class="flex justify-center mt-12 reveal-element delay-300">
-                        <NuxtLink to="/soda-caustica">
-                            <button
-                                class="group relative overflow-hidden border border-brand-700 bg-brand-700 text-white px-10 py-3 rounded-full font-semibold tracking-wide transition-all duration-300 hover:bg-white z-10 hover:shadow-[0_8px_30px_rgb(185,28,28,0.4)] hover:-translate-y-1">
-                                <span class="relative z-10 group-hover:text-brand-700">CONHEÇA A LINHA SODA CÁUSTICA</span>
-                            </button>
+                    <div>
+                        <p class="text-sm leading-relaxed text-gray-600">
+                            Indicada para a fabricação de sabões e detergentes, tratamento de superfícies metálicas, processos têxteis, regeneração de resinas e correção de pH.
+                        </p>
+                        <NuxtLink to="/linha/soda-caustica" class="line-link mt-5">
+                            Conheça a linha <ArrowUpRight class="h-4 w-4" aria-hidden="true" />
                         </NuxtLink>
                     </div>
                 </div>
-            </div>
 
-            <!-- Linha de Limpeza -->
-            <div class="mt-20 reveal-element">
-                <div
-                    class="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-slate-50 to-accent/5 border border-accent/20 shadow-[0_8px_40px_rgb(var(--color-accent-700)/0.07)] px-8 py-12 md:px-14 md:py-14">
-
-                    <div class="absolute top-0 left-0 w-2/3 h-1 bg-gradient-to-r from-accent via-accent-glow to-transparent">
-                    </div>
-
-                    <div class="flex flex-col md:flex-row md:items-end gap-4 mb-4">
-                        <div class="flex items-center gap-4">
-                            <div class="rounded-2xl w-12 h-12 flex items-center justify-center shadow-md flex-shrink-0 bg-gradient-to-br from-accent to-accent-dark">
-                                <Sparkles class="text-white w-5 h-5" />
-                            </div>
-                            <div>
-                                <p class="text-xs font-bold tracking-widest uppercase font-montserrat mb-0.5 text-accent">Nova Linha</p>
-                                <h2 class="text-2xl font-extrabold text-gray-800 font-montserrat tracking-tight leading-tight">
-                                    Linha de Limpeza</h2>
-                            </div>
+                <div class="mt-9 grid gap-5 md:grid-cols-3">
+                    <NuxtLink v-for="produto in sodaProdutos" :key="produto.slug" :to="`/produto/${produto.slug}`" class="product-card group"
+                        :aria-label="`Ver detalhes de ${produto.nome}`">
+                        <div class="product-image bg-brand-50">
+                            <img :src="produto.img" :alt="produto.nome" loading="lazy" decoding="async" />
                         </div>
-                        <p class="text-gray-500 font-montserrat text-sm md:ml-auto md:text-right max-w-xs leading-relaxed">
+                        <div class="product-copy">
+                            <h3>{{ produto.nome }}</h3>
+                            <p>{{ produto.resumo }}</p>
+                            <span class="card-link">Ver produto <ArrowUpRight class="h-4 w-4" aria-hidden="true" /></span>
+                        </div>
+                    </NuxtLink>
+                </div>
+            </section>
+
+            <section class="product-line mt-24 reveal-element" aria-labelledby="limpeza-title">
+                <div class="line-intro grid gap-8 border-t-4 border-accent pt-7 lg:grid-cols-[1.05fr_.95fr] lg:gap-16">
+                    <div>
+                        <div class="flex items-center gap-3 text-accent">
+                            <Sparkles class="h-5 w-5" stroke-width="1.8" aria-hidden="true" />
+                            <p class="text-xs font-bold uppercase tracking-[.16em]">Nova linha</p>
+                        </div>
+                        <h2 id="limpeza-title" class="mt-3 text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl">Linha de Limpeza</h2>
+                        <p class="mt-4 max-w-2xl text-base leading-relaxed text-gray-700">
                             Produtos de alta pureza para limpeza, higienização e uso doméstico ou industrial.
                         </p>
                     </div>
-
-                    <div class="h-px mb-10 bg-gradient-to-r from-accent to-transparent opacity-20"></div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 max-w-2xl mx-auto">
-                        <NuxtLink v-for="produto in limpezaProdutos" :key="produto.slug" :to="`/produto/${produto.slug}`"
-                            class="group flex flex-col items-center text-center reveal-scale delay-300 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-[0_20px_40px_rgb(var(--color-accent-700)/0.12)] hover:-translate-y-2 transition-all duration-500">
-                            <div class="relative w-full flex justify-center mb-4">
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-br from-blue-50 to-sky-50 rounded-full scale-0 group-hover:scale-110 transition-transform duration-500 ease-out opacity-60 blur-xl">
-                                </div>
-                                <img :src="produto.img" :alt="produto.nome" loading="lazy" decoding="async"
-                                    class="relative z-10 object-contain w-44 md:w-52 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.12)] group-hover:drop-shadow-[0_20px_30px_rgb(var(--color-accent-700)/0.22)] transition-all duration-500 group-hover:-translate-y-2" />
-                            </div>
-                            <p
-                                class="text-base font-extrabold text-gray-800 font-montserrat transition-colors mb-2 group-hover:text-accent">
-                                {{ produto.nome }}</p>
-                            <p class="text-sm text-gray-500 font-montserrat leading-relaxed">
-                                {{ produto.resumo }}
-                            </p>
-                        </NuxtLink>
-                    </div>
-
-                    <div class="flex justify-center mt-12 reveal-element delay-300">
-                        <NuxtLink to="/escorpiao-casa">
-                            <button
-                                class="group relative overflow-hidden border border-accent font-semibold tracking-wide px-10 py-3 rounded-full text-white bg-gradient-to-br from-accent to-accent-dark transition-all duration-300 hover:-translate-y-1">
-                                <span class="relative z-10">CONHEÇA A LINHA ESCORPIÃO CASA</span>
-                            </button>
+                    <div>
+                        <p class="text-sm leading-relaxed text-gray-600">
+                            Opções práticas e versáteis para cuidar de roupas, superfícies e ambientes com mais eficiência.
+                        </p>
+                        <NuxtLink to="/linha/escorpiao-casa" class="line-link line-link--accent mt-5">
+                            Conheça a Escorpião Casa <ArrowUpRight class="h-4 w-4" aria-hidden="true" />
                         </NuxtLink>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <div class="h-24 bg-gradient-to-t from-white/50 to-transparent"></div>
+                <div class="mt-9 grid gap-5 md:grid-cols-2">
+                    <NuxtLink v-for="produto in limpezaProdutos" :key="produto.slug" :to="`/produto/${produto.slug}`" class="product-card group"
+                        :aria-label="`Ver detalhes de ${produto.nome}`">
+                        <div class="product-image bg-accent-50">
+                            <img :src="produto.img" :alt="produto.nome" loading="lazy" decoding="async" />
+                        </div>
+                        <div class="product-copy">
+                            <h3>{{ produto.nome }}</h3>
+                            <p>{{ produto.resumo }}</p>
+                            <span class="card-link card-link--accent">Ver produto <ArrowUpRight class="h-4 w-4" aria-hidden="true" /></span>
+                        </div>
+                    </NuxtLink>
+                </div>
+            </section>
+        </main>
     </div>
 </template>
 
 <script setup>
-import { PackageOpen, FlaskConical, Sparkles } from 'lucide-vue-next'
+import { ArrowUpRight, FlaskConical, Sparkles } from 'lucide-vue-next'
 import { produtos } from '../data/produtos'
 
 useSeoMeta({
     title: 'Produtos — Soda Cáustica Escorpião',
-    description:
-        'Conheça a linha completa de produtos Soda Escorpião: soda cáustica em escamas (500g, 1kg), soda cáustica líquida, percarbonato e bicarbonato de sódio.',
+    description: 'Conheça a linha completa de produtos Soda Escorpião: soda cáustica em escamas e líquida, percarbonato e bicarbonato de sódio.',
     ogTitle: 'Produtos Soda Escorpião',
     ogDescription: 'Soda cáustica, percarbonato e bicarbonato de sódio com qualidade e pureza garantidas.',
     ogType: 'website',
     ogLocale: 'pt_BR',
 })
 
-const sodaProdutos = produtos.filter(p => p.categoria === 'soda')
-const limpezaProdutos = produtos.filter(p => p.categoria === 'limpeza')
-
+const sodaProdutos = produtos.filter((produto) => produto.categoria === 'soda')
+const limpezaProdutos = produtos.filter((produto) => produto.categoria === 'limpeza')
 const siteConfig = useSiteConfig()
 
-useBreadcrumbJsonLd([
-    { name: 'Produtos', path: '/produtos' },
-])
+useBreadcrumbJsonLd([{ name: 'Produtos', path: '/produtos' }])
 
 useJsonLd({
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: 'Produtos — Soda Cáustica Escorpião',
-    description:
-        'Linha completa de produtos Soda Escorpião: soda cáustica em escamas e líquida, percarbonato e bicarbonato de sódio.',
+    description: 'Linha completa de produtos Soda Escorpião: soda cáustica em escamas e líquida, percarbonato e bicarbonato de sódio.',
     mainEntity: {
         '@type': 'ItemList',
         itemListElement: produtos.map((produto, index) => ({
@@ -184,39 +121,40 @@ useScrollReveal()
 </script>
 
 <style scoped>
-.reveal-element {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+.reveal-element { opacity: 0; transform: translateY(20px); transition: opacity .45s ease-out, transform .45s ease-out; }
+.reveal-element.is-visible { opacity: 1; transform: translateY(0); }
+
+.product-card {
+    display: grid;
+    min-width: 0;
+    grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    background: #fff;
+    transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
 }
 
-.reveal-element.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+.product-card:hover { border-color: rgb(var(--color-brand-300)); box-shadow: 5px 5px 0 rgb(var(--color-brand-100)); transform: translate(-2px, -2px); }
+.product-image { display: grid; min-height: 15rem; place-items: center; padding: 1.5rem; }
+.product-image img { max-height: 13rem; max-width: 100%; object-fit: contain; filter: drop-shadow(0 14px 16px rgb(0 0 0 / .14)); transition: transform .25s ease; }
+.product-card:hover .product-image img { transform: translateY(-.25rem); }
+.product-copy { display: flex; min-width: 0; flex-direction: column; justify-content: center; padding: 1.5rem; }
+.product-copy h3 { color: #111827; font-size: 1.125rem; font-weight: 800; line-height: 1.2; }
+.product-copy p { margin-top: .65rem; color: #4b5563; font-size: .875rem; line-height: 1.55; }
+.card-link, .line-link { display: inline-flex; align-items: center; gap: .45rem; color: rgb(var(--color-brand-700)); font-size: .8125rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.card-link { margin-top: 1.25rem; }
+.line-link--accent, .card-link--accent { color: rgb(var(--color-accent-700)); }
+.line-link:hover, .card-link:hover { text-decoration: underline; }
+
+@media (max-width: 640px) {
+    .product-card { grid-template-columns: 1fr; }
+    .product-image { min-height: 14rem; }
 }
 
-.reveal-scale {
-    opacity: 0;
-    transform: scale(0.9) translateY(20px);
-    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.reveal-scale.is-visible {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-}
-
-.delay-100 {
-    transition-delay: 100ms;
-}
-
-.delay-200 {
-    transition-delay: 200ms;
-}
-
-.delay-300 {
-    transition-delay: 300ms;
+@media (prefers-reduced-motion: reduce) {
+    .reveal-element { opacity: 1; transform: none; transition: none; }
+    .product-card, .product-image img { transition: none; }
+    .product-card:hover { transform: none; }
 }
 </style>

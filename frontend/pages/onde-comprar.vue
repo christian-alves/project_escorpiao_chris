@@ -1,14 +1,13 @@
 <template>
     <div style="background-color: rgb(var(--color-cream)); overflow-x: hidden;">
-        <section class="max-w-6xl mx-auto px-6 pt-32 pb-20 font-montserrat">
-            <div class="flex items-center gap-4 reveal-element">
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-20 font-montserrat">
+            <div class="reveal-element">
                 <h1 class="text-3xl font-extrabold mt-6 text-brand-700 mb-6 font-montserrat tracking-tight">ONDE COMPRAR?
                 </h1>
-                <ShoppingCart class="text-brand-700 mb-4" stroke-width="2" size="32" />
             </div>
 
             <p
-                class="text-gray-700 text-lg mb-10 leading-relaxed font-montserrat max-w-4xl border-l-4 border-brand-700 pl-6 reveal-element delay-100">
+                class="text-gray-700 text-lg mb-10 leading-relaxed font-montserrat max-w-4xl reveal-element delay-100">
                 A Soda Cáustica Escorpião, localizada em Serra - Espírito Santo, é referência nacional no fornecimento
                 de soda cáustica para distribuidores que valorizam tradição, qualidade e agilidade.
                 <br><br>
@@ -65,7 +64,6 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { ShoppingCart } from 'lucide-vue-next'
 import { revendedores, getEstados, getCidadesPorEstado } from '../data/revendedores'
 import { useWhatsapp } from '../composables/useWhatsapp'
 

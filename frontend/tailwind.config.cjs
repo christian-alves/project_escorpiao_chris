@@ -85,6 +85,14 @@ module.exports = {
 
       // Radius — shared shape language for banners, cards, pills.
       borderRadius: {
+        sm: '12px',
+        DEFAULT: '12px',
+        md: '12px',
+        lg: '12px',
+        xl: '12px',
+        '2xl': '12px',
+        '3xl': '12px',
+        full: '12px',
         card: 'var(--radius-card)',
         banner: 'var(--radius-banner)',
         pill: 'var(--radius-pill)',

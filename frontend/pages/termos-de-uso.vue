@@ -1,6 +1,6 @@
 <template>
     <div class="mt-16" style="background-color: rgb(var(--color-cream)); overflow-x: hidden;">
-        <section class="max-w-4xl mx-auto px-6 pt-24 pb-24 scroll-mt-32">
+        <section class="max-w-4xl mx-auto px-6 pt-10 pb-24 scroll-mt-32">
             <div class="flex items-center gap-4 mb-10">
                 <NuxtLink to="/"
                     class="transition-transform duration-300 hover:-translate-x-1 group bg-white p-2 rounded-full shadow-sm hover:shadow-md border border-gray-100">

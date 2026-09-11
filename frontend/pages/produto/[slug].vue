@@ -1,60 +1,43 @@
 <template>
     <div v-if="produto" style="background-color: rgb(var(--color-cream)); overflow-x: hidden;">
-        <section class="max-w-6xl mx-auto px-6 pt-32 pb-8">
-            <NuxtLink to="/produtos"
-                class="inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:text-brand-900 transition-colors mb-8">
-                <ArrowLeft class="w-4 h-4" /> Voltar para produtos
-            </NuxtLink>
-
-            <!-- Hero -->
-            <div
-                class="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-white to-brand-50/50 border border-brand-200/50 shadow-[0_8px_40px_rgb(var(--color-brand-700)/0.07)] px-8 py-12 md:px-14 md:py-14">
-                <div class="absolute top-0 left-0 w-2/3 h-1 bg-gradient-to-r from-brand-700 via-brand-400 to-transparent">
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-12">
+            <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
+                <div class="product-gallery flex min-h-[22rem] items-center justify-center overflow-hidden rounded border border-gray-100 bg-white md:min-h-[32rem]">
+                    <img :src="produto.img" :alt="produto.nome"
+                        class="max-h-72 w-auto max-w-[75%] object-contain md:max-h-96 filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.16)]" />
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                    <div class="flex justify-center">
-                        <img :src="produto.img" :alt="produto.nome"
-                            class="object-contain w-56 md:w-72 h-auto filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)]" />
-                    </div>
+                <div class="max-w-xl">
+                    <p class="text-xs font-bold tracking-widest text-brand-600 uppercase font-montserrat">
+                        {{ produto.categoria === 'soda' ? 'Linha principal' : 'Linha de limpeza' }}
+                    </p>
+                    <h2 class="mt-4 text-3xl md:text-4xl font-extrabold text-gray-900 font-montserrat tracking-tight leading-tight">
+                        {{ produto.nome }}
+                    </h2>
+                    <p class="mt-6 text-gray-700 text-lg leading-relaxed font-montserrat">
+                        {{ produto.descricao }}
+                    </p>
 
-                    <div>
-                        <p class="text-xs font-bold tracking-widest text-brand-400 uppercase font-montserrat mb-2">
-                            {{ produto.categoria === 'soda' ? 'Linha Principal' : 'Linha de Limpeza' }}
-                        </p>
-                        <h1 class="text-3xl md:text-4xl font-extrabold text-gray-800 font-montserrat tracking-tight mb-6">
-                            {{ produto.nome }}
-                        </h1>
-                        <p
-                            class="text-gray-700 text-lg mb-10 leading-relaxed font-montserrat relative pl-6 border-l-4 border-brand-700">
-                            {{ produto.resumo }}
-                        </p>
-
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <NuxtLink to="/onde-comprar">
-                                <button
-                                    class="w-full sm:w-auto group relative overflow-hidden border border-brand-700 bg-brand-700 text-white px-10 py-3 rounded-full font-semibold tracking-wide transition-all duration-300 hover:bg-white z-10 hover:shadow-[0_8px_30px_rgb(185,28,28,0.4)] hover:-translate-y-1">
-                                    <span class="relative z-10 group-hover:text-brand-700">ONDE COMPRAR</span>
-                                </button>
-                            </NuxtLink>
-                            <NuxtLink to="/contato">
-                                <button
-                                    class="w-full sm:w-auto border-2 border-brand-700 text-brand-700 px-10 py-3 rounded-full font-semibold tracking-wide transition-all duration-300 hover:bg-brand-50 hover:-translate-y-1">
-                                    FALE CONOSCO
-                                </button>
-                            </NuxtLink>
-                        </div>
+                    <div class="mt-9 flex flex-col sm:flex-row gap-3">
+                        <NuxtLink to="/onde-comprar"
+                            class="inline-flex min-h-12 items-center justify-center rounded bg-brand-700 px-7 py-3 text-sm font-bold tracking-wide text-white transition-colors hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2">
+                            ONDE COMPRAR
+                        </NuxtLink>
+                        <NuxtLink to="/contato"
+                            class="inline-flex min-h-12 items-center justify-center rounded border border-brand-700 px-7 py-3 text-sm font-bold tracking-wide text-brand-700 transition-colors hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2">
+                            FALE CONOSCO
+                        </NuxtLink>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Informações Técnicas -->
-        <section id="tecnico" class="max-w-6xl mx-auto px-6 pt-8 scroll-mt-32">
+        <section id="tecnico" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 scroll-mt-32">
             <SectionHeader title="INFORMAÇÕES TÉCNICAS" :icon="FlaskConical" />
 
             <Card class="p-8 md:p-10">
-                <p class="text-gray-700 text-lg leading-relaxed font-montserrat relative pl-6 border-l-4 border-brand-700 mb-8">
+                <p class="text-gray-700 text-lg leading-relaxed font-montserrat relative mb-8">
                     {{ produto.descricao }}
                 </p>
 
@@ -73,13 +56,13 @@
         </section>
 
         <!-- Segurança -->
-        <section id="seguranca" class="max-w-6xl mx-auto px-6 pt-16 scroll-mt-32">
+        <section id="seguranca" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 scroll-mt-32">
             <SectionHeader title="SEGURANÇA" :icon="ShieldAlert" />
 
             <div class="info-container">
                 <div class="info-text space-y-6">
                     <p v-for="(alerta, i) in alertasSeguranca" :key="i"
-                        class="text-gray-700 text-lg leading-relaxed font-montserrat relative pl-6 border-l-4 border-brand-700">
+                        class="text-gray-700 text-lg leading-relaxed font-montserrat relative">
                         {{ alerta }}
                     </p>
 
@@ -113,7 +96,7 @@
                         FDS de {{ produto.fds.label }}.
                     </p>
                     <button
-                        class="group relative overflow-hidden flex items-center justify-center gap-2 w-full bg-brand-700 text-white px-8 py-3.5 rounded-full font-semibold font-montserrat tracking-wide transition-all duration-300 hover:bg-white border border-brand-700 hover:shadow-[0_8px_30px_rgb(185,28,28,0.3)] hover:-translate-y-1"
+                        class="group relative overflow-hidden flex items-center justify-center gap-2 w-full bg-brand-700 text-white px-8 py-3.5 rounded font-semibold font-montserrat tracking-wide transition-all duration-300 hover:bg-white border border-brand-700 hover:shadow-[0_8px_30px_rgb(185,28,28,0.3)] hover:-translate-y-1"
                         @click="abrirFds">
                         <span class="relative z-10 group-hover:text-brand-700">BAIXAR FDS</span>
                         <Download class="w-5 h-5 relative z-10 group-hover:text-brand-700 group-hover:animate-bounce" />
@@ -164,7 +147,7 @@
         </section>
 
         <!-- Onde Comprar -->
-        <section id="onde-comprar" class="max-w-6xl mx-auto px-6 pt-4 pb-20 scroll-mt-32">
+        <section id="onde-comprar" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-20 scroll-mt-32">
             <SectionHeader title="ONDE COMPRAR" :icon="ShoppingCart" />
             <Card class="p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
                 <p class="text-gray-700 text-lg font-montserrat leading-relaxed max-w-xl">
@@ -174,13 +157,13 @@
                 <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
                     <NuxtLink to="/onde-comprar">
                         <button
-                            class="w-full sm:w-auto group relative overflow-hidden border border-brand-700 bg-brand-700 text-white px-10 py-3 rounded-full font-semibold tracking-wide transition-all duration-300 hover:bg-white z-10 hover:shadow-[0_8px_30px_rgb(185,28,28,0.4)] hover:-translate-y-1 whitespace-nowrap">
+                            class="w-full sm:w-auto group relative overflow-hidden border border-brand-700 bg-brand-700 text-white px-10 py-3 rounded font-semibold tracking-wide transition-all duration-300 hover:bg-white z-10 hover:shadow-[0_8px_30px_rgb(185,28,28,0.4)] hover:-translate-y-1 whitespace-nowrap">
                             <span class="relative z-10 group-hover:text-brand-700">ONDE COMPRAR</span>
                         </button>
                     </NuxtLink>
                     <a :href="linkCompra(produto.nome)" target="_blank" rel="noopener noreferrer">
                         <button
-                            class="w-full sm:w-auto border-2 border-brand-700 text-brand-700 px-10 py-3 rounded-full font-semibold tracking-wide transition-all duration-300 hover:bg-brand-50 hover:-translate-y-1 whitespace-nowrap">
+                            class="w-full sm:w-auto border-2 border-brand-700 text-brand-700 px-10 py-3 rounded font-semibold tracking-wide transition-all duration-300 hover:bg-brand-50 hover:-translate-y-1 whitespace-nowrap">
                             COMPRAR PELO WHATSAPP
                         </button>
                     </a>
@@ -193,7 +176,7 @@
 </template>
 
 <script setup>
-import { ArrowLeft, Check, FlaskConical, ShieldAlert, Phone, FileText, Download, ShoppingCart, Beaker, Shirt, Flame, Package } from 'lucide-vue-next'
+import { Check, FlaskConical, ShieldAlert, Phone, FileText, Download, ShoppingCart, Beaker, Shirt, Flame, Package } from 'lucide-vue-next'
 import { produtos, getProdutoBySlug, emergencia, manuseioSoda, videosSoda, perigoSoda } from '../../data/produtos'
 import SectionHeader from '../../components/ui/SectionHeader.vue'
 import Card from '../../components/ui/Card.vue'
@@ -268,7 +251,7 @@ const { isMobile } = useIsMobile()
     height: auto;
     align-self: stretch;
     background: linear-gradient(to bottom, transparent, rgb(var(--color-brand-300)), transparent);
-    border-radius: 1px;
+    border-radius: 12px;
 }
 
 .fds-col {

@@ -7,7 +7,7 @@
     class="fixed bottom-5 right-5 z-50"
     aria-label="Fale conosco pelo WhatsApp"
   >
-    <div class="bg-green-500 hover:bg-green-700 text-white rounded-full p-4 shadow-lg transition duration-300">
+    <div class="whatsapp-fab bg-green-500 hover:bg-green-700 text-white rounded-full p-4 shadow-lg transition duration-300">
       <!-- SVG Ícone do WhatsApp -->
       <svg
         class="w-8 h-8"
@@ -22,3 +22,9 @@
     </div>
   </a>
 </template>
+
+<style scoped>
+.whatsapp-fab {
+  border-radius: 9999px !important;
+}
+</style>

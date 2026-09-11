@@ -1,21 +1,20 @@
 <template>
-  <div class="mt-16" style="background-color: rgb(var(--color-cream)); overflow-x: hidden;">
-    <section id="contato" class="max-w-6xl mx-auto px-6 pt-24 scroll-mt-32">
+  <div style="background-color: rgb(var(--color-cream)); overflow-x: hidden;">
+    <section id="contato" class="max-w-6xl mx-auto px-6 pt-10 scroll-mt-32">
       <!-- Título -->
       <div class="flex items-center gap-4 mb-8 reveal-element">
-        <div class="flex items-center gap-4 mb-6 pt-6">
+        <div class="mb-6 pt-6">
           <h1 class="text-3xl font-extrabold text-brand-700 font-montserrat tracking-tight uppercase">CONTATO</h1>
-          <ContactRound class="text-brand-700 " stroke-width="2" size="36" />
         </div>
       </div>
 
       <!-- Texto -->
       <div class="reveal-element delay-100 mb-16">
-        <p class="text-gray-700 text-lg mb-6 leading-relaxed font-montserrat relative pl-6 border-l-4 border-brand-700">
+        <p class="text-gray-700 text-lg mb-6 leading-relaxed font-montserrat relative">
           Com sólida experiência no mercado químico, entregamos um produto de alto padrão, com logística eficiente
           e atendimento personalizado, alcançando todo o território brasileiro com rapidez e segurança.
         </p>
-        <p class="text-gray-700 text-lg mb-6 leading-relaxed font-montserrat relative pl-6 border-l-4 border-brand-700">
+        <p class="text-gray-700 text-lg mb-6 leading-relaxed font-montserrat relative">
           Nosso compromisso vai além da entrega: construímos parcerias duradouras com base na confiança, na
           excelência e no suporte contínuo, sempre prontos para atender às demandas do mercado com
           responsabilidade e eficiência.
@@ -95,7 +94,7 @@
 </template>
 
 <script setup>
-import { ContactRound, Store, MessageCircle } from 'lucide-vue-next';
+import { Store, MessageCircle } from 'lucide-vue-next';
 
 useSeoMeta({
   title: 'Contato',

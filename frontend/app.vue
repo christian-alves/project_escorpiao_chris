@@ -61,6 +61,6 @@ useHead({
 </script>
 
 <style>
-.skip-link { position: fixed; top: .75rem; left: .75rem; z-index: 11000; padding: .75rem 1rem; color: #fff; background: rgb(var(--color-brand-800)); border-radius: .5rem; transform: translateY(-200%); transition: transform .2s ease; }
+.skip-link { position: fixed; top: .75rem; left: .75rem; z-index: 11000; padding: .75rem 1rem; color: #fff; background: rgb(var(--color-brand-800)); border-radius: 12px; transform: translateY(-200%); transition: transform .2s ease; }
 .skip-link:focus { transform: translateY(0); outline: 3px solid #fff; outline-offset: 2px; }
 </style>

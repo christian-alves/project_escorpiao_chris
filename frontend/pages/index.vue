@@ -5,7 +5,7 @@
             Soda Cáustica Escorpião — fabricante de soda cáustica desde 1970, na Serra, Espírito Santo
         </h1>
 
-        <div id="inicio" name="Capa Inicial" class="relative pt-24 md:pt-28"
+        <div id="inicio" name="Capa Inicial" class="relative pt-[4.5rem] md:pt-20"
             aria-roledescription="carrossel" aria-label="Banners em destaque">
             <div class="relative overflow-hidden aspect-[1888/618] md:aspect-[1888/560] rounded-b-[1.5rem] md:rounded-b-[2.5rem]"
                 @mouseenter="pausarRotacao" @mouseleave="retomarRotacao" @focusin="pausarRotacao" @focusout="retomarRotacao">
@@ -40,27 +40,49 @@
             </div>
         </div>
 
-        <section aria-label="Números da Soda Cáustica Escorpião"
-            class="hidden md:block relative z-10 mt-6 md:mt-10 max-w-5xl mx-auto px-6 reveal-element">
-            <div
-                class="bg-white/95 backdrop-blur-md rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-brand-100/70 px-6 py-6 md:px-10 md:py-8 grid grid-cols-2 md:grid-cols-4 gap-y-6 divide-y divide-brand-50 md:divide-y-0 md:divide-x">
-                <UiStatCard value="1970" label="Ano de fundação" class="pb-4 md:pb-0" />
-                <UiStatCard value="98" suffix="%" label="Pureza da soda cáustica" class="pt-4 md:pt-0 md:pl-4 pb-4 md:pb-0" />
-                <UiStatCard value="ES" label="Sede em Serra - Espírito Santo" class="pt-4 md:pt-0 md:pl-4 pb-4 md:pb-0" />
-                <UiStatCard value="BR" label="Rede nacional de distribuidores" class="pt-4 md:pt-0 md:pl-4" />
+        <section aria-label="Números da Soda Cáustica Escorpião" class="w-full bg-brand-800 text-white reveal-element">
+            <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-white/15 px-4 sm:px-6 lg:px-8">
+                <div class="flex min-h-36 items-center gap-4 px-5 py-7 md:px-8">
+                    <CalendarDays class="h-16 w-16 shrink-0 text-brand-200" stroke-width="1.5" aria-hidden="true" />
+                    <div>
+                        <p class="text-4xl font-extrabold tracking-tight md:text-5xl">1970</p>
+                        <p class="mt-1 text-[11px] font-bold uppercase tracking-[.12em] text-brand-100">Ano de fundação</p>
+                    </div>
+                </div>
+                <div class="flex min-h-36 items-center gap-4 px-5 py-7 md:px-8">
+                    <BadgeCheck class="h-16 w-16 shrink-0 text-brand-200" stroke-width="1.5" aria-hidden="true" />
+                    <div>
+                        <p class="text-4xl font-extrabold tracking-tight md:text-5xl">98<span class="text-2xl md:text-3xl">%</span></p>
+                        <p class="mt-1 text-[11px] font-bold uppercase tracking-[.12em] text-brand-100">Pureza da soda cáustica</p>
+                    </div>
+                </div>
+                <div class="flex min-h-36 items-center gap-4 px-5 py-7 md:px-8">
+                    <MapPin class="h-16 w-16 shrink-0 text-brand-200" stroke-width="1.5" aria-hidden="true" />
+                    <div>
+                        <p class="text-4xl font-extrabold tracking-tight md:text-5xl">ES</p>
+                        <p class="mt-1 text-[11px] font-bold uppercase tracking-[.12em] text-brand-100">Sede em Serra · Espírito Santo</p>
+                    </div>
+                </div>
+                <div class="flex min-h-36 items-center gap-4 px-5 py-7 md:px-8">
+                    <Globe2 class="h-16 w-16 shrink-0 text-brand-200" stroke-width="1.5" aria-hidden="true" />
+                    <div>
+                        <p class="text-4xl font-extrabold tracking-tight md:text-5xl">BR</p>
+                        <p class="mt-1 text-[11px] font-bold uppercase tracking-[.12em] text-brand-100">Rede nacional de distribuidores</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Empresa Section -->
         <section id="empresa" class="relative">
-            <div class="max-w-6xl mx-auto px-6 pt-24 scroll-mt-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 scroll-mt-32">
                 <!-- Título -->
-                <UiSectionHeader title="EMPRESA" :icon="Building" link-to="/nossa-historia" link-label="NOSSA HISTÓRIA" />
+                <UiSectionHeader title="EMPRESA" />
 
                 <!-- Texto -->
                 <div class="reveal-element delay-100">
                     <p
-                        class="text-gray-700 text-lg mb-8 leading-relaxed font-montserrat relative pl-6 border-l-4 border-brand-700">
+                        class="text-gray-700 text-lg mb-8 leading-relaxed font-montserrat relative">
                         Desde nossa fundação em 1970, nos definimos como uma empresa responsável com nossos parceiros de
                         negócios em todo o Brasil. Dedicação, conhecimento, flexibilidade e respeito aos clientes são
                         princípios que
@@ -74,15 +96,15 @@
                     </p>
                 </div>
 
-                <!-- Grade de Imagens (Staggered) -->
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-                    <img v-for="(img, index) in empresaImages" :key="index" :src="img" alt="Imagem Empresa" loading="lazy" decoding="async"
-                        class="rounded-xl object-cover w-full h-auto icon-container3 reveal-scale shadow-md hover:shadow-xl hover:shadow-brand-900/10"
-                        :style="{ transitionDelay: `${index * 100}ms` }" />
-                </div>
+            </div>
 
-                <div class="flex justify-center mt-12 reveal-element delay-300">
-                    <UiBaseButton to="/nossa-historia">SOBRE NÓS</UiBaseButton>
+            <!-- Galeria em carrossel contínuo full bleed. -->
+            <div class="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden">
+                <div class="empresa-carousel-track flex w-max">
+                    <div v-for="(img, index) in imagensEmpresaCarrossel" :key="index" class="mr-4 shrink-0">
+                        <img :src="img" :alt="index < empresaImages.length ? 'Imagem Empresa' : ''" :aria-hidden="index >= empresaImages.length" loading="lazy" decoding="async"
+                            class="h-32 w-[48vw] rounded object-cover sm:h-44 sm:w-[32vw] md:h-52 md:w-[24vw] lg:h-60 lg:w-[18vw] xl:h-64 xl:w-[16vw]" />
+                    </div>
                 </div>
             </div>
 
@@ -100,7 +122,7 @@
 
                 <!-- Conteúdo principal -->
                 <div
-                    class="relative z-10 max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-stretch gap-8 pt-8 md:pt-4">
+                    class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-start md:items-stretch gap-8 pt-8 md:pt-4">
                     <!-- Missão -->
                     <div
                         class="flex-1 flex flex-col items-center text-center bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 reveal-element hover:-translate-y-2 transition-transform duration-500 hover:bg-white/10 hover:shadow-2xl hover:shadow-black/40">
@@ -154,346 +176,71 @@
 
         <TeamSection />
 
-        <!-- Section Produtos -->
-        <section id="produtos" class="max-w-6xl mx-auto px-6 pt-32 pb-6 scroll-mt-32">
-            <!-- Título principal da seção -->
-            <UiSectionHeader title="PRODUTOS" :icon="PackageOpen" link-to="/produtos" link-label="VER TODOS OS PRODUTOS" />
+        <!-- Produtos: cada bloco leva para a página da linha correspondente. -->
+        <section id="produtos" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-8 scroll-mt-32">
+            <UiSectionHeader title="PRODUTOS" link-to="/produtos" link-label="VER TODOS OS PRODUTOS" />
 
-            <!-- Container Soda Cáustica -->
-            <div class="reveal-element">
-                <div
-                    class="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-white to-brand-50/50 border border-brand-200/50 shadow-[0_8px_40px_rgb(var(--color-brand-700)/0.07)] px-8 py-12 md:px-14 md:py-14">
-
-                    <!-- Faixa de destaque no topo -->
-                    <div
-                        class="absolute top-0 left-0 w-2/3 h-1 bg-gradient-to-r from-brand-700 via-brand-400 to-transparent">
-                    </div>
-
-                    <!-- Header da linha -->
-                    <div class="flex flex-col md:flex-row md:items-end gap-4 mb-4">
-                        <div class="flex items-center gap-4">
-                            <div
-                                class="bg-gradient-to-br from-brand-700 to-brand-900 rounded-2xl w-12 h-12 flex items-center justify-center shadow-md flex-shrink-0">
-                                <FlaskConical class="text-white w-5 h-5" />
-                            </div>
-                            <div>
-                                <p
-                                    class="text-xs font-bold tracking-widest text-brand-400 uppercase font-montserrat mb-0.5">
-                                    Linha Principal</p>
-                                <h3
-                                    class="text-2xl font-extrabold text-gray-800 font-montserrat tracking-tight leading-tight">
-                                    Soda Cáustica</h3>
+            <div class="mt-8 space-y-8">
+                <NuxtLink to="/linha/soda-caustica" class="product-line-link group reveal-element border-t-4 border-brand-700" aria-label="Conheça a linha Soda Cáustica">
+                    <div class="grid gap-8 pt-7 lg:grid-cols-[.9fr_1.1fr] lg:gap-16">
+                        <div>
+                            <div class="flex items-center gap-3 text-brand-700"><FlaskConical class="h-5 w-5" aria-hidden="true" /><p class="text-xs font-bold uppercase tracking-[.16em]">Linha principal</p></div>
+                            <h3 class="mt-3 text-3xl font-extrabold tracking-tight text-gray-900">Soda Cáustica</h3>
+                            <p class="mt-4 max-w-xl text-base leading-relaxed text-gray-700">Hidróxido de sódio com 98% de pureza, apresentado em escamas ou solução líquida para aplicações domésticas e industriais.</p>
+                            <span class="line-cta mt-6">Conheça a linha <ArrowUpRight class="h-4 w-4" aria-hidden="true" /></span>
+                        </div>
+                        <div class="grid gap-4 sm:grid-cols-3">
+                            <div v-for="produto in sodaProdutos" :key="produto.slug" class="product-preview bg-brand-50">
+                                <img :src="produto.img" :alt="produto.nome" loading="lazy" decoding="async" />
+                                <p>{{ produto.nome }}</p>
                             </div>
                         </div>
-                        <p
-                            class="text-gray-500 font-montserrat text-sm md:ml-auto md:text-right max-w-xs leading-relaxed">
-                            Hidróxido de sódio com 98% de pureza, referência nacional em qualidade e agilidade.
-                        </p>
                     </div>
+                </NuxtLink>
 
-                    <!-- Divisor -->
-                    <div
-                        class="h-px bg-gradient-to-r from-brand-300 via-brand-100 to-transparent mb-10 opacity-60">
-                    </div>
-
-                    <!-- Grid: texto + produtos -->
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-                        <div class="reveal-element delay-100 flex flex-col justify-center">
-                            <!-- Texto descritivo -->
-                            <p
-                                class="text-gray-700 text-lg mb-6 leading-relaxed font-montserrat relative pl-6 border-l-4 border-brand-700">
-                                A soda cáustica em escamas é obtida a partir do processo de evaporação da soda cáustica
-                                líquida, da fusão do produto anidro e do processo de escamação. Apresenta-se na forma de
-                                escamas brancas, altamente deliquescentes, com concentração média de 98% de hidróxido de
-                                sódio em peso.
-                            </p>
-                            <p
-                                class="text-gray-700 text-lg leading-relaxed font-montserrat relative pl-6 border-l-4 border-brand-300">
-                                É utilizada na fabricação de sabões e detergentes, no tratamento de superfícies metálicas,
-                                na mercerização de têxteis, na regeneração de resinas de troca iônica e na correção de pH
-                                em processos industriais de alimentos, álcool e farmácia.
-                            </p>
+                <NuxtLink to="/linha/escorpiao-casa" class="product-line-link group reveal-element border-t-4 border-accent" aria-label="Conheça a linha Escorpião Casa">
+                    <div class="grid gap-8 pt-7 lg:grid-cols-[.9fr_1.1fr] lg:gap-16">
+                        <div>
+                            <div class="flex items-center gap-3 text-accent"><Sparkles class="h-5 w-5" aria-hidden="true" /><p class="text-xs font-bold uppercase tracking-[.16em]">Nova linha</p></div>
+                            <h3 class="mt-3 text-3xl font-extrabold tracking-tight text-gray-900">Linha de Limpeza</h3>
+                            <p class="mt-4 max-w-xl text-base leading-relaxed text-gray-700">Produtos de alta pureza para limpeza, higienização e uso doméstico ou industrial.</p>
+                            <span class="line-cta line-cta--accent mt-6">Conheça a Escorpião Casa <ArrowUpRight class="h-4 w-4" aria-hidden="true" /></span>
                         </div>
-
-                        <!-- Grid de produtos -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-x-4 md:gap-y-8 select-none">
-                            <!-- Produto 500g -->
-                            <NuxtLink to="/produto/soda-caustica-500g"
-                                class="flex flex-col items-center text-center reveal-scale delay-200 group relative bg-white/70 rounded-2xl p-4 border border-brand-50 hover:border-brand-200/60 hover:shadow-[0_16px_32px_rgb(var(--color-brand-700)/0.10)] hover:-translate-y-1 transition-all duration-500">
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-br from-brand-50 to-orange-50 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 opacity-40">
-                                </div>
-                                <img :src="soda500g" alt="Soda Cáustica 500g" loading="lazy" decoding="async"
-                                    class="relative z-10 product-img object-contain w-40 md:w-48 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] group-hover:drop-shadow-[0_25px_35px_rgb(var(--color-brand-700)/0.25)] transition-all duration-500 group-hover:-translate-y-2" />
-                                <p
-                                    class="relative z-10 text-base font-bold mt-4 text-gray-800 font-montserrat group-hover:text-brand-700 transition-colors">
-                                    Soda Cáustica 500g</p>
-                            </NuxtLink>
-
-                            <!-- Produto 1kg -->
-                            <NuxtLink to="/produto/soda-caustica-1kg"
-                                class="flex flex-col items-center text-center reveal-scale delay-300 group relative bg-white/70 rounded-2xl p-4 border border-brand-50 hover:border-brand-200/60 hover:shadow-[0_16px_32px_rgb(var(--color-brand-700)/0.10)] hover:-translate-y-1 transition-all duration-500">
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-br from-brand-50 to-orange-50 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 opacity-40">
-                                </div>
-                                <img :src="soda1kg" alt="Soda Cáustica 1kg" loading="lazy" decoding="async"
-                                    class="relative z-10 product-img object-contain w-40 md:w-48 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] group-hover:drop-shadow-[0_25px_35px_rgb(var(--color-brand-700)/0.25)] transition-all duration-500 group-hover:-translate-y-2" />
-                                <p
-                                    class="relative z-10 text-base font-bold mt-4 text-gray-800 font-montserrat group-hover:text-brand-700 transition-colors">
-                                    Soda Cáustica 1kg</p>
-                            </NuxtLink>
-
-                            <!-- Produto Líquida -->
-                            <NuxtLink to="/produto/soda-caustica-liquida"
-                                class="flex flex-col items-center text-center reveal-scale delay-400 group relative bg-white/70 rounded-2xl p-4 border border-brand-50 hover:border-brand-200/60 hover:shadow-[0_16px_32px_rgb(var(--color-brand-700)/0.10)] hover:-translate-y-1 transition-all duration-500 sm:col-span-2 lg:col-span-1 lg:col-start-1 lg:col-end-3 lg:mx-auto lg:w-1/2">
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-br from-brand-50 to-orange-50 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 opacity-40">
-                                </div>
-                                <img :src="sodaliquida" alt="Soda Cáustica Líquida" loading="lazy" decoding="async"
-                                    class="relative z-10 product-img object-contain w-40 md:w-48 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] group-hover:drop-shadow-[0_25px_35px_rgb(var(--color-brand-700)/0.25)] transition-all duration-500 group-hover:-translate-y-2" />
-                                <p
-                                    class="relative z-10 text-base font-bold mt-4 text-gray-800 font-montserrat group-hover:text-brand-700 transition-colors">
-                                    Soda Cáustica Líquida</p>
-                            </NuxtLink>
+                        <div class="grid gap-4 sm:grid-cols-2">
+                            <div v-for="produto in limpezaProdutos" :key="produto.slug" class="product-preview bg-accent-50">
+                                <img :src="produto.img" :alt="produto.nome" loading="lazy" decoding="async" />
+                                <p>{{ produto.nome }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Linha de Limpeza -->
-            <div class="mt-20 reveal-element">
-                <div
-                    class="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-slate-50 to-accent/5 border border-accent/20 shadow-[0_8px_40px_rgb(var(--color-accent-700)/0.07)] px-8 py-12 md:px-14 md:py-14">
-
-                    <!-- Faixa de destaque no topo -->
-                    <div
-                        class="absolute top-0 left-0 w-2/3 h-1 bg-gradient-to-r from-accent via-accent-glow to-transparent">
-                    </div>
-
-                    <!-- Header da linha -->
-                    <div class="flex flex-col md:flex-row md:items-end gap-4 mb-4">
-                        <div class="flex items-center gap-4">
-                            <div
-                                class="rounded-2xl w-12 h-12 flex items-center justify-center shadow-md flex-shrink-0 bg-gradient-to-br from-accent to-accent-dark">
-                                <Sparkles class="text-white w-5 h-5" />
-                            </div>
-                            <div>
-                                <p class="text-xs font-bold tracking-widest uppercase font-montserrat mb-0.5 text-accent">
-                                    Nova Linha</p>
-                                <h3
-                                    class="text-2xl font-extrabold text-gray-800 font-montserrat tracking-tight leading-tight">
-                                    Linha de Limpeza</h3>
-                            </div>
-                        </div>
-                        <p
-                            class="text-gray-500 font-montserrat text-sm md:ml-auto md:text-right max-w-xs leading-relaxed">
-                            Produtos de alta pureza para limpeza, higienização e uso doméstico ou industrial.
-                        </p>
-                    </div>
-
-                    <!-- Divisor -->
-                    <div class="h-px mb-10 bg-gradient-to-r from-accent to-transparent opacity-20"></div>
-
-                    <!-- Cards dos produtos -->
-                    <div
-                        class="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 max-w-2xl mx-auto select-none">
-
-                        <!-- Percarbonato de Sódio -->
-                        <NuxtLink to="/produto/percarbonato-de-sodio"
-                            class="group flex flex-col items-center text-center reveal-scale delay-300 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-[0_20px_40px_rgb(var(--color-accent-700)/0.12)] hover:-translate-y-2 transition-all duration-500">
-                            <div class="relative w-full flex justify-center mb-4">
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-br from-blue-50 to-sky-50 rounded-full scale-0 group-hover:scale-110 transition-transform duration-500 ease-out opacity-60 blur-xl">
-                                </div>
-                                <img :src="percarbonato" alt="Percarbonato de Sódio" loading="lazy" decoding="async"
-                                    class="relative z-10 object-contain w-44 md:w-52 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.12)] group-hover:drop-shadow-[0_20px_30px_rgb(var(--color-accent-700)/0.22)] transition-all duration-500 group-hover:-translate-y-2" />
-                            </div>
-                            <p
-                                class="text-base font-extrabold text-gray-800 font-montserrat transition-colors mb-2 group-hover:text-accent">
-                                Percarbonato de Sódio</p>
-                            <p class="text-sm text-gray-500 font-montserrat leading-relaxed">
-                                Agente branqueador à base de oxigênio ativo. Ideal para alvejamento de roupas e
-                                desinfecção de superfícies sem agredir o meio ambiente.
-                            </p>
-                        </NuxtLink>
-
-                        <!-- Bicarbonato de Sódio -->
-                        <NuxtLink to="/produto/bicarbonato-de-sodio"
-                            class="group flex flex-col items-center text-center reveal-scale delay-400 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-[0_20px_40px_rgb(var(--color-accent-700)/0.12)] hover:-translate-y-2 transition-all duration-500">
-                            <div class="relative w-full flex justify-center mb-4">
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-br from-blue-50 to-sky-50 rounded-full scale-0 group-hover:scale-110 transition-transform duration-500 ease-out opacity-60 blur-xl">
-                                </div>
-                                <img :src="bicarbonato" alt="Bicarbonato de Sódio" loading="lazy" decoding="async"
-                                    class="relative z-10 object-contain w-44 md:w-52 h-auto filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.12)] group-hover:drop-shadow-[0_20px_30px_rgb(var(--color-accent-700)/0.22)] transition-all duration-500 group-hover:-translate-y-2" />
-                            </div>
-                            <p
-                                class="text-base font-extrabold text-gray-800 font-montserrat transition-colors mb-2 group-hover:text-accent">
-                                Bicarbonato de Sódio</p>
-                            <p class="text-sm text-gray-500 font-montserrat leading-relaxed">
-                                Produto multiuso com propriedades limpantes e desodorizantes. Amplamente usado na
-                                limpeza doméstica, culinária e higiene pessoal.
-                            </p>
-                        </NuxtLink>
-                    </div>
-
-                    <!-- CTA para a página da Linha Casa -->
-                    <div class="flex justify-center mt-12 reveal-element delay-300">
-                        <UiBaseButton to="/escorpiao-casa" variant="accent">CONHEÇA A LINHA ESCORPIÃO CASA</UiBaseButton>
-                    </div>
-                </div>
+                </NuxtLink>
             </div>
         </section>
 
-        <!-- Section Receitas -->
-        <section id="receitas"
-            class="max-w-6xl mx-auto px-6 py-20 scroll-mt-32 font-montserrat relative before:absolute before:inset-0 before:bg-white/40 before:rounded-[3rem] before:-z-10 shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-brand-50 mx-4 md:mx-auto mt-16 mb-16">
-            <UiSectionHeader title="RECEITAS" :icon="BookMarked" link-to="/receitas" link-label="VER TODAS AS RECEITAS" />
-
-            <div class="flex flex-col md:flex-row gap-8 items-stretch mt-4">
-                <!-- Coluna de BOTÕES -->
-                <div class="flex flex-col w-full md:w-2/5 space-y-4">
-
-                    <!-- Receita Líquida (Novidade) -->
-                    <div class="relative reveal-left delay-100">
-                        <UiBadge class="absolute -top-3 left-7 z-10 animate-pulse-soft">
-                            <Sparkles :size="12" stroke-width="2.5" aria-hidden="true" />
-                            Novidade
-                        </UiBadge>
-                        <button @click="toggleReceita(4)" class="recipe-btn w-full"
-                            :class="{ 'active bg-brand-50 border-brand-400 text-brand-700': receitaAberta === 4 }">
-                            <span class="recipe-btn-text">Receita Sabão Líquido</span>
-                            <div class="recipe-btn-icon-wrapper"
-                                :class="{ 'bg-brand-600 text-white shadow-md': receitaAberta === 4, 'bg-gray-100 text-gray-400': receitaAberta !== 4 }">
-                                <ChevronRight v-if="!isMobile" class="w-5 h-5 transition-transform duration-300"
-                                    :class="{ 'rotate-90': receitaAberta === 4 }" />
-                                <ChevronDown v-else class="w-5 h-5 transition-transform duration-300"
-                                    :class="{ 'rotate-180': receitaAberta === 4 }" />
-                            </div>
-                        </button>
-                        <transition name="expand">
-                            <div v-if="receitaAberta === 4 && isMobile" class="recipe-content-mobile">
-                                <ReceitaDetalhe :tipo="4" :videoReceitas="videoReceitas" />
-                            </div>
-                        </transition>
+        <!-- Receitas: mesmos cards da página de receitas. -->
+        <section id="receitas" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 scroll-mt-32 font-montserrat">
+            <UiSectionHeader title="RECEITAS" link-to="/receitas" link-label="VER TODAS AS RECEITAS" />
+            <div class="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+                <NuxtLink v-for="receita in receitas" :key="receita.slug" :to="`/receita/${receita.slug}`" class="recipe-card group flex h-full flex-col reveal-element focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-4" :aria-label="`Ver receita: ${receita.titulo}`">
+                    <div class="relative aspect-[4/3] overflow-hidden bg-gray-200">
+                        <img :src="receita.imagem" :alt="receita.alt" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                        <span v-if="receita.novidade" class="absolute left-3 top-3 bg-brand-700 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[.12em] text-white">Novidade</span>
                     </div>
-
-                    <!-- Botão Receita 1 -->
-                    <div class="reveal-left delay-200">
-                        <button @click="toggleReceita(1)" class="recipe-btn w-full"
-                            :class="{ 'active bg-brand-50 border-brand-400 text-brand-700': receitaAberta === 1 }">
-                            <span class="recipe-btn-text">Receita Sabão em Barra</span>
-                            <div class="recipe-btn-icon-wrapper"
-                                :class="{ 'bg-brand-600 text-white shadow-md': receitaAberta === 1, 'bg-gray-100 text-gray-400': receitaAberta !== 1 }">
-                                <ChevronRight v-if="!isMobile" class="w-5 h-5 transition-transform duration-300"
-                                    :class="{ 'rotate-90': receitaAberta === 1 }" />
-                                <ChevronDown v-else class="w-5 h-5 transition-transform duration-300"
-                                    :class="{ 'rotate-180': receitaAberta === 1 }" />
-                            </div>
-                        </button>
-                        <transition name="expand">
-                            <div v-if="receitaAberta === 1 && isMobile" class="recipe-content-mobile">
-                                <ReceitaDetalhe :tipo="1" :videoReceitas="videoReceitas" />
-                            </div>
-                        </transition>
+                    <div class="flex min-h-32 flex-1 flex-col justify-between border border-t-0 border-gray-200 bg-white p-5 transition-colors duration-200 group-hover:border-brand-300">
+                        <div><p class="text-[11px] font-bold uppercase tracking-[.14em] text-brand-700">Passo a passo</p><h3 class="mt-2 text-xl font-bold leading-tight text-gray-900">{{ receita.titulo }}</h3></div>
+                        <span class="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand-700">Ver receita <ArrowUpRight class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" /></span>
                     </div>
-
-                    <!-- Botão Receita 2 -->
-                    <div class="reveal-left delay-300">
-                        <button @click="toggleReceita(2)" class="recipe-btn w-full"
-                            :class="{ 'active bg-brand-50 border-brand-400 text-brand-700': receitaAberta === 2 }">
-                            <span class="recipe-btn-text">Receita Sabão do Pará</span>
-                            <div class="recipe-btn-icon-wrapper"
-                                :class="{ 'bg-brand-600 text-white shadow-md': receitaAberta === 2, 'bg-gray-100 text-gray-400': receitaAberta !== 2 }">
-                                <ChevronRight v-if="!isMobile" class="w-5 h-5 transition-transform duration-300"
-                                    :class="{ 'rotate-90': receitaAberta === 2 }" />
-                                <ChevronDown v-else class="w-5 h-5 transition-transform duration-300"
-                                    :class="{ 'rotate-180': receitaAberta === 2 }" />
-                            </div>
-                        </button>
-                        <transition name="expand">
-                            <div v-if="receitaAberta === 2 && isMobile" class="recipe-content-mobile">
-                                <ReceitaDetalhe :tipo="2" :videoReceitas="videoReceitas" />
-                            </div>
-                        </transition>
-                    </div>
-
-                    <!-- Botão Vídeos -->
-                    <div class="reveal-left delay-400">
-                        <button @click="toggleReceita(3)" class="recipe-btn w-full"
-                            :class="{ 'active bg-brand-50 border-brand-400 text-brand-700': receitaAberta === 3 }">
-                            <span class="flex items-center gap-2 recipe-btn-text">
-                                Vídeos de Sabão
-                                <Instagram class="w-5 h-5 text-pink-600 ml-1" />
-                            </span>
-                            <div class="recipe-btn-icon-wrapper"
-                                :class="{ 'bg-brand-600 text-white shadow-md': receitaAberta === 3, 'bg-gray-100 text-gray-400': receitaAberta !== 3 }">
-                                <ChevronRight v-if="!isMobile" class="w-5 h-5 transition-transform duration-300"
-                                    :class="{ 'rotate-90': receitaAberta === 3 }" />
-                                <ChevronDown v-else class="w-5 h-5 transition-transform duration-300"
-                                    :class="{ 'rotate-180': receitaAberta === 3 }" />
-                            </div>
-                        </button>
-                        <transition name="expand">
-                            <div v-if="receitaAberta === 3 && isMobile" class="recipe-content-mobile">
-                                <ReceitaDetalhe :tipo="3" :videoReceitas="videoReceitas" />
-                            </div>
-                        </transition>
-                    </div>
-
-                    <!-- Botão Info -->
-                    <div class="reveal-left delay-500 mt-6 !mt-8">
-                        <NuxtLink to="/info"
-                            class="flex justify-between items-center text-lg font-bold text-brand-800 px-6 py-5 rounded-2xl bg-brand-50 border border-brand-200 hover:bg-brand-600 hover:text-white hover:border-brand-600 hover:shadow-lg hover:shadow-brand-600/30 transition-all duration-300 shadow-sm active:scale-[0.98] w-full group">
-                            Informações de Manuseio
-                            <BookAlert class="w-6 h-6 text-brand-600 group-hover:text-white transition-colors" />
-                        </NuxtLink>
-                    </div>
-
-                    <!-- MOBILE PLACEHOLDER -->
-                    <transition name="fade">
-                        <div v-if="isMobile && receitaAberta === null"
-                            class="flex flex-col items-center justify-center bg-white/60 backdrop-blur-sm border rounded-3xl shadow-sm p-8 text-center text-gray-500 space-y-4 mb-4 md:hidden mt-4">
-                            <div class="bg-gray-100 p-4 rounded-full">
-                                <BookMarked class="w-10 h-10 opacity-60 text-gray-500" />
-                            </div>
-                            <h3 class="text-lg font-bold text-gray-700">Explore Nossas Receitas</h3>
-                            <p class="text-sm">Toque em uma opção acima para revelar o passo a passo completo e fazer o
-                                melhor sabão caseiro.</p>
-                        </div>
-                    </transition>
-                </div>
-
-                <!-- COLUNA DIREITA (DESKTOP) -->
-                <div class="flex-1 hidden md:block relative h-full min-h-[500px] reveal-element delay-300">
-                    <transition name="slide-fade" mode="out-in">
-                        <div v-if="receitaAberta !== null" :key="receitaAberta"
-                            class="bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-gray-100 p-8 h-full">
-                            <ReceitaDetalhe :tipo="receitaAberta" :videoReceitas="videoReceitas" />
-                        </div>
-                        <div v-else
-                            class="absolute inset-0 flex flex-col items-center justify-center bg-white rounded-3xl border border-dashed border-gray-200 p-12 text-center shadow-sm h-full max-h-[500px]">
-                            <div
-                                class="bg-brand-50 p-6 rounded-full mb-6 relative hover:scale-110 transition-transform duration-500 cursor-default">
-                                <div class="absolute inset-0 bg-brand-100 rounded-full animate-ping opacity-20"></div>
-                                <BookMarked class="w-16 h-16 text-brand-400" />
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Desperte sua Criatividade</h3>
-                            <p class="text-gray-500 max-w-sm text-lg leading-relaxed">Selecione uma receita ao lado para
-                                descobrir o passo a passo de como fabricar em casa sabões incríveis.</p>
-                        </div>
-                    </transition>
-                </div>
+                </NuxtLink>
             </div>
         </section>
 
 
         <!-- Section Onde Comprar -->
-        <section id="ondecomprar" class="max-w-6xl mx-auto px-6 py-20 scroll-mt-32 font-montserrat">
-            <UiSectionHeader title="ONDE COMPRAR?" :icon="ShoppingCart" link-to="/onde-comprar" link-label="VER PÁGINA COMPLETA" />
+        <section id="ondecomprar" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 scroll-mt-32 font-montserrat">
+            <UiSectionHeader title="ONDE COMPRAR?" />
 
             <p
-                class="text-gray-700 text-lg mb-12 leading-relaxed font-montserrat max-w-4xl border-l-4 border-brand-700 pl-6 reveal-element delay-100">
+                class="text-gray-700 text-lg mb-12 leading-relaxed font-montserrat max-w-4xl reveal-element delay-100">
                 A Soda Cáustica Escorpião, localizada em Serra - Espírito Santo, é referência nacional no fornecimento
                 de soda cáustica para distribuidores que valorizam tradição, qualidade e agilidade.
                 <br><br>
@@ -501,64 +248,11 @@
             </p>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-10 mb-8">
-                <figure class="flex flex-col items-center reveal-scale delay-200 group">
-                    <div
-                        class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100 group-hover:shadow-[0_20px_40px_rgb(var(--color-brand-700)/0.08)] group-hover:-translate-y-3 transition-all duration-500 w-full flex justify-center h-[200px] mb-4 relative overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        </div>
-                        <img :src="ondeComprarImages[0]" alt="Mercados" loading="lazy" decoding="async"
-                            class="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500 self-center z-10" />
+                <figure v-for="canal in canaisCompra" :key="canal.nome" class="flex flex-col items-center reveal-scale group">
+                    <div class="flex h-[200px] w-full items-center justify-center rounded border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:border-brand-200 group-hover:shadow-[0_16px_32px_rgb(var(--color-brand-700)/0.08)]">
+                        <component :is="canal.icone" class="h-14 w-14 text-brand-700 transition-transform duration-300 group-hover:scale-105" stroke-width="1.5" aria-hidden="true" />
                     </div>
-                    <figcaption
-                        class="text-center text-gray-800 font-bold text-lg group-hover:text-brand-700 transition-colors">
-                        Mercados
-                    </figcaption>
-                </figure>
-
-                <figure class="flex flex-col items-center reveal-scale delay-300 group">
-                    <div
-                        class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100 group-hover:shadow-[0_20px_40px_rgb(var(--color-brand-700)/0.08)] group-hover:-translate-y-3 transition-all duration-500 w-full flex justify-center h-[200px] mb-4 relative overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        </div>
-                        <img :src="ondeComprarImages[1]" alt="Agropecuárias" loading="lazy" decoding="async"
-                            class="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500 self-center z-10" />
-                    </div>
-                    <figcaption
-                        class="text-center text-gray-800 font-bold text-lg group-hover:text-brand-700 transition-colors">
-                        Agropecuárias
-                    </figcaption>
-                </figure>
-
-                <figure class="flex flex-col items-center reveal-scale delay-400 group">
-                    <div
-                        class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100 group-hover:shadow-[0_20px_40px_rgb(var(--color-brand-700)/0.08)] group-hover:-translate-y-3 transition-all duration-500 w-full flex justify-center h-[200px] mb-4 relative overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        </div>
-                        <img :src="ondeComprarImages[2]" alt="Lojas de produtos de limpeza" loading="lazy" decoding="async"
-                            class="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500 self-center z-10" />
-                    </div>
-                    <figcaption
-                        class="text-center text-gray-800 font-bold text-lg leading-tight group-hover:text-brand-700 transition-colors">
-                        Produtos de<br>Limpeza
-                    </figcaption>
-                </figure>
-
-                <figure class="flex flex-col items-center reveal-scale delay-500 group">
-                    <div
-                        class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100 group-hover:shadow-[0_20px_40px_rgb(var(--color-brand-700)/0.08)] group-hover:-translate-y-3 transition-all duration-500 w-full flex justify-center h-[200px] mb-4 relative overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        </div>
-                        <img :src="ondeComprarImages[3]" alt="Loja de material de construção" loading="lazy" decoding="async"
-                            class="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500 self-center z-10" />
-                    </div>
-                    <figcaption
-                        class="text-center text-gray-800 font-bold text-lg leading-tight group-hover:text-brand-700 transition-colors">
-                        Materiais de<br>Construção
-                    </figcaption>
+                    <figcaption class="mt-4 text-center text-lg font-bold text-gray-800 transition-colors group-hover:text-brand-700">{{ canal.nome }}</figcaption>
                 </figure>
             </div>
         </section>
@@ -570,8 +264,6 @@
 
 <script setup>
 import { onBeforeUnmount, onMounted, ref } from 'vue'
-import ReceitaDetalhe from '../components/RecipeDetails.vue'
-
 useSeoMeta({
     title: 'Soda Cáustica Escorpião — Tradição capixaba, presença nacional',
     description:
@@ -592,7 +284,9 @@ useJsonLd({
     url: siteConfig.url,
     inLanguage: 'pt-BR',
 })
-import { ChevronLeft, ChevronRight, ChevronDown, BookMarked, Building, BookAlert, Instagram, PackageOpen, ShoppingCart, Sparkles, FlaskConical } from 'lucide-vue-next'
+import { ChevronLeft, ChevronRight, Sparkles, FlaskConical, CalendarDays, BadgeCheck, MapPin, Globe2, ArrowUpRight, Store, Sprout, SprayCan, HardHat } from 'lucide-vue-next'
+import { produtos } from '../data/produtos'
+import { receitas } from '../data/receitas'
 
 import Capa from '../assets/identidade/home-page-hero-banner.jpg'
 import BannerProdutos from '../assets/identidade/produtos-homepage.jpg'
@@ -610,17 +304,6 @@ import sobre4 from '../assets/empresa/sobre_8-opt.webp'
 import sobre5 from '../assets/empresa/sobre_5.webp'
 import sobre6 from '../assets/empresa/sobre_3.webp'
 
-import local1 from '../assets/ondeComprar/1.png'
-import local2 from '../assets/ondeComprar/2.png'
-import local3 from '../assets/ondeComprar/3.png'
-import local4 from '../assets/ondeComprar/4.png'
-
-import soda500g from '../assets/produto/novo1.png'
-import soda1kg from '../assets/produto/novo3.png'
-import sodaliquida from '../assets/produto/novo2.png'
-import percarbonato from '../assets/produto/novo4.png'
-import bicarbonato from '../assets/produto/novo5.png'
-
 const empresaImages = [
     sobre1,
     sobre2,
@@ -630,11 +313,13 @@ const empresaImages = [
     sobre6
 ]
 
-const ondeComprarImages = [
-    local1,
-    local2,
-    local3,
-    local4,
+const imagensEmpresaCarrossel = [...empresaImages, ...empresaImages]
+
+const canaisCompra = [
+    { nome: 'Mercados', icone: Store },
+    { nome: 'Agropecuárias', icone: Sprout },
+    { nome: 'Produtos de limpeza', icone: SprayCan },
+    { nome: 'Materiais de construção', icone: HardHat },
 ]
 
 const banners = [
@@ -688,19 +373,8 @@ onBeforeUnmount(() => {
     window.clearInterval(intervaloBanners)
 })
 
-const receitaAberta = ref(null)
-
-function toggleReceita(num) {
-    receitaAberta.value = receitaAberta.value === num ? null : num
-}
-
-// Responsividade mobile (SSR-safe)
-const { isMobile } = useIsMobile()
-
-const videoReceitas = {
-    1: "https://www.youtube.com/embed/azPRpXrowmo",
-    2: "https://www.youtube.com/embed/djV11Xbc914"
-}
+const sodaProdutos = produtos.filter((produto) => produto.categoria === 'soda')
+const limpezaProdutos = produtos.filter((produto) => produto.categoria === 'limpeza')
 
 // Animações de scroll (IntersectionObserver) via composable
 useScrollReveal()
@@ -784,7 +458,7 @@ useScrollReveal()
     height: 2.75rem;
     color: #fff;
     background: rgb(0 0 0 / 0.35);
-    border-radius: 9999px;
+    border-radius: 12px;
     transform: translateY(-50%);
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
@@ -810,7 +484,7 @@ useScrollReveal()
     font-size: 0.75rem;
     font-weight: 700;
     background: rgb(0 0 0 / 0.45);
-    border-radius: 9999px;
+    border-radius: 12px;
 }
 
 .banner-pause:hover { background: rgb(0 0 0 / 0.65); }
@@ -828,6 +502,20 @@ useScrollReveal()
     aspect-ratio: 1 / 1;
     object-fit: cover;
     background: #fff;
+}
+
+@keyframes empresa-carousel {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.empresa-carousel-track {
+    animation: empresa-carousel 38s linear infinite;
+    will-change: transform;
+}
+
+.empresa-carousel-track:hover {
+    animation-play-state: paused;
 }
 
 /* Floating Icons in Mission/Vision/Values */
@@ -849,7 +537,24 @@ useScrollReveal()
     animation: float 4s ease-in-out infinite;
 }
 
-/* Recipes Buttons */
+@media (prefers-reduced-motion: reduce) {
+    .empresa-carousel-track { animation: none; }
+}
+
+/* Home catalogue cards mirror their full catalogue counterparts. */
+.product-line-link { display: block; overflow: hidden; padding: 1.75rem; border-radius: 12px; background: #fff; border-right: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb; border-left: 1px solid #e5e7eb; transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
+.product-line-link:hover { border-color: rgb(var(--color-brand-300)); box-shadow: 5px 5px 0 rgb(var(--color-brand-100)); transform: translate(-2px, -2px); }
+.product-line-link:focus-visible { outline: 2px solid rgb(var(--color-brand-700)); outline-offset: 4px; }
+.product-preview { display: flex; min-height: 11rem; flex-direction: column; align-items: center; justify-content: space-between; border-radius: 12px; padding: 1rem; text-align: center; }
+.product-preview img { max-height: 8rem; max-width: 100%; object-fit: contain; filter: drop-shadow(0 12px 14px rgb(0 0 0 / .12)); transition: transform .2s ease; }
+.product-preview p { margin-top: .75rem; color: #1f2937; font-size: .8125rem; font-weight: 800; line-height: 1.25; }
+.product-line-link:hover .product-preview img { transform: translateY(-.25rem); }
+.line-cta { display: inline-flex; align-items: center; gap: .45rem; color: rgb(var(--color-brand-700)); font-size: .8125rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.line-cta--accent { color: rgb(var(--color-accent-700)); }
+.recipe-card { display: flex; min-width: 0; height: 100%; flex-direction: column; overflow: hidden; border-radius: 12px; transition: transform .2s ease, box-shadow .2s ease; }
+.recipe-card:hover { box-shadow: 5px 5px 0 rgb(var(--color-brand-200)); transform: translate(-2px, -2px); }
+
+/* Recipe interaction states. */
 .recipe-btn {
     display: flex;
     justify-content: space-between;
@@ -862,7 +567,7 @@ useScrollReveal()
     background-color: #ffffff;
     border: 1px solid #e5e7eb;
     /* border-gray-200 */
-    border-radius: 1rem;
+    border-radius: 12px;
     /* rounded-2xl */
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -892,7 +597,7 @@ useScrollReveal()
     justify-content: center;
     width: 2.5rem;
     height: 2.5rem;
-    border-radius: 50%;
+    border-radius: 12px;
     transition: all 0.3s ease;
 }
 
@@ -900,7 +605,7 @@ useScrollReveal()
     margin-top: 0.75rem;
     background-color: #ffffff;
     border: 1px solid #f3f4f6;
-    border-radius: 1rem;
+    border-radius: 12px;
     padding: 1.25rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }

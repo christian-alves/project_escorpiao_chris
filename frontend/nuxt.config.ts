@@ -27,6 +27,11 @@ export default defineNuxtConfig({
     autoLastmod: true,
   },
 
+  routeRules: {
+    '/soda-caustica': { redirect: '/linha/soda-caustica' },
+    '/escorpiao-casa': { redirect: '/linha/escorpiao-casa' },
+  },
+
   // Chaves públicas do EmailJS centralizadas (expostas ao client por design do EmailJS).
   runtimeConfig: {
     public: {
@@ -55,7 +60,7 @@ export default defineNuxtConfig({
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap',
+          href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap',
         },
       ],
       // Google Analytics (gtag.js) — pageviews de navegação client-side em plugins/gtag.client.ts
