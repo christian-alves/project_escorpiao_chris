@@ -226,16 +226,10 @@
           Entre em contato conosco ou localize nossos distribuidores para adquirir a Soda Cáustica Escorpião.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <NuxtLink to="/onde-comprar">
+          <a :href="linkCompra()" target="_blank" rel="noopener noreferrer">
             <button
               class="w-full sm:w-auto group relative overflow-hidden border border-brand-700 bg-brand-700 text-white px-10 py-3 rounded-full font-semibold tracking-wide transition-all duration-300 hover:bg-white z-10 hover:shadow-[0_8px_30px_rgb(185,28,28,0.4)] hover:-translate-y-1">
               <span class="relative z-10 group-hover:text-brand-700">ONDE COMPRAR</span>
-            </button>
-          </NuxtLink>
-          <a :href="linkCompra()" target="_blank" rel="noopener noreferrer">
-            <button
-              class="w-full sm:w-auto border-2 border-brand-700 text-brand-700 px-10 py-3 rounded-full font-semibold tracking-wide transition-all duration-300 hover:bg-brand-50 hover:-translate-y-1">
-              COMPRAR PELO WHATSAPP
             </button>
           </a>
         </div>

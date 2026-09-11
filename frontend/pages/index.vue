@@ -488,81 +488,6 @@
         </section>
 
 
-        <!-- Section Onde Comprar -->
-        <section id="ondecomprar" class="max-w-6xl mx-auto px-6 py-20 scroll-mt-32 font-montserrat">
-            <UiSectionHeader title="ONDE COMPRAR?" :icon="ShoppingCart" link-to="/onde-comprar" link-label="VER PÁGINA COMPLETA" />
-
-            <p
-                class="text-gray-700 text-lg mb-12 leading-relaxed font-montserrat max-w-4xl border-l-4 border-brand-700 pl-6 reveal-element delay-100">
-                A Soda Cáustica Escorpião, localizada em Serra - Espírito Santo, é referência nacional no fornecimento
-                de soda cáustica para distribuidores que valorizam tradição, qualidade e agilidade.
-                <br><br>
-                Nosso produto pode ser facilmente encontrado em uma ampla rede de parceiros:
-            </p>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-10 mb-8">
-                <figure class="flex flex-col items-center reveal-scale delay-200 group">
-                    <div
-                        class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100 group-hover:shadow-[0_20px_40px_rgb(var(--color-brand-700)/0.08)] group-hover:-translate-y-3 transition-all duration-500 w-full flex justify-center h-[200px] mb-4 relative overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        </div>
-                        <img :src="ondeComprarImages[0]" alt="Mercados" loading="lazy" decoding="async"
-                            class="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500 self-center z-10" />
-                    </div>
-                    <figcaption
-                        class="text-center text-gray-800 font-bold text-lg group-hover:text-brand-700 transition-colors">
-                        Mercados
-                    </figcaption>
-                </figure>
-
-                <figure class="flex flex-col items-center reveal-scale delay-300 group">
-                    <div
-                        class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100 group-hover:shadow-[0_20px_40px_rgb(var(--color-brand-700)/0.08)] group-hover:-translate-y-3 transition-all duration-500 w-full flex justify-center h-[200px] mb-4 relative overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        </div>
-                        <img :src="ondeComprarImages[1]" alt="Agropecuárias" loading="lazy" decoding="async"
-                            class="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500 self-center z-10" />
-                    </div>
-                    <figcaption
-                        class="text-center text-gray-800 font-bold text-lg group-hover:text-brand-700 transition-colors">
-                        Agropecuárias
-                    </figcaption>
-                </figure>
-
-                <figure class="flex flex-col items-center reveal-scale delay-400 group">
-                    <div
-                        class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100 group-hover:shadow-[0_20px_40px_rgb(var(--color-brand-700)/0.08)] group-hover:-translate-y-3 transition-all duration-500 w-full flex justify-center h-[200px] mb-4 relative overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        </div>
-                        <img :src="ondeComprarImages[2]" alt="Lojas de produtos de limpeza" loading="lazy" decoding="async"
-                            class="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500 self-center z-10" />
-                    </div>
-                    <figcaption
-                        class="text-center text-gray-800 font-bold text-lg leading-tight group-hover:text-brand-700 transition-colors">
-                        Produtos de<br>Limpeza
-                    </figcaption>
-                </figure>
-
-                <figure class="flex flex-col items-center reveal-scale delay-500 group">
-                    <div
-                        class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100 group-hover:shadow-[0_20px_40px_rgb(var(--color-brand-700)/0.08)] group-hover:-translate-y-3 transition-all duration-500 w-full flex justify-center h-[200px] mb-4 relative overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        </div>
-                        <img :src="ondeComprarImages[3]" alt="Loja de material de construção" loading="lazy" decoding="async"
-                            class="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500 self-center z-10" />
-                    </div>
-                    <figcaption
-                        class="text-center text-gray-800 font-bold text-lg leading-tight group-hover:text-brand-700 transition-colors">
-                        Materiais de<br>Construção
-                    </figcaption>
-                </figure>
-            </div>
-        </section>
-
         <!-- Footer space / CTA extra se quiser -->
         <div class="h-24 bg-gradient-to-t from-white/50 to-transparent"></div>
     </div>
@@ -592,7 +517,7 @@ useJsonLd({
     url: siteConfig.url,
     inLanguage: 'pt-BR',
 })
-import { ChevronLeft, ChevronRight, ChevronDown, BookMarked, Building, BookAlert, Instagram, PackageOpen, ShoppingCart, Sparkles, FlaskConical } from 'lucide-vue-next'
+import { ChevronLeft, ChevronRight, ChevronDown, BookMarked, Building, BookAlert, Instagram, PackageOpen, Sparkles, FlaskConical } from 'lucide-vue-next'
 
 import Capa from '../assets/identidade/home-page-hero-banner.jpg'
 import BannerProdutos from '../assets/identidade/produtos-homepage.jpg'
@@ -610,11 +535,6 @@ import sobre4 from '../assets/empresa/sobre_8-opt.webp'
 import sobre5 from '../assets/empresa/sobre_5.webp'
 import sobre6 from '../assets/empresa/sobre_3.webp'
 
-import local1 from '../assets/ondeComprar/1.png'
-import local2 from '../assets/ondeComprar/2.png'
-import local3 from '../assets/ondeComprar/3.png'
-import local4 from '../assets/ondeComprar/4.png'
-
 import soda500g from '../assets/produto/novo1.png'
 import soda1kg from '../assets/produto/novo3.png'
 import sodaliquida from '../assets/produto/novo2.png'
@@ -628,13 +548,6 @@ const empresaImages = [
     sobre4,
     sobre5,
     sobre6
-]
-
-const ondeComprarImages = [
-    local1,
-    local2,
-    local3,
-    local4,
 ]
 
 const banners = [

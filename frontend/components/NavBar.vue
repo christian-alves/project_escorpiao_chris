@@ -95,7 +95,7 @@
             class="absolute -top-10 -right-10 w-32 h-32 bg-brand-50 rounded-full blur-2xl opacity-60 z-0 pointer-events-none">
           </div>
 
-          <NuxtLink to="/#empresa"
+          <NuxtLink to="/nossa-historia"
             class="relative z-10 block py-3 px-6 font-semibold rounded-2xl transition-all duration-300 active:scale-[0.98] hover:translate-x-1 origin-left"
             :class="activeSection === 'empresa' ? 'bg-brand-50 text-brand-700 tracking-wide translate-x-1 shadow-sm' : 'text-gray-600 hover:bg-gray-50 hover:text-brand-600'"
             @click="menuOpen = false">EMPRESA</NuxtLink>
@@ -109,11 +109,6 @@
             class="relative z-10 block py-3 px-6 font-semibold rounded-2xl transition-all duration-300 active:scale-[0.98] hover:translate-x-1 origin-left"
             :class="activeSection === 'receitas' ? 'bg-brand-50 text-brand-700 tracking-wide translate-x-1 shadow-sm' : 'text-gray-600 hover:bg-gray-50 hover:text-brand-600'"
             @click="menuOpen = false">RECEITAS</NuxtLink>
-
-          <NuxtLink to="/onde-comprar"
-            class="relative z-10 block py-3 px-6 font-semibold rounded-2xl transition-all duration-300 active:scale-[0.98] hover:translate-x-1 origin-left"
-            :class="activeSection === 'ondecomprar' ? 'bg-brand-50 text-brand-700 tracking-wide translate-x-1 shadow-sm' : 'text-gray-600 hover:bg-gray-50 hover:text-brand-600'"
-            @click="menuOpen = false">ONDE COMPRAR</NuxtLink>
 
           <div class="w-full h-px bg-gray-100 my-2 relative z-10"></div> <!-- Divisória -->
 
@@ -158,7 +153,6 @@
 import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { Menu, X, Instagram, Facebook } from 'lucide-vue-next'
 import Logo from '../assets/LogoEscorpiao.png'
-
 // useRoute é auto-importado pelo Nuxt (não requer import de vue-router).
 const route = useRoute()
 const activeSection = ref('') // ID da seção ativa ou nome da rota
@@ -167,10 +161,9 @@ const mobileMenu = ref(null)
 const menuOpen = ref(false)
 
 const sections = [
-  { id: 'empresa', label: 'EMPRESA', to: '/#empresa' },
+  { id: 'empresa', label: 'EMPRESA', to: '/nossa-historia' },
   { id: 'produtos', label: 'PRODUTOS', to: '/produtos' },
   { id: 'receitas', label: 'RECEITAS', to: '/receitas' },
-  { id: 'ondecomprar', label: 'ONDE COMPRAR', to: '/onde-comprar' }
 ]
 
 function handleScroll() {
@@ -212,15 +205,15 @@ watch(() => route.path, (newPath) => {
     else if (newPath.startsWith('/contato')) {
       activeSection.value = 'contato'
     }
-    // Rotas dedicadas de produtos, receitas e onde-comprar
+    else if (newPath.startsWith('/nossa-historia')) {
+      activeSection.value = 'empresa'
+    }
+    // Rotas dedicadas de produtos e receitas
     else if (newPath.startsWith('/produto')) {
       activeSection.value = 'produtos'
     }
     else if (newPath.startsWith('/receita')) {
       activeSection.value = 'receitas'
-    }
-    else if (newPath.startsWith('/onde-comprar')) {
-      activeSection.value = 'ondecomprar'
     }
     // Caso contrário, tenta pegar o nome da rota principal
     else {
