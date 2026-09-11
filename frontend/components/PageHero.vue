@@ -22,35 +22,35 @@ import { ChevronRight } from 'lucide-vue-next'
 
 const route = useRoute()
 
+// Hospedagens estáticas costumam servir /produtos como /produtos/; sem normalizar, o título
+// cairia no fallback depois da hidratação.
+const path = computed(() => route.path.replace(/\/+$/, '') || '/')
+
 const title = computed(() => {
-  const path = route.path
   const fixedTitles = {
     '/produtos': 'Produtos',
     '/receitas': 'Receitas',
-    '/onde-comprar': 'Onde comprar',
     '/info': 'Informações',
     '/nossa-historia': 'Sobre nós',
     '/politica-de-privacidade': 'Política de privacidade',
     '/termos-de-uso': 'Termos de uso',
     '/contato': 'Contato',
-    '/contato/fale-conosco': 'Fale conosco',
     '/contato/revendedor': 'Seja um revendedor',
     '/contato/obrigado': 'Obrigado',
     '/linha/soda-caustica': 'Soda Cáustica',
     '/linha/escorpiao-casa': 'Escorpião Casa',
   }
 
-  if (path.startsWith('/produto/')) return getProdutoBySlug(String(route.params.slug))?.nome || 'Produto'
-  if (path.startsWith('/receita/')) return getReceitaBySlug(String(route.params.slug))?.titulo || 'Receita'
+  if (path.value.startsWith('/produto/')) return getProdutoBySlug(String(route.params.slug))?.nome || 'Produto'
+  if (path.value.startsWith('/receita/')) return getReceitaBySlug(String(route.params.slug))?.titulo || 'Receita'
 
-  return fixedTitles[path] || 'Soda Cáustica Escorpião'
+  return fixedTitles[path.value] || 'Soda Cáustica Escorpião'
 })
 
 const breadcrumbs = computed(() => {
-  const path = route.path
-  if (path.startsWith('/produto/')) return [{ label: 'Produtos', to: '/produtos' }, { label: title.value }]
-  if (path.startsWith('/receita/')) return [{ label: 'Receitas', to: '/receitas' }, { label: title.value }]
-  if (path.startsWith('/linha/')) return [{ label: 'Produtos', to: '/produtos' }, { label: title.value }]
+  if (path.value.startsWith('/produto/')) return [{ label: 'Produtos', to: '/produtos' }, { label: title.value }]
+  if (path.value.startsWith('/receita/')) return [{ label: 'Receitas', to: '/receitas' }, { label: title.value }]
+  if (path.value.startsWith('/linha/')) return [{ label: 'Produtos', to: '/produtos' }, { label: title.value }]
   return [{ label: title.value }]
 })
 

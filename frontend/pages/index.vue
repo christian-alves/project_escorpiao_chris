@@ -273,7 +273,6 @@ useSeoMeta({
         'Referência nacional em soda cáustica desde 1970. Produtos, receitas de sabão e onde comprar.',
     ogType: 'website',
     ogLocale: 'pt_BR',
-    twitterCard: 'summary_large_image',
 })
 
 const siteConfig = useSiteConfig()
@@ -291,7 +290,6 @@ import { receitas } from '../data/receitas'
 import Capa from '../assets/identidade/home-page-hero-banner.jpg'
 import BannerProdutos from '../assets/identidade/produtos-homepage.jpg'
 import BannerRevendedor from '../assets/identidade/revendedor-homepage.jpg'
-import BannerReceitas from '../assets/identidade/receitas-homepage-.jpg'
 import Missao from '../assets/empresa/missao.png'
 import Visao from '../assets/empresa/visao.png'
 import Valor from '../assets/empresa/valor.png'
@@ -326,7 +324,6 @@ const banners = [
     { src: Capa, alt: 'Soda Cáustica Escorpião - referência nacional em soda cáustica', to: '/produtos' },
     { src: BannerProdutos, alt: 'Conheça os produtos da Soda Cáustica Escorpião', to: '/produtos' },
     { src: BannerRevendedor, alt: 'Seja um revendedor da Soda Cáustica Escorpião', to: '/contato/revendedor' },
-    { src: BannerReceitas, alt: 'Receitas com Soda Cáustica Escorpião', to: '/receitas' },
 ]
 const bannerAtual = ref(0)
 const rotacaoPausada = ref(false)

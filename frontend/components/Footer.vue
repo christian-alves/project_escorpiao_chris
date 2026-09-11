@@ -18,7 +18,7 @@
                         <li><NuxtLink to="/#empresa" class="hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 rounded">Empresa</NuxtLink></li>
                         <li><NuxtLink to="/produtos" class="hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 rounded">Produtos</NuxtLink></li>
                         <li><NuxtLink to="/receitas" class="hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 rounded">Receitas</NuxtLink></li>
-                        <li><NuxtLink to="/onde-comprar" class="hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 rounded">Onde comprar</NuxtLink></li>
+                        <li><NuxtLink to="/#ondecomprar" class="hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 rounded">Onde comprar</NuxtLink></li>
                         <li><NuxtLink to="/contato" class="hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 rounded">Contato</NuxtLink></li>
                     </ul>
                 </nav>
@@ -101,8 +101,8 @@
             <!-- Direitos autorais -->
             <div
                 class="mt-12 pt-6 border-t border-gray-200 text-center text-sm text-gray-500 font-montserrat tracking-wide">
-                <p>© 2025 Soda Cáustica Escorpião. Todos os direitos reservados. <span class="whitespace-nowrap">CNPJ: 04.548.633/0001-90</span></p>
-                <p class="mt-2 text-xs opacity-75">Desenvolvido por Lucas Xavier</p>
+                <p>© 2026 Soda Cáustica Escorpião. Todos os direitos reservados. <span class="whitespace-nowrap">CNPJ: 04.548.633/0001-90</span></p>
+                <p class="mt-2 text-xs opacity-75">Desenvolvido por Lucas Xavier · Atualizado por iOBEE</p>
             </div>
         </div>
     </footer>

@@ -11,6 +11,8 @@ export const receitas = [
         novidade: true,
         imagem: sabaoLiquido,
         alt: 'Sabão líquido preparado com Soda Cáustica Escorpião',
+        descricao:
+            'Receita de sabão líquido caseiro com Soda Cáustica Líquida Escorpião: lista de ingredientes e passo a passo completo. Fica pronto após 7 dias de cura.',
     },
     {
         slug: 'sabao-em-barra',
@@ -18,6 +20,8 @@ export const receitas = [
         titulo: 'Receita Sabão em Barra',
         imagem: sabaoBarra,
         alt: 'Sabão em barra caseiro',
+        descricao:
+            'Aprenda a fazer sabão em barra caseiro com óleo de cozinha e Soda Cáustica Escorpião: ingredientes, passo a passo em vídeo e 24 horas de secagem.',
     },
     {
         slug: 'sabao-do-para',
@@ -25,6 +29,8 @@ export const receitas = [
         titulo: 'Receita Sabão do Pará',
         imagem: sabaoPara,
         alt: 'Sabão do Pará caseiro',
+        descricao:
+            'Receita de sabão do Pará com Soda Cáustica Escorpião, óleo, álcool e bicarbonato: ingredientes, passo a passo em vídeo e 24 horas de descanso.',
     },
     {
         slug: 'videos-de-sabao',
@@ -32,6 +38,8 @@ export const receitas = [
         titulo: 'Vídeos de Sabão',
         imagem: videosSabao,
         alt: 'Receita de sabão caseiro de limão',
+        descricao:
+            'Vídeos de receitas de sabão caseiro com a Soda Cáustica Escorpião: assista ao passo a passo no nosso Instagram e aprenda a preparar o seu sabão.',
     },
 ]
 

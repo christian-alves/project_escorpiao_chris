@@ -34,13 +34,17 @@ const orgJsonLd = {
 
 const route = useRoute()
 const siteConfig = useSiteConfig()
-const canonicalUrl = computed(() => `${siteConfig.url}${route.path}`.replace(/\/{2,}$/, '/'))
+// Sem barra final (exceto na home), igual às URLs do sitemap, mesmo se o host servir /pagina/.
+const canonicalUrl = computed(() => `${siteConfig.url}${route.path.replace(/\/+$/, '') || '/'}`)
 
 // Defaults globais de Open Graph (páginas podem sobrescrever ogImage/description).
 useSeoMeta({
   ogSiteName: 'Soda Cáustica Escorpião',
   ogImage: 'https://sodaescorpiao.com.br/IconeEscorpiaoQuadrado.png',
   twitterImage: 'https://sodaescorpiao.com.br/IconeEscorpiaoQuadrado.png',
+  // O padrão é o ícone quadrado, que o card grande cortaria; produto e receita trocam para
+  // 'summary_large_image' junto com a foto própria.
+  twitterCard: 'summary',
   ogUrl: canonicalUrl,
 })
 

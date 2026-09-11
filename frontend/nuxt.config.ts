@@ -30,6 +30,12 @@ export default defineNuxtConfig({
   routeRules: {
     '/soda-caustica': { redirect: '/linha/soda-caustica' },
     '/escorpiao-casa': { redirect: '/linha/escorpiao-casa' },
+    // O formulário Fale Conosco agora vive na própria página de contato.
+    '/contato/fale-conosco': { redirect: { to: '/contato#fale-conosco', statusCode: 301 } },
+    // "Onde comprar" é uma seção da home, não uma página.
+    '/onde-comprar': { redirect: { to: '/#ondecomprar', statusCode: 301 } },
+    // Página de agradecimento pós-formulário: fora do índice e, por consequência, do sitemap.
+    '/contato/obrigado': { robots: false },
   },
 
   // Chaves públicas do EmailJS centralizadas (expostas ao client por design do EmailJS).

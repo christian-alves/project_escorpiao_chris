@@ -1,64 +1,6 @@
 <template>
   <div class="min-h-screen overflow-x-hidden" style="background-color: rgb(var(--color-cream));">
 
-    <!-- ===================== HERO ===================== -->
-    <section class="line-page-custom-hero relative overflow-hidden bg-brand-800">
-
-      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 md:pt-36 md:pb-32 text-center">
-
-        <nav class="mb-8 flex justify-center items-center gap-1.5 text-sm text-brand-100 font-montserrat" aria-label="Breadcrumb">
-          <NuxtLink to="/" class="hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded">Início</NuxtLink>
-          <ChevronRight class="w-3.5 h-3.5 opacity-70" aria-hidden="true" />
-          <NuxtLink to="/produtos" class="hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded">Produtos</NuxtLink>
-          <ChevronRight class="w-3.5 h-3.5 opacity-70" aria-hidden="true" />
-          <span aria-current="page">Soda Cáustica</span>
-        </nav>
-
-        <div class="flex justify-center mb-8 hero-fade-in" style="animation-delay: 0.1s;">
-          <span class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full font-montserrat bg-white/10 text-white border border-white/20">
-            <FlaskConical class="w-3.5 h-3.5" />
-            Linha Principal
-          </span>
-        </div>
-
-        <h1 class="text-5xl md:text-7xl font-extrabold font-montserrat tracking-tight text-white mb-5 leading-none hero-fade-in" style="animation-delay: 0.2s;">
-          SODA <span class="text-brand-300">CÁUSTICA</span>
-        </h1>
-
-        <p class="max-w-2xl mx-auto text-gray-300 text-lg md:text-xl font-montserrat leading-relaxed mb-14 hero-fade-in" style="animation-delay: 0.35s;">
-          Referência nacional em soda cáustica, com 98% de pureza. Tradição, qualidade e agilidade para distribuidores em todo o Brasil.
-        </p>
-
-        <div class="flex flex-wrap justify-center gap-12 md:gap-24 hero-fade-in" style="animation-delay: 0.5s;">
-          <div class="flex flex-col items-center">
-            <span class="text-4xl font-extrabold font-montserrat text-brand-300">98%</span>
-            <span class="text-xs text-gray-400 font-montserrat tracking-widest uppercase mt-2">Pureza</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <span class="text-4xl font-extrabold font-montserrat text-white">3</span>
-            <span class="text-xs text-gray-400 font-montserrat tracking-widest uppercase mt-2">Formatos</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <span class="text-4xl font-extrabold font-montserrat text-brand-300">50+</span>
-            <span class="text-xs text-gray-400 font-montserrat tracking-widest uppercase mt-2">Anos de tradição</span>
-          </div>
-        </div>
-
-        <div class="flex justify-center mt-16 hero-fade-in" style="animation-delay: 0.7s;">
-          <div class="scroll-hint flex flex-col items-center gap-2 opacity-50">
-            <span class="text-xs text-gray-400 font-montserrat tracking-widest uppercase">Explore</span>
-            <div class="w-px h-8 bg-gradient-to-b from-gray-400 to-transparent"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="absolute bottom-0 left-0 w-full">
-        <svg viewBox="0 0 1440 100" class="w-full h-16 md:h-24" preserveAspectRatio="none">
-          <path d="M0,60 Q360,100 720,70 Q1080,40 1440,80 L1440,100 L0,100 Z" fill="rgb(var(--color-cream))" />
-        </svg>
-      </div>
-    </section>
-
     <!-- ===================== INTRO ===================== -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -245,7 +187,7 @@
 </template>
 
 <script setup>
-import { FlaskConical, BadgeCheck, Factory, Truck, ShieldCheck, Check, ArrowRight, Award, Recycle, ChevronRight } from 'lucide-vue-next'
+import { FlaskConical, BadgeCheck, Factory, Truck, ShieldCheck, Check, ArrowRight, Award, Recycle } from 'lucide-vue-next'
 import { produtos } from '../data/produtos'
 import { useWhatsapp } from '../composables/useWhatsapp'
 
@@ -307,16 +249,6 @@ useScrollReveal()
 </script>
 
 <style scoped>
-.hero-fade-in {
-  opacity: 0;
-  transform: translateY(24px);
-  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes heroFadeIn {
-  to { opacity: 1; transform: translateY(0); }
-}
-
 .reveal-element {
   opacity: 0;
   transform: translateY(32px);

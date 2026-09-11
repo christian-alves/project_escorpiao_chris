@@ -119,8 +119,14 @@
 
       </nav>
 
-      <!-- Botões redes sociais (desktop) -->
-      <div title="Redes Sociais" class="hidden md:flex items-center justify-end gap-2 pr-2">
+      <!-- CTA Seja um revendedor (no mobile estreito ele fica dentro do menu) -->
+      <NuxtLink to="/contato/revendedor"
+        class="hidden sm:inline-flex ml-auto lg:ml-2 mr-2 md:mr-3 flex-shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-brand-700 px-5 py-2.5 font-montserrat text-[12px] xl:text-[13px] font-bold tracking-wider text-white shadow-[0_6px_16px_rgb(var(--color-brand-700)/0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-800 hover:shadow-[0_10px_22px_rgb(var(--color-brand-700)/0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2">
+        SEJA UM REVENDEDOR
+      </NuxtLink>
+
+      <!-- Botões redes sociais (desktop). Somem entre lg e xl: ali não cabem junto do CTA de revendedor. -->
+      <div title="Redes Sociais" class="hidden md:flex lg:hidden xl:flex items-center justify-end gap-2 pr-2">
         <a href="https://www.instagram.com/sodaescorpiao/" target="_blank" rel="noopener noreferrer"
           aria-label="Instagram"
           class="p-2.5 rounded text-brand-700 hover:text-brand-500 transition-colors duration-200">
@@ -217,7 +223,7 @@
             :class="activeSection === 'receitas' ? 'bg-brand-50 text-brand-700 tracking-wide translate-x-1 shadow-sm' : 'text-gray-600 hover:bg-gray-50 hover:text-brand-600'"
             @click="fecharMenuMobile">RECEITAS</NuxtLink>
 
-          <NuxtLink to="/onde-comprar"
+          <NuxtLink to="/#ondecomprar"
             class="relative z-10 block py-3 px-6 font-semibold rounded-2xl transition-all duration-300 active:scale-[0.98] hover:translate-x-1 origin-left"
             :class="activeSection === 'ondecomprar' ? 'bg-brand-50 text-brand-700 tracking-wide translate-x-1 shadow-sm' : 'text-gray-600 hover:bg-gray-50 hover:text-brand-600'"
             @click="fecharMenuMobile">ONDE COMPRAR</NuxtLink>
@@ -226,6 +232,11 @@
             class="relative z-10 block py-3 px-6 font-semibold rounded-2xl transition-all duration-300 active:scale-[0.98] hover:translate-x-1 origin-left"
             :class="activeSection === 'contato' ? 'bg-brand-50 text-brand-700 tracking-wide translate-x-1 shadow-sm' : 'text-gray-600 hover:bg-gray-50 hover:text-brand-600'"
             @click="fecharMenuMobile">CONTATO</NuxtLink>
+
+          <NuxtLink to="/contato/revendedor" @click="fecharMenuMobile"
+            class="relative z-10 mt-3 flex items-center justify-center rounded-full bg-brand-700 py-3.5 px-6 text-[13px] font-bold tracking-wider text-white shadow-[0_8px_20px_rgb(var(--color-brand-700)/0.25)] transition-colors duration-300 hover:bg-brand-800 active:scale-[0.98]">
+            SEJA UM REVENDEDOR
+          </NuxtLink>
 
           <!-- Mobile Social Medias -->
           <div class="flex gap-4 justify-center mt-6 pt-4 border-t border-gray-100 relative z-10">
@@ -271,7 +282,7 @@ const sections = [
   { id: 'nossa-historia', label: 'SOBRE NÓS', to: '/nossa-historia' },
   { id: 'produtos', label: 'PRODUTOS', to: '/produtos' },
   { id: 'receitas', label: 'RECEITAS', to: '/receitas' },
-  { id: 'ondecomprar', label: 'ONDE COMPRAR', to: '/onde-comprar' }
+  { id: 'ondecomprar', label: 'ONDE COMPRAR', to: '/#ondecomprar' }
 ]
 
 // As duas linhas do catálogo. O `id` casa com o campo `categoria` de data/produtos.js.
@@ -351,12 +362,14 @@ function fecharMenuMobile() {
 
 function handleScroll() {
   if (route.path !== '/') return
-  const el = document.getElementById('empresa')
+  // Seções da home que têm item próprio no menu
   let current = ''
-  if (el) {
+  for (const id of ['empresa', 'ondecomprar']) {
+    const el = document.getElementById(id)
+    if (!el) continue
     const rect = el.getBoundingClientRect()
     if (rect.top <= 200 && rect.bottom > 200) {
-      current = 'empresa'
+      current = id
     }
   }
   activeSection.value = current
@@ -392,15 +405,12 @@ watch(() => route.path, (newPath) => {
     else if (newPath.startsWith('/contato')) {
       activeSection.value = 'contato'
     }
-    // Rotas dedicadas de produtos, receitas e onde-comprar
+    // Rotas dedicadas de produtos e receitas
     else if (newPath.startsWith('/produto')) {
       activeSection.value = 'produtos'
     }
     else if (newPath.startsWith('/receita')) {
       activeSection.value = 'receitas'
-    }
-    else if (newPath.startsWith('/onde-comprar')) {
-      activeSection.value = 'ondecomprar'
     }
     // As páginas de cada linha também destacam PRODUTOS
     else if (newPath.startsWith('/linha/')) {

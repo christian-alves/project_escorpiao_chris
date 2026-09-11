@@ -4,7 +4,7 @@
     <WhatsappButton />
     <main id="main-content" tabindex="-1">
       <PageHero v-if="showPageHero" />
-      <div :class="{ 'page-content-with-hero': showPageHero }"><slot /></div>
+      <slot />
     </main>
     <Footer />
   </div>
@@ -17,8 +17,3 @@
 const route = useRoute()
 const showPageHero = computed(() => route.path !== '/')
 </script>
-
-<style>
-.page-content-with-hero h1 { display: none; }
-.page-content-with-hero .line-page-custom-hero { display: none; }
-</style>

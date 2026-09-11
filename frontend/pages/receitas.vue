@@ -2,8 +2,7 @@
     <div class="bg-cream overflow-x-hidden">
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-20 font-montserrat">
             <header class="max-w-3xl mb-12 reveal-element">
-                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">Receitas</h1>
-                <p class="mt-4 text-base md:text-lg leading-relaxed text-gray-600">
+                <p class="text-base md:text-lg leading-relaxed text-gray-600">
                     Encontre o passo a passo completo para preparar sabões com a Soda Cáustica Escorpião.
                 </p>
             </header>

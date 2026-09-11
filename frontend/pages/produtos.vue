@@ -1,11 +1,7 @@
 <template>
     <div class="bg-cream overflow-x-hidden">
         <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24 font-montserrat">
-            <header class="max-w-3xl reveal-element">
-                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">Produtos</h1>
-            </header>
-
-            <section class="product-line mt-16 reveal-element" aria-labelledby="soda-title">
+            <section class="product-line reveal-element" aria-labelledby="soda-title">
                 <div class="line-intro grid gap-8 border-t-4 border-brand-700 pt-7 lg:grid-cols-[1.05fr_.95fr] lg:gap-16">
                     <div>
                         <div class="flex items-center gap-3 text-brand-700">

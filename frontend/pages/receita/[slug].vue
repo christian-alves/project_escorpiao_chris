@@ -47,12 +47,20 @@ if (!receita) {
     throw createError({ statusCode: 404, statusMessage: 'Receita não encontrada' })
 }
 
+const siteConfig = useSiteConfig()
+const imagemAbsoluta = `${siteConfig.url}${receita.imagem}`
+
 useSeoMeta({
     title: `${receita.titulo} — Soda Cáustica Escorpião`,
-    description: `Aprenda o passo a passo da receita: ${receita.titulo}, feita com Soda Cáustica Escorpião.`,
+    description: receita.descricao,
     ogTitle: receita.titulo,
+    ogDescription: receita.descricao,
     ogType: 'website',
     ogLocale: 'pt_BR',
+    ogImage: imagemAbsoluta,
+    ogImageAlt: receita.alt,
+    twitterCard: 'summary_large_image',
+    twitterImage: imagemAbsoluta,
 })
 
 definePageMeta({
@@ -66,8 +74,11 @@ useBreadcrumbJsonLd([
 
 // Ingredientes e modo de preparo espelham o conteúdo hardcoded em components/RecipeDetails.vue.
 // A receita tipo 3 (Vídeos de Sabão) não tem passo a passo próprio, por isso não gera Recipe schema.
+// totalTime (ISO 8601) soma só as durações escritas no passo a passo; o texto não informa rendimento,
+// por isso não há recipeYield.
 const receitasSchema = {
     1: {
+        totalTime: 'PT24H20M', // 20 min mexendo + no mínimo 24 h de secagem
         recipeIngredient: [
             '1 kg de soda cáustica Escorpião',
             '2 litros de água',
@@ -87,6 +98,7 @@ const receitasSchema = {
         ],
     },
     2: {
+        totalTime: 'PT24H10M', // cerca de 10 min mexendo + 24 h de descanso
         recipeIngredient: [
             '1 litro de água morna',
             '500 gramas de soda cáustica Escorpião',
@@ -105,6 +117,7 @@ const receitasSchema = {
         ],
     },
     4: {
+        totalTime: 'P7D', // 7 dias de cura (o preparo não tem duração escrita)
         recipeIngredient: [
             '350 ml de Soda Cáustica Líquida Escorpião',
             '400 ml de óleo',
@@ -134,8 +147,12 @@ if (dadosReceita) {
         '@context': 'https://schema.org',
         '@type': 'Recipe',
         name: receita.titulo,
+        // image é obrigatório para o resultado rico de receita no Google.
+        image: [imagemAbsoluta],
+        description: receita.descricao,
         author: { '@type': 'Organization', name: 'Soda Cáustica Escorpião' },
         recipeCategory: 'Sabão caseiro',
+        totalTime: dadosReceita.totalTime,
         recipeIngredient: dadosReceita.recipeIngredient,
         recipeInstructions: dadosReceita.recipeInstructions.map((texto, index) => ({
             '@type': 'HowToStep',

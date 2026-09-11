@@ -19,7 +19,7 @@
                     </p>
 
                     <div class="mt-9 flex flex-col sm:flex-row gap-3">
-                        <NuxtLink to="/onde-comprar"
+                        <NuxtLink to="/#ondecomprar"
                             class="inline-flex min-h-12 items-center justify-center rounded bg-brand-700 px-7 py-3 text-sm font-bold tracking-wide text-white transition-colors hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2">
                             ONDE COMPRAR
                         </NuxtLink>
@@ -155,7 +155,7 @@
                     construção em todo o Brasil.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-                    <NuxtLink to="/onde-comprar">
+                    <NuxtLink to="/#ondecomprar">
                         <button
                             class="w-full sm:w-auto group relative overflow-hidden border border-brand-700 bg-brand-700 text-white px-10 py-3 rounded font-semibold tracking-wide transition-all duration-300 hover:bg-white z-10 hover:shadow-[0_8px_30px_rgb(185,28,28,0.4)] hover:-translate-y-1 whitespace-nowrap">
                             <span class="relative z-10 group-hover:text-brand-700">ONDE COMPRAR</span>
@@ -191,20 +191,27 @@ if (!produto) {
     throw createError({ statusCode: 404, statusMessage: 'Produto não encontrado' })
 }
 
+const siteConfig = useSiteConfig()
+const imagemAbsoluta = `${siteConfig.url}${produto.img}`
+const descricaoSeo = produto.seoDescricao || produto.resumo
+
 useSeoMeta({
-    title: `${produto.nome} — Soda Cáustica Escorpião`,
-    description: produto.resumo,
+    title: produto.seoTitulo || `${produto.nome} — Soda Cáustica Escorpião`,
+    description: descricaoSeo,
     ogTitle: produto.nome,
-    ogDescription: produto.resumo,
+    ogDescription: descricaoSeo,
     ogType: 'website',
     ogLocale: 'pt_BR',
+    // A foto da embalagem é o que aparece no preview do link (WhatsApp, redes sociais).
+    ogImage: imagemAbsoluta,
+    ogImageAlt: produto.nome,
+    twitterCard: 'summary_large_image',
+    twitterImage: imagemAbsoluta,
 })
 
 definePageMeta({
     validate: async (r) => produtos.some(p => p.slug === r.params.slug),
 })
-
-const siteConfig = useSiteConfig()
 
 useBreadcrumbJsonLd([
     { name: 'Produtos', path: '/produtos' },
@@ -216,7 +223,7 @@ useJsonLd({
     '@type': 'Product',
     name: produto.nome,
     description: produto.descricao,
-    image: `${siteConfig.url}${produto.img}`,
+    image: imagemAbsoluta,
     sku: produto.slug,
     category: produto.categoria === 'soda' ? 'Soda Cáustica' : 'Linha de Limpeza',
     brand: { '@type': 'Brand', name: 'Soda Cáustica Escorpião' },

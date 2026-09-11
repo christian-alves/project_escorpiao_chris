@@ -1,71 +1,6 @@
 <template>
   <div class="min-h-screen" style="background-color: rgb(var(--color-casa-surface)); overflow-x: hidden;">
 
-    <!-- ===================== HERO ===================== -->
-    <section class="line-page-custom-hero relative overflow-hidden" style="background: rgb(var(--color-casa-primary));">
-
-      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 md:pt-36 md:pb-32 text-center">
-
-        <nav class="mb-8 flex justify-center items-center gap-1.5 text-sm text-white/80 font-montserrat" aria-label="Breadcrumb">
-          <NuxtLink to="/" class="hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded">Início</NuxtLink>
-          <ChevronRight class="w-3.5 h-3.5 opacity-70" aria-hidden="true" />
-          <NuxtLink to="/produtos" class="hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded">Produtos</NuxtLink>
-          <ChevronRight class="w-3.5 h-3.5 opacity-70" aria-hidden="true" />
-          <span aria-current="page">Escorpião Casa</span>
-        </nav>
-
-        <!-- Badge "Nova Linha" -->
-        <div class="flex justify-center mb-8 hero-fade-in" style="animation-delay: 0.1s;">
-          <span class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full font-montserrat"
-            style="background: rgb(var(--color-casa-blue)/0.15); color: rgb(var(--color-casa-blue)); border: 1px solid rgb(var(--color-casa-blue)/0.35);">
-            <Sparkles class="w-3.5 h-3.5" />
-            Nova Linha de Produtos
-          </span>
-        </div>
-
-        <!-- Título principal -->
-        <h1 class="text-5xl md:text-7xl font-extrabold font-montserrat tracking-tight text-white mb-5 leading-none hero-fade-in" style="animation-delay: 0.2s;">
-          ESCORPIÃO <span style="color: rgb(var(--color-casa-blue));">CASA</span>
-        </h1>
-
-        <!-- Subtítulo -->
-        <p class="max-w-2xl mx-auto text-gray-300 text-lg md:text-xl font-montserrat leading-relaxed mb-14 hero-fade-in" style="animation-delay: 0.35s;">
-          Produtos de alta qualidade desenvolvidos para o lar. Eficazes, seguros e com fórmulas que respeitam você e o meio ambiente.
-        </p>
-
-        <!-- Estatísticas -->
-        <div class="flex flex-wrap justify-center gap-12 md:gap-24 hero-fade-in" style="animation-delay: 0.5s;">
-          <div class="flex flex-col items-center">
-            <span class="text-4xl font-extrabold font-montserrat" style="color: rgb(var(--color-casa-blue));">50+</span>
-            <span class="text-xs text-gray-400 font-montserrat tracking-widest uppercase mt-2">Anos de tradição</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <span class="text-4xl font-extrabold font-montserrat text-white">2</span>
-            <span class="text-xs text-gray-400 font-montserrat tracking-widest uppercase mt-2">Produtos lançados</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <span class="text-4xl font-extrabold font-montserrat" style="color: rgb(var(--color-casa-green));">Eco</span>
-            <span class="text-xs text-gray-400 font-montserrat tracking-widest uppercase mt-2">Friendly</span>
-          </div>
-        </div>
-
-        <!-- Scroll hint -->
-        <div class="flex justify-center mt-16 hero-fade-in" style="animation-delay: 0.7s;">
-          <div class="scroll-hint flex flex-col items-center gap-2 opacity-50">
-            <span class="text-xs text-gray-400 font-montserrat tracking-widest uppercase">Explore</span>
-            <div class="w-px h-8 bg-gradient-to-b from-gray-400 to-transparent"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Wave inferior -->
-      <div class="absolute bottom-0 left-0 w-full">
-        <svg viewBox="0 0 1440 100" class="w-full h-16 md:h-24" preserveAspectRatio="none">
-          <path d="M0,60 Q360,100 720,70 Q1080,40 1440,80 L1440,100 L0,100 Z" fill="rgb(var(--color-casa-surface))" />
-        </svg>
-      </div>
-    </section>
-
     <!-- ===================== INTRO ===================== -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -379,7 +314,7 @@
 </template>
 
 <script setup>
-import { Sparkles, Leaf, ShieldCheck, Droplets, BadgeCheck, Check, Star, Recycle, Award, ArrowRight, ChevronRight } from 'lucide-vue-next'
+import { Sparkles, Leaf, ShieldCheck, Droplets, BadgeCheck, Check, Star, Recycle, Award, ArrowRight } from 'lucide-vue-next'
 
 import percarbonato from '../assets/produto/novo4.png'
 import bicarbonato from '../assets/produto/novo5.png'
@@ -466,17 +401,6 @@ useScrollReveal()
 </script>
 
 <style scoped>
-/* === HERO FADE IN === */
-.hero-fade-in {
-  opacity: 0;
-  transform: translateY(24px);
-  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes heroFadeIn {
-  to { opacity: 1; transform: translateY(0); }
-}
-
 /* === SCROLL REVEAL === */
 .reveal-element {
   opacity: 0;
