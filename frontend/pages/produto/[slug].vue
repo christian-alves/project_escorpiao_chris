@@ -31,12 +31,12 @@
                         </p>
 
                         <div class="flex flex-col sm:flex-row gap-4">
-                            <NuxtLink to="/onde-comprar">
+                            <a :href="linkCompra(produto.nome)" target="_blank" rel="noopener noreferrer">
                                 <button
                                     class="w-full sm:w-auto group relative overflow-hidden border border-brand-700 bg-brand-700 text-white px-10 py-3 rounded-full font-semibold tracking-wide transition-all duration-300 hover:bg-white z-10 hover:shadow-[0_8px_30px_rgb(185,28,28,0.4)] hover:-translate-y-1">
                                     <span class="relative z-10 group-hover:text-brand-700">ONDE COMPRAR</span>
                                 </button>
-                            </NuxtLink>
+                            </a>
                             <NuxtLink to="/contato">
                                 <button
                                     class="w-full sm:w-auto border-2 border-brand-700 text-brand-700 px-10 py-3 rounded-full font-semibold tracking-wide transition-all duration-300 hover:bg-brand-50 hover:-translate-y-1">
@@ -163,37 +163,12 @@
             </template>
         </section>
 
-        <!-- Onde Comprar -->
-        <section id="onde-comprar" class="max-w-6xl mx-auto px-6 pt-4 pb-20 scroll-mt-32">
-            <SectionHeader title="ONDE COMPRAR" :icon="ShoppingCart" />
-            <Card class="p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
-                <p class="text-gray-700 text-lg font-montserrat leading-relaxed max-w-xl">
-                    Encontre {{ produto.nome }} em mercados, agropecuárias, lojas de produtos de limpeza e materiais de
-                    construção em todo o Brasil.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-                    <NuxtLink to="/onde-comprar">
-                        <button
-                            class="w-full sm:w-auto group relative overflow-hidden border border-brand-700 bg-brand-700 text-white px-10 py-3 rounded-full font-semibold tracking-wide transition-all duration-300 hover:bg-white z-10 hover:shadow-[0_8px_30px_rgb(185,28,28,0.4)] hover:-translate-y-1 whitespace-nowrap">
-                            <span class="relative z-10 group-hover:text-brand-700">ONDE COMPRAR</span>
-                        </button>
-                    </NuxtLink>
-                    <a :href="linkCompra(produto.nome)" target="_blank" rel="noopener noreferrer">
-                        <button
-                            class="w-full sm:w-auto border-2 border-brand-700 text-brand-700 px-10 py-3 rounded-full font-semibold tracking-wide transition-all duration-300 hover:bg-brand-50 hover:-translate-y-1 whitespace-nowrap">
-                            COMPRAR PELO WHATSAPP
-                        </button>
-                    </a>
-                </div>
-            </Card>
-        </section>
-
         <div class="h-24 bg-gradient-to-t from-white/50 to-transparent"></div>
     </div>
 </template>
 
 <script setup>
-import { ArrowLeft, Check, FlaskConical, ShieldAlert, Phone, FileText, Download, ShoppingCart, Beaker, Shirt, Flame, Package } from 'lucide-vue-next'
+import { ArrowLeft, Check, FlaskConical, ShieldAlert, Phone, FileText, Download, Beaker, Shirt, Flame, Package } from 'lucide-vue-next'
 import { produtos, getProdutoBySlug, emergencia, manuseioSoda, videosSoda, perigoSoda } from '../../data/produtos'
 import SectionHeader from '../../components/ui/SectionHeader.vue'
 import Card from '../../components/ui/Card.vue'

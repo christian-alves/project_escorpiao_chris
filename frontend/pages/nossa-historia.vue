@@ -66,12 +66,70 @@
 
         </section>
 
+        <!-- Dados de Confiança -->
+        <section class="max-w-6xl mx-auto px-6 pb-24 scroll-mt-32">
+            <div class="flex items-center gap-4 mb-10 reveal-element">
+                <h2 class="text-2xl font-extrabold text-brand-700 font-montserrat tracking-tight uppercase">Dados de
+                    Confiança</h2>
+                <ShieldCheck class="text-brand-700" stroke-width="2" :size="30" />
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
+                <div
+                    class="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 p-8 reveal-scale delay-100">
+                    <CalendarDays class="text-brand-600 mb-4" :size="28" />
+                    <p class="text-3xl font-extrabold text-brand-700 font-montserrat">Desde 1971</p>
+                    <p class="text-gray-500 font-montserrat text-sm mt-1">Mais de 50 anos de tradição na fabricação de
+                        soda cáustica.</p>
+                </div>
+
+                <div
+                    class="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 p-8 reveal-scale delay-200">
+                    <MapPinned class="text-brand-600 mb-4" :size="28" />
+                    <p class="text-3xl font-extrabold text-brand-700 font-montserrat">Brasil inteiro</p>
+                    <p class="text-gray-500 font-montserrat text-sm mt-1">Rede de distribuidores atendendo todos os
+                        estados do país.</p>
+                </div>
+
+                <div
+                    class="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 p-8 reveal-scale delay-300">
+                    <UserCheck class="text-brand-600 mb-4" :size="28" />
+                    <p class="text-lg font-extrabold text-brand-700 font-montserrat leading-snug">Jefferson B. Sousa
+                    </p>
+                    <p class="text-gray-500 font-montserrat text-sm mt-1">Responsável técnico — CRQ 21300121, 21ª
+                        Região/ES.</p>
+                </div>
+            </div>
+
+            <div
+                class="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 p-8 md:p-10 reveal-scale delay-400">
+                <div class="flex items-center gap-3 mb-6">
+                    <FileText class="text-brand-600" :size="24" />
+                    <h3 class="text-lg font-bold text-gray-800 font-montserrat">Fichas de Dados de Segurança (FDS)</h3>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <a v-for="doc in fdsDocs" :key="doc.arquivo" :href="doc.arquivo" target="_blank"
+                        rel="noopener noreferrer"
+                        class="group flex items-center justify-between gap-3 bg-brand-50/50 hover:bg-brand-50 border border-brand-100 rounded-2xl px-5 py-4 transition-colors duration-300">
+                        <span class="text-sm font-semibold text-gray-700 font-montserrat">{{ doc.label }}</span>
+                        <Download
+                            class="w-4 h-4 text-brand-600 flex-shrink-0 group-hover:translate-y-0.5 transition-transform" />
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <TeamSection />
     </div>
 </template>
 
 <script setup>
-import { ChevronLeft, BookOpenText } from 'lucide-vue-next'
+import { ChevronLeft, BookOpenText, ShieldCheck, CalendarDays, MapPinned, UserCheck, FileText, Download } from 'lucide-vue-next'
+import { produtos } from '../data/produtos'
+
+const fdsDocs = Array.from(
+    new Map(produtos.map(p => [p.fds.arquivo, p.fds])).values()
+)
 
 useSeoMeta({
     title: 'Nossa História',
