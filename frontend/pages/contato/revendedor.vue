@@ -1,19 +1,6 @@
 <template>
-    <div class="mt-16" style="background-color: rgb(var(--color-cream)); overflow-x: hidden;">
-        <section id="contato" class="max-w-6xl mx-auto px-6 pt-24 scroll-mt-32">
-
-            <div class="flex items-center gap-4 mb-10 reveal-element">
-                <NuxtLink to="/contato"
-                    class="transition-transform duration-300 hover:-translate-x-1 group bg-white p-2 rounded-full shadow-sm hover:shadow-md border border-gray-100">
-                    <ChevronLeft
-                        class="w-8 h-8 text-gray-500 group-hover:text-brand-700 transition-colors duration-300" />
-                </NuxtLink>
-                <div class="flex items-center gap-4">
-                    <h1 class="text-3xl font-extrabold text-brand-700 font-montserrat tracking-tight uppercase">SEJA
-                        REVENDEDOR</h1>
-                    <HeartHandshake class="text-brand-700" stroke-width="2" :size="isMobile ? 45 : 36" />
-                </div>
-            </div>
+    <div style="background-color: rgb(var(--color-cream)); overflow-x: hidden;">
+        <section id="contato" class="max-w-6xl mx-auto px-6 pt-12 pb-24 scroll-mt-32">
 
             <div class="max-w-4xl mx-auto reveal-scale delay-100">
                 <form ref="formRef" @submit.prevent="sendEmail"
@@ -125,13 +112,12 @@
                 </p>
             </div>
         </section>
-        <br><br><br>
     </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { ChevronLeft, LoaderCircle, HeartHandshake, CircleAlert } from 'lucide-vue-next'
+import { LoaderCircle, CircleAlert } from 'lucide-vue-next'
 import emailjs from '@emailjs/browser'
 import { useWhatsapp } from '../../composables/useWhatsapp'
 
@@ -147,7 +133,6 @@ useSeoMeta({
 })
 
 const config = useRuntimeConfig()
-const { isMobile } = useIsMobile()
 
 const form = ref({
     nome: '',

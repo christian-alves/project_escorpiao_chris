@@ -1,18 +1,30 @@
 <template>
     <footer class="bg-white py-12 shadow-[0_-5px_10px_rgba(0,0,0,0.05)]">
-        <div class="max-w-7xl mx-auto px-6">
-            <!-- Troque o grid por flex para 3 colunas -->
-            <div class="flex flex-col md:flex-row justify-between gap-8">
+        <div class="max-w-[1720px] mx-auto px-4 sm:px-8 xl:px-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
                 <!-- Sobre a empresa -->
-                <div class="md:w-1/4">
-                    <h3 class="text-lg font-bold text-gray-900 mb-4 font-montserrat">SODA CÁUSTICA ESCORPIÃO</h3>
+                <div>
+                    <NuxtLink to="/" class="inline-block mb-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 rounded">
+                        <img :src="Logo" alt="Soda Cáustica Escorpião" class="h-16 w-auto object-contain" />
+                    </NuxtLink>
                     <p class="text-gray-700 text-sm font-montserrat">
                         Referência nacional em soda cáustica, tradição, qualidade e agilidade desde 1970.
                     </p>
                 </div>
 
+                <nav aria-label="Navegação do rodapé">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4 font-montserrat">NAVEGAÇÃO</h3>
+                    <ul class="space-y-2 text-sm text-gray-700 font-montserrat tracking-wide">
+                        <li><NuxtLink to="/#empresa" class="hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 rounded">Empresa</NuxtLink></li>
+                        <li><NuxtLink to="/produtos" class="hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 rounded">Produtos</NuxtLink></li>
+                        <li><NuxtLink to="/receitas" class="hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 rounded">Receitas</NuxtLink></li>
+                        <li><NuxtLink to="/#ondecomprar" class="hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 rounded">Onde comprar</NuxtLink></li>
+                        <li><NuxtLink to="/contato" class="hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 rounded">Contato</NuxtLink></li>
+                    </ul>
+                </nav>
+
                 <!-- Contato -->
-                <div class="md:w-1/4">
+                <div>
                     <NuxtLink to="/contato">
                         <h3 class="text-lg font-bold text-gray-900 mb-4 font-montserrat hover:text-gray-700">CONTATO
                         </h3>
@@ -37,15 +49,11 @@
                                 <a href="tel:0800118270" class="font-bold hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 rounded">0800-118270</a>
                             </span>
                         </li>
-                        <li class="flex gap-2">
-                            <FileText size="18" />
-                            <span>CNPJ: 04.548.633/0001-90</span>
-                        </li>
                     </ul>
                 </div>
 
                 <!-- Redes sociais -->
-                <div class="md:w-1/4">
+                <div>
                     <h3 class="text-lg font-bold text-gray-900 mb-4 font-montserrat">REDES SOCIAIS</h3>
                     <div class="flex gap-4 items-center">
                         <a title="Instagram" href="https://www.instagram.com/sodaescorpiao/" target="_blank" rel="noopener noreferrer"
@@ -72,6 +80,11 @@
                     <h3 class="text-lg font-bold text-gray-900 mb-4 mt-8 font-montserrat">LEGAL</h3>
                     <ul class="space-y-2 text-sm text-gray-700 font-montserrat tracking-wide">
                         <li>
+                            <NuxtLink to="/info" class="hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 rounded">
+                                Informações
+                            </NuxtLink>
+                        </li>
+                        <li>
                             <NuxtLink to="/politica-de-privacidade" class="hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 rounded">
                                 Política de Privacidade
                             </NuxtLink>
@@ -88,8 +101,8 @@
             <!-- Direitos autorais -->
             <div
                 class="mt-12 pt-6 border-t border-gray-200 text-center text-sm text-gray-500 font-montserrat tracking-wide">
-                <p>© 2025 Soda Cáustica Escorpião. Todos os direitos reservados.</p>
-                <p class="mt-2 text-xs opacity-75">Desenvolvido por Lucas Xavier</p>
+                <p>© 2026 Soda Cáustica Escorpião. Todos os direitos reservados. <span class="whitespace-nowrap">CNPJ: 04.548.633/0001-90</span></p>
+                <p class="mt-2 text-xs opacity-75">Desenvolvido por Lucas Xavier · Atualizado por iOBEE</p>
             </div>
         </div>
     </footer>
@@ -99,5 +112,6 @@
 
 
 <script setup>
-import { Instagram, Facebook, MapPinned, Mail, Phone, FileText, TriangleAlert } from 'lucide-vue-next';
+import { Instagram, Facebook, MapPinned, Mail, Phone, TriangleAlert } from 'lucide-vue-next';
+import Logo from '../assets/LogoEscorpiao.png'
 </script>

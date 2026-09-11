@@ -1,61 +1,8 @@
 <template>
-  <div class="mt-16 min-h-screen overflow-x-hidden" style="background-color: rgb(var(--color-cream));">
-
-    <!-- ===================== HERO ===================== -->
-    <section class="relative overflow-hidden bg-gradient-to-b from-brand-dark to-brand-darker">
-      <div class="absolute -top-24 -right-24 w-[28rem] h-[28rem] rounded-full opacity-[0.07] bg-accent-glow"></div>
-      <div class="absolute -bottom-24 -left-24 w-72 h-72 rounded-full opacity-[0.07] bg-white"></div>
-      <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 36px 36px;"></div>
-
-      <div class="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-20 md:pt-36 md:pb-32 text-center">
-
-        <div class="flex justify-center mb-8 hero-fade-in" style="animation-delay: 0.1s;">
-          <span class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full font-montserrat bg-white/10 text-white border border-white/20">
-            <FlaskConical class="w-3.5 h-3.5" />
-            Linha Principal
-          </span>
-        </div>
-
-        <h1 class="text-5xl md:text-7xl font-extrabold font-montserrat tracking-tight text-white mb-5 leading-none hero-fade-in" style="animation-delay: 0.2s;">
-          SODA <span class="text-brand-300">CÁUSTICA</span>
-        </h1>
-
-        <p class="max-w-2xl mx-auto text-gray-300 text-lg md:text-xl font-montserrat leading-relaxed mb-14 hero-fade-in" style="animation-delay: 0.35s;">
-          Referência nacional em soda cáustica, com 98% de pureza. Tradição, qualidade e agilidade para distribuidores em todo o Brasil.
-        </p>
-
-        <div class="flex flex-wrap justify-center gap-12 md:gap-24 hero-fade-in" style="animation-delay: 0.5s;">
-          <div class="flex flex-col items-center">
-            <span class="text-4xl font-extrabold font-montserrat text-brand-300">98%</span>
-            <span class="text-xs text-gray-400 font-montserrat tracking-widest uppercase mt-2">Pureza</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <span class="text-4xl font-extrabold font-montserrat text-white">3</span>
-            <span class="text-xs text-gray-400 font-montserrat tracking-widest uppercase mt-2">Formatos</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <span class="text-4xl font-extrabold font-montserrat text-brand-300">50+</span>
-            <span class="text-xs text-gray-400 font-montserrat tracking-widest uppercase mt-2">Anos de tradição</span>
-          </div>
-        </div>
-
-        <div class="flex justify-center mt-16 hero-fade-in" style="animation-delay: 0.7s;">
-          <div class="scroll-hint flex flex-col items-center gap-2 opacity-50">
-            <span class="text-xs text-gray-400 font-montserrat tracking-widest uppercase">Explore</span>
-            <div class="w-px h-8 bg-gradient-to-b from-gray-400 to-transparent"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="absolute bottom-0 left-0 w-full">
-        <svg viewBox="0 0 1440 100" class="w-full h-16 md:h-24" preserveAspectRatio="none">
-          <path d="M0,60 Q360,100 720,70 Q1080,40 1440,80 L1440,100 L0,100 Z" fill="rgb(var(--color-cream))" />
-        </svg>
-      </div>
-    </section>
+  <div class="min-h-screen overflow-x-hidden" style="background-color: rgb(var(--color-cream));">
 
     <!-- ===================== INTRO ===================== -->
-    <section class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
         <div class="reveal-element">
@@ -63,10 +10,10 @@
           <h2 class="text-3xl md:text-4xl font-extrabold text-brand-800 font-montserrat tracking-tight mb-6">
             Tradição capixaba,<br>presença nacional
           </h2>
-          <p class="text-gray-700 text-base md:text-lg leading-relaxed font-montserrat pl-6 border-l-4 border-brand-700 mb-5">
+          <p class="text-gray-700 text-base md:text-lg leading-relaxed font-montserrat mb-5">
             A soda cáustica em escamas é obtida a partir do processo de evaporação da soda cáustica líquida, da fusão do produto anidro e do processo de escamação, com concentração média de 98% de hidróxido de sódio em peso.
           </p>
-          <p class="text-gray-500 text-base leading-relaxed font-montserrat pl-6 border-l-4 border-brand-300">
+          <p class="text-gray-500 text-base leading-relaxed font-montserrat">
             Utilizada na fabricação de sabões e detergentes, no tratamento de superfícies metálicas, na mercerização de têxteis, na regeneração de resinas de troca iônica e na correção de pH em processos industriais de alimentos, álcool e farmácia.
           </p>
         </div>
@@ -109,7 +56,7 @@
 
     <!-- ===================== PRODUTOS ===================== -->
     <section class="py-12 pb-28 bg-gradient-to-b from-cream to-cream-dark">
-      <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="text-center mb-16 reveal-element">
           <p class="text-xs font-bold tracking-widest text-brand-400 uppercase font-montserrat mb-3">Conheça</p>
@@ -118,7 +65,7 @@
         </div>
 
         <div v-for="(produto, i) in sodaProdutos" :key="produto.slug" class="reveal-element mb-16 last:mb-0">
-          <div class="relative rounded-[2.5rem] overflow-hidden bg-white shadow-[0_8px_40px_rgb(var(--color-brand-700)/0.08)] border border-brand-100">
+          <div class="relative rounded overflow-hidden bg-white shadow-[0_8px_40px_rgb(var(--color-brand-700)/0.08)] border border-brand-100">
             <div class="absolute top-0 left-0 w-2/3 h-[3px] bg-gradient-to-r from-brand-700 via-accent-500 to-transparent"></div>
 
             <div class="px-8 py-12 md:px-14 md:py-14">
@@ -149,7 +96,7 @@
                 </div>
 
                 <div class="reveal-element delay-200">
-                  <p class="text-gray-700 text-base leading-relaxed font-montserrat pl-6 border-l-4 border-brand-700 mb-8">
+                  <p class="text-gray-700 text-base leading-relaxed font-montserrat mb-8">
                     {{ produto.resumo }}
                   </p>
 
@@ -188,7 +135,7 @@
       <div class="absolute -top-16 right-0 w-80 h-80 rounded-full opacity-[0.06] bg-accent-glow"></div>
       <div class="absolute bottom-0 left-0 w-60 h-60 rounded-full opacity-[0.06] bg-white"></div>
 
-      <div class="relative z-10 max-w-6xl mx-auto px-6 pt-6">
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         <div class="text-center mb-16 reveal-element">
           <p class="text-xs font-bold tracking-widest text-brand-300 uppercase font-montserrat mb-3">Diferenciais</p>
           <h2 class="text-3xl font-extrabold font-montserrat tracking-tight text-white">Por que escolher a Soda Cáustica Escorpião?</h2>
@@ -278,7 +225,7 @@ const diferenciais = [
 const siteConfig = useSiteConfig()
 
 useBreadcrumbJsonLd([
-  { name: 'Soda Cáustica', path: '/soda-caustica' },
+  { name: 'Soda Cáustica', path: '/linha/soda-caustica' },
 ])
 
 useJsonLd({
@@ -302,16 +249,6 @@ useScrollReveal()
 </script>
 
 <style scoped>
-.hero-fade-in {
-  opacity: 0;
-  transform: translateY(24px);
-  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes heroFadeIn {
-  to { opacity: 1; transform: translateY(0); }
-}
-
 .reveal-element {
   opacity: 0;
   transform: translateY(32px);

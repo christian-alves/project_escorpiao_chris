@@ -1,69 +1,8 @@
 <template>
-  <div class="mt-16 min-h-screen" style="background-color: rgb(var(--color-casa-surface)); overflow-x: hidden;">
-
-    <!-- ===================== HERO ===================== -->
-    <section class="relative overflow-hidden" style="background: linear-gradient(135deg, rgb(var(--color-casa-primary)) 0%, rgb(var(--color-casa-primary-dark)) 55%, rgb(var(--color-casa-primary-darker)) 100%);">
-      <!-- Decorativos de fundo -->
-      <div class="absolute -top-24 -right-24 w-[28rem] h-[28rem] rounded-full opacity-[0.07]" style="background: rgb(var(--color-casa-blue));"></div>
-      <div class="absolute -bottom-24 -left-24 w-72 h-72 rounded-full opacity-[0.07]" style="background: rgb(var(--color-casa-green));"></div>
-      <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 36px 36px;"></div>
-
-      <div class="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-20 md:pt-36 md:pb-32 text-center">
-
-        <!-- Badge "Nova Linha" -->
-        <div class="flex justify-center mb-8 hero-fade-in" style="animation-delay: 0.1s;">
-          <span class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full font-montserrat"
-            style="background: rgb(var(--color-casa-blue)/0.15); color: rgb(var(--color-casa-blue)); border: 1px solid rgb(var(--color-casa-blue)/0.35);">
-            <Sparkles class="w-3.5 h-3.5" />
-            Nova Linha de Produtos
-          </span>
-        </div>
-
-        <!-- Título principal -->
-        <h1 class="text-5xl md:text-7xl font-extrabold font-montserrat tracking-tight text-white mb-5 leading-none hero-fade-in" style="animation-delay: 0.2s;">
-          ESCORPIÃO <span style="color: rgb(var(--color-casa-blue));">CASA</span>
-        </h1>
-
-        <!-- Subtítulo -->
-        <p class="max-w-2xl mx-auto text-gray-300 text-lg md:text-xl font-montserrat leading-relaxed mb-14 hero-fade-in" style="animation-delay: 0.35s;">
-          Produtos de alta qualidade desenvolvidos para o lar. Eficazes, seguros e com fórmulas que respeitam você e o meio ambiente.
-        </p>
-
-        <!-- Estatísticas -->
-        <div class="flex flex-wrap justify-center gap-12 md:gap-24 hero-fade-in" style="animation-delay: 0.5s;">
-          <div class="flex flex-col items-center">
-            <span class="text-4xl font-extrabold font-montserrat" style="color: rgb(var(--color-casa-blue));">50+</span>
-            <span class="text-xs text-gray-400 font-montserrat tracking-widest uppercase mt-2">Anos de tradição</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <span class="text-4xl font-extrabold font-montserrat text-white">2</span>
-            <span class="text-xs text-gray-400 font-montserrat tracking-widest uppercase mt-2">Produtos lançados</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <span class="text-4xl font-extrabold font-montserrat" style="color: rgb(var(--color-casa-green));">Eco</span>
-            <span class="text-xs text-gray-400 font-montserrat tracking-widest uppercase mt-2">Friendly</span>
-          </div>
-        </div>
-
-        <!-- Scroll hint -->
-        <div class="flex justify-center mt-16 hero-fade-in" style="animation-delay: 0.7s;">
-          <div class="scroll-hint flex flex-col items-center gap-2 opacity-50">
-            <span class="text-xs text-gray-400 font-montserrat tracking-widest uppercase">Explore</span>
-            <div class="w-px h-8 bg-gradient-to-b from-gray-400 to-transparent"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Wave inferior -->
-      <div class="absolute bottom-0 left-0 w-full">
-        <svg viewBox="0 0 1440 100" class="w-full h-16 md:h-24" preserveAspectRatio="none">
-          <path d="M0,60 Q360,100 720,70 Q1080,40 1440,80 L1440,100 L0,100 Z" fill="rgb(var(--color-casa-surface))" />
-        </svg>
-      </div>
-    </section>
+  <div class="min-h-screen" style="background-color: rgb(var(--color-casa-surface)); overflow-x: hidden;">
 
     <!-- ===================== INTRO ===================== -->
-    <section class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
         <!-- Texto -->
@@ -72,10 +11,10 @@
           <h2 class="text-3xl md:text-4xl font-extrabold font-montserrat tracking-tight mb-6" style="color: rgb(var(--color-casa-primary));">
             Uma nova era<br>para o seu lar
           </h2>
-          <p class="text-gray-600 text-base md:text-lg leading-relaxed font-montserrat pl-6 border-l-4 mb-5" style="border-color: rgb(var(--color-casa-primary));">
+          <p class="text-gray-600 text-base md:text-lg leading-relaxed font-montserrat mb-5">
             A linha Escorpião Casa nasce da tradição de mais de 50 anos da Soda Escorpião na indústria química, trazendo agora produtos pensados especialmente para o ambiente doméstico.
           </p>
-          <p class="text-gray-500 text-base leading-relaxed font-montserrat pl-6 border-l-4" style="border-color: rgb(var(--color-casa-blue));">
+          <p class="text-gray-500 text-base leading-relaxed font-montserrat">
             Com formulações de alta pureza e eficácia comprovada, nossos produtos são seguros, econômicos e sustentáveis — perfeitos para quem busca o melhor para sua casa.
           </p>
         </div>
@@ -123,7 +62,7 @@
 
     <!-- ===================== PRODUTOS ===================== -->
     <section class="py-12 pb-28" style="background: linear-gradient(180deg, rgb(var(--color-casa-surface)) 0%, rgb(var(--color-casa-surface-dark)) 100%);">
-      <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <!-- Cabeçalho da seção -->
         <div class="text-center mb-16 reveal-element">
@@ -134,7 +73,7 @@
 
         <!-- ---- PERCARBONATO DE SÓDIO ---- -->
         <div class="reveal-element mb-16">
-          <div class="relative rounded-[2.5rem] overflow-hidden bg-white shadow-[0_8px_40px_rgb(var(--color-casa-primary)/0.08)] border" style="border-color: rgb(var(--color-casa-primary)/0.1);">
+          <div class="relative rounded overflow-hidden bg-white shadow-[0_8px_40px_rgb(var(--color-casa-primary)/0.08)] border" style="border-color: rgb(var(--color-casa-primary)/0.1);">
             <div class="absolute top-0 left-0 w-2/3 h-[3px]" style="background: linear-gradient(90deg, rgb(var(--color-casa-primary)), rgb(var(--color-casa-blue)), transparent);"></div>
 
             <div class="px-8 py-12 md:px-14 md:py-14">
@@ -180,7 +119,7 @@
 
                 <!-- Texto + detalhes -->
                 <div class="reveal-element delay-200">
-                  <p class="text-gray-700 text-base leading-relaxed font-montserrat pl-6 border-l-4 mb-8" style="border-color: rgb(var(--color-casa-primary));">
+                  <p class="text-gray-700 text-base leading-relaxed font-montserrat mb-8">
                     O Percarbonato de Sódio é um agente branqueador à base de oxigênio ativo que libera peróxido de hidrogênio ao entrar em contato com a água. Altamente eficaz para alvejamento e desinfecção, sem uso de cloro.
                   </p>
 
@@ -218,7 +157,7 @@
 
         <!-- ---- BICARBONATO DE SÓDIO ---- -->
         <div class="reveal-element">
-          <div class="relative rounded-[2.5rem] overflow-hidden bg-white shadow-[0_8px_40px_rgb(var(--color-casa-primary)/0.08)] border" style="border-color: rgb(var(--color-casa-green)/0.15);">
+          <div class="relative rounded overflow-hidden bg-white shadow-[0_8px_40px_rgb(var(--color-casa-primary)/0.08)] border" style="border-color: rgb(var(--color-casa-green)/0.15);">
             <div class="absolute top-0 left-0 w-2/3 h-[3px]" style="background: linear-gradient(90deg, rgb(var(--color-casa-green)), rgb(var(--color-casa-blue)), transparent);"></div>
 
             <div class="px-8 py-12 md:px-14 md:py-14">
@@ -254,7 +193,7 @@
 
                 <!-- Texto + detalhes (primeiro no mobile, segundo no desktop) -->
                 <div class="reveal-element delay-100 lg:order-1 order-2">
-                  <p class="text-gray-700 text-base leading-relaxed font-montserrat pl-6 border-l-4 mb-8" style="border-color: rgb(var(--color-casa-green));">
+                  <p class="text-gray-700 text-base leading-relaxed font-montserrat mb-8">
                     O Bicarbonato de Sódio é um produto extremamente versátil, com propriedades limpantes, desodorizantes e abrasivas suaves. Amplamente reconhecido pela eficácia e segurança, é ideal para uso doméstico em múltiplas situações.
                   </p>
 
@@ -314,7 +253,7 @@
       <div class="absolute -top-16 right-0 w-80 h-80 rounded-full opacity-[0.06]" style="background: rgb(var(--color-casa-blue));"></div>
       <div class="absolute bottom-0 left-0 w-60 h-60 rounded-full opacity-[0.06]" style="background: rgb(var(--color-casa-green));"></div>
 
-      <div class="relative z-10 max-w-6xl mx-auto px-6 pt-6">
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         <!-- Cabeçalho -->
         <div class="text-center mb-16 reveal-element">
           <p class="text-xs font-bold tracking-widest uppercase font-montserrat mb-3" style="color: rgb(var(--color-casa-blue));">Diferenciais</p>
@@ -440,7 +379,7 @@ const benefits = [
 const siteConfig = useSiteConfig()
 
 useBreadcrumbJsonLd([
-  { name: 'Escorpião Casa', path: '/escorpiao-casa' },
+  { name: 'Escorpião Casa', path: '/linha/escorpiao-casa' },
 ])
 
 useJsonLd({
@@ -462,17 +401,6 @@ useScrollReveal()
 </script>
 
 <style scoped>
-/* === HERO FADE IN === */
-.hero-fade-in {
-  opacity: 0;
-  transform: translateY(24px);
-  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes heroFadeIn {
-  to { opacity: 1; transform: translateY(0); }
-}
-
 /* === SCROLL REVEAL === */
 .reveal-element {
   opacity: 0;

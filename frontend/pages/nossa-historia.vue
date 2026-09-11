@@ -1,19 +1,6 @@
 <template>
-    <div class="mt-16" style="background-color: rgb(var(--color-cream)); overflow-x: hidden;">
-        <section id="history" class="max-w-4xl mx-auto px-6 pt-24 pb-24 scroll-mt-32">
-
-            <div class="flex items-center gap-4 mb-10 reveal-element">
-                <NuxtLink to="/#empresa"
-                    class="transition-transform duration-300 hover:-translate-x-1 group bg-white p-2 rounded-full shadow-sm hover:shadow-md border border-gray-100">
-                    <ChevronLeft
-                        class="w-8 h-8 text-gray-500 group-hover:text-brand-700 transition-colors duration-300" />
-                </NuxtLink>
-                <div class="flex items-center gap-4">
-                    <h1 class="text-3xl font-extrabold text-brand-700 font-montserrat tracking-tight uppercase">NOSSA
-                        HISTÓRIA</h1>
-                    <BookOpenText class="text-brand-700 " stroke-width="2" :size="36" />
-                </div>
-            </div>
+    <div style="background-color: rgb(var(--color-cream)); overflow-x: hidden;">
+        <section id="history" class="max-w-4xl mx-auto px-6 pt-12 pb-24 scroll-mt-32">
 
             <div
                 class="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 p-8 md:p-12 font-montserrat relative overflow-hidden reveal-scale delay-100">
@@ -44,7 +31,7 @@
                     </p>
 
                     <p
-                        class="text-gray-700 text-lg leading-relaxed border-l-4 border-brand-700 pl-6 reveal-element delay-400">
+                        class="text-gray-700 text-lg leading-relaxed reveal-element delay-400">
                         É o nosso <strong class="text-brand-700">compromisso com a qualidade</strong> que promove a alta
                         fidelização do consumidor, nos permitindo
                         ser referência nacional. Durante quase meio século de vida, desenvolvemos um importante
@@ -66,89 +53,33 @@
 
         </section>
 
-        <!-- Dados de Confiança -->
-        <section class="max-w-6xl mx-auto px-6 pb-24 scroll-mt-32">
-            <div class="flex items-center gap-4 mb-10 reveal-element">
-                <h2 class="text-2xl font-extrabold text-brand-700 font-montserrat tracking-tight uppercase">Dados de
-                    Confiança</h2>
-                <ShieldCheck class="text-brand-700" stroke-width="2" :size="30" />
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
-                <div
-                    class="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 p-8 reveal-scale delay-100">
-                    <CalendarDays class="text-brand-600 mb-4" :size="28" />
-                    <p class="text-3xl font-extrabold text-brand-700 font-montserrat">Desde 1971</p>
-                    <p class="text-gray-500 font-montserrat text-sm mt-1">Mais de 50 anos de tradição na fabricação de
-                        soda cáustica.</p>
-                </div>
-
-                <div
-                    class="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 p-8 reveal-scale delay-200">
-                    <MapPinned class="text-brand-600 mb-4" :size="28" />
-                    <p class="text-3xl font-extrabold text-brand-700 font-montserrat">Brasil inteiro</p>
-                    <p class="text-gray-500 font-montserrat text-sm mt-1">Rede de distribuidores atendendo todos os
-                        estados do país.</p>
-                </div>
-
-                <div
-                    class="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 p-8 reveal-scale delay-300">
-                    <UserCheck class="text-brand-600 mb-4" :size="28" />
-                    <p class="text-lg font-extrabold text-brand-700 font-montserrat leading-snug">Jefferson B. Sousa
-                    </p>
-                    <p class="text-gray-500 font-montserrat text-sm mt-1">Responsável técnico — CRQ 21300121, 21ª
-                        Região/ES.</p>
-                </div>
-            </div>
-
-            <div
-                class="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 p-8 md:p-10 reveal-scale delay-400">
-                <div class="flex items-center gap-3 mb-6">
-                    <FileText class="text-brand-600" :size="24" />
-                    <h3 class="text-lg font-bold text-gray-800 font-montserrat">Fichas de Dados de Segurança (FDS)</h3>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <a v-for="doc in fdsDocs" :key="doc.arquivo" :href="doc.arquivo" target="_blank"
-                        rel="noopener noreferrer"
-                        class="group flex items-center justify-between gap-3 bg-brand-50/50 hover:bg-brand-50 border border-brand-100 rounded-2xl px-5 py-4 transition-colors duration-300">
-                        <span class="text-sm font-semibold text-gray-700 font-montserrat">{{ doc.label }}</span>
-                        <Download
-                            class="w-4 h-4 text-brand-600 flex-shrink-0 group-hover:translate-y-0.5 transition-transform" />
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <TeamSection />
+        <!-- TeamSection tem pb-6 (pensado para a home, onde vem seguida de outras seções);
+             aqui ela é a última seção antes do footer, então precisa de respiro extra. -->
+        <div class="pb-12 md:pb-20">
+            <TeamSection />
+        </div>
     </div>
 </template>
 
 <script setup>
-import { ChevronLeft, BookOpenText, ShieldCheck, CalendarDays, MapPinned, UserCheck, FileText, Download } from 'lucide-vue-next'
-import { produtos } from '../data/produtos'
-
-const fdsDocs = Array.from(
-    new Map(produtos.map(p => [p.fds.arquivo, p.fds])).values()
-)
-
 useSeoMeta({
-    title: 'Nossa História',
+    title: 'Sobre Nós',
     description:
         'A história da Soda Cáustica Escorpião: da década de 70 em Vitória - ES ao parque fabril em Jardim Limoeiro, Serra. Meio século de tradição, qualidade e pureza.',
-    ogTitle: 'Nossa História — Soda Cáustica Escorpião',
+    ogTitle: 'Sobre Nós — Soda Cáustica Escorpião',
     ogDescription: 'Meio século de tradição capixaba na fabricação de soda cáustica.',
     ogType: 'article',
     ogLocale: 'pt_BR',
 })
 
 useBreadcrumbJsonLd([
-    { name: 'Nossa História', path: '/nossa-historia' },
+    { name: 'Sobre Nós', path: '/nossa-historia' },
 ])
 
 useJsonLd({
     '@context': 'https://schema.org',
     '@type': 'AboutPage',
-    name: 'Nossa História — Soda Cáustica Escorpião',
+    name: 'Sobre Nós — Soda Cáustica Escorpião',
     description:
         'A história da Soda Cáustica Escorpião: da década de 70 em Vitória - ES ao parque fabril em Jardim Limoeiro, Serra.',
     about: { '@type': 'Organization', name: 'Soda Cáustica Escorpião' },

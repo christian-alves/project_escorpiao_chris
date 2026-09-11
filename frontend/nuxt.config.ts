@@ -27,6 +27,17 @@ export default defineNuxtConfig({
     autoLastmod: true,
   },
 
+  routeRules: {
+    '/soda-caustica': { redirect: '/linha/soda-caustica' },
+    '/escorpiao-casa': { redirect: '/linha/escorpiao-casa' },
+    // O formulário Fale Conosco agora vive na própria página de contato.
+    '/contato/fale-conosco': { redirect: { to: '/contato#fale-conosco', statusCode: 301 } },
+    // "Onde comprar" é uma seção da home, não uma página.
+    '/onde-comprar': { redirect: { to: '/#ondecomprar', statusCode: 301 } },
+    // Página de agradecimento pós-formulário: fora do índice e, por consequência, do sitemap.
+    '/contato/obrigado': { robots: false },
+  },
+
   // Chaves públicas do EmailJS centralizadas (expostas ao client por design do EmailJS).
   runtimeConfig: {
     public: {
@@ -55,7 +66,7 @@ export default defineNuxtConfig({
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap',
+          href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap',
         },
       ],
       // Google Analytics (gtag.js) — pageviews de navegação client-side em plugins/gtag.client.ts

@@ -1,16 +1,6 @@
 <template>
-    <div class="mt-16" style="background-color: rgb(var(--color-cream)); overflow-x: hidden;">
-        <section class="max-w-4xl mx-auto px-6 pt-24 pb-24 scroll-mt-32">
-            <div class="flex items-center gap-4 mb-10">
-                <NuxtLink to="/"
-                    class="transition-transform duration-300 hover:-translate-x-1 group bg-white p-2 rounded-full shadow-sm hover:shadow-md border border-gray-100">
-                    <ChevronLeft class="w-8 h-8 text-gray-500 group-hover:text-brand-700 transition-colors duration-300" />
-                </NuxtLink>
-                <h1 class="text-3xl font-extrabold text-brand-700 font-montserrat tracking-tight uppercase">
-                    Termos de Uso
-                </h1>
-            </div>
-
+    <div style="background-color: rgb(var(--color-cream)); overflow-x: hidden;">
+        <section class="max-w-4xl mx-auto px-6 pt-12 pb-24 scroll-mt-32">
             <div
                 class="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 p-8 md:p-10 space-y-6 font-montserrat text-gray-700 leading-relaxed">
                 <p class="text-sm text-gray-400">Última atualização: 31 de agosto de 2026</p>
@@ -78,12 +68,13 @@
 </template>
 
 <script setup>
-import { ChevronLeft } from 'lucide-vue-next'
-
 useSeoMeta({
     title: 'Termos de Uso',
-    description: 'Termos de Uso do site da Soda Cáustica Escorpião.',
+    description:
+        'Termos de uso do site da Soda Cáustica Escorpião: uso do conteúdo, informações sobre os produtos, formulários de contato e limitação de responsabilidade.',
     ogTitle: 'Termos de Uso — Soda Cáustica Escorpião',
+    ogDescription:
+        'Termos de uso do site da Soda Cáustica Escorpião: uso do conteúdo, informações sobre os produtos, formulários de contato e limitação de responsabilidade.',
     ogLocale: 'pt_BR',
 })
 

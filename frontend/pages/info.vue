@@ -1,23 +1,16 @@
 <template>
-  <div class="mt-16" style="background-color: rgb(var(--color-cream)); overflow-x: hidden;">
-    <section id="info" class="max-w-6xl mx-auto px-6 pt-24 scroll-mt-32">
-      <!-- Título -->
-      <div class="flex items-center gap-4 mb-4 reveal-element">
-        <div class="flex items-center gap-4 mb-6 pt-6">
-          <h1 class="text-3xl font-extrabold text-brand-700 font-montserrat tracking-tight">INFORMAÇÕES</h1>
-          <Info class="text-brand-700" :stroke-width="2" :size="30" />
-        </div>
-      </div>
+  <div style="background-color: rgb(var(--color-cream)); overflow-x: hidden;">
+    <section id="info" class="max-w-6xl mx-auto px-6 pt-12 scroll-mt-32">
 
       <!-- Conteúdo principal -->
       <div class="info-container">
         <!-- Textos -->
         <div class="info-text reveal-element delay-100 space-y-6">
-          <p class="text-gray-700 text-lg leading-relaxed font-montserrat relative pl-6 border-l-4 border-brand-700">
+          <p class="text-gray-700 text-lg leading-relaxed font-montserrat relative">
             A soda cáustica é um produto muito corrosivo que pode causar queimaduras severas e irreversíveis
             na pele e nos olhos, irritação respiratória e é nocivo para organismos aquáticos.
           </p>
-          <p class="text-gray-700 text-lg leading-relaxed font-montserrat relative pl-6 border-l-4 border-brand-700">
+          <p class="text-gray-700 text-lg leading-relaxed font-montserrat relative">
             Além dos cuidados no manuseio, é fundamental atenção ao armazenamento. A ingestão do produto
             pode causar a morte.
           </p>
@@ -242,7 +235,7 @@
 </template>
 
 <script setup>
-import { Info, Download, ShieldAlert, CircleAlert, Phone, FileText, Beaker, Shirt, Flame, Package } from 'lucide-vue-next'
+import { Download, ShieldAlert, CircleAlert, Phone, FileText, Beaker, Shirt, Flame, Package } from 'lucide-vue-next'
 import { produtos } from '../data/produtos'
 
 useSeoMeta({
@@ -291,7 +284,7 @@ useScrollReveal()
   height: auto;
   align-self: stretch;
   background: linear-gradient(to bottom, transparent, rgb(var(--color-brand-300)), transparent);
-  border-radius: 1px;
+  border-radius: 12px;
 }
 
 .fds-col {

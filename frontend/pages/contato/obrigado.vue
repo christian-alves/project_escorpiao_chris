@@ -1,13 +1,10 @@
 <template>
-    <div class="mt-16" style="background-color: rgb(var(--color-cream)); overflow-x: hidden;">
-        <section class="max-w-3xl mx-auto px-6 pt-32 pb-24 text-center font-montserrat">
+    <div style="background-color: rgb(var(--color-cream)); overflow-x: hidden;">
+        <section class="max-w-3xl mx-auto px-6 pt-12 pb-24 text-center font-montserrat">
             <div class="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 p-10 md:p-14">
                 <div class="bg-brand-50 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                     <CheckCircle2 class="text-brand-700 w-10 h-10" />
                 </div>
-                <h1 class="text-3xl font-extrabold text-brand-700 font-montserrat tracking-tight uppercase mb-4">
-                    Mensagem enviada!
-                </h1>
                 <p class="text-gray-700 text-lg leading-relaxed mb-10">
                     Obrigado pelo interesse em ser um revendedor da Soda Cáustica Escorpião. Nossa equipe vai analisar
                     seus dados e entrar em contato em breve.
