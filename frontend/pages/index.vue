@@ -2,7 +2,7 @@
     <div id="background" class="bg-cream" style="overflow-x: hidden;">
 
         <h1 class="sr-only">
-            Soda Cáustica Escorpião — fabricante de soda cáustica desde 1970, na Serra, Espírito Santo
+            Soda Cáustica Escorpião — fabricante de soda cáustica desde 1971, na Serra, Espírito Santo
         </h1>
 
         <div id="inicio" name="Capa Inicial" class="relative pt-[4.5rem] md:pt-20"
@@ -45,14 +45,14 @@
                 <div class="flex min-h-36 items-center gap-4 px-5 py-7 md:px-8">
                     <CalendarDays class="h-16 w-16 shrink-0 text-brand-200" stroke-width="1.5" aria-hidden="true" />
                     <div>
-                        <p class="text-4xl font-extrabold tracking-tight md:text-5xl">1970</p>
+                        <p class="text-4xl font-extrabold tracking-tight md:text-5xl">1971</p>
                         <p class="mt-1 text-[11px] font-bold uppercase tracking-[.12em] text-brand-100">Ano de fundação</p>
                     </div>
                 </div>
                 <div class="flex min-h-36 items-center gap-4 px-5 py-7 md:px-8">
                     <BadgeCheck class="h-16 w-16 shrink-0 text-brand-200" stroke-width="1.5" aria-hidden="true" />
                     <div>
-                        <p class="text-4xl font-extrabold tracking-tight md:text-5xl">98<span class="text-2xl md:text-3xl">%</span></p>
+                        <p class="text-4xl font-extrabold tracking-tight md:text-5xl">96-100<span class="text-2xl md:text-3xl">%</span></p>
                         <p class="mt-1 text-[11px] font-bold uppercase tracking-[.12em] text-brand-100">Pureza da soda cáustica</p>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                 <div class="reveal-element delay-100">
                     <p
                         class="text-gray-700 text-lg mb-8 leading-relaxed font-montserrat relative">
-                        Desde nossa fundação em 1970, nos definimos como uma empresa responsável com nossos parceiros de
+                        Desde nossa fundação em 1971, nos definimos como uma empresa responsável com nossos parceiros de
                         negócios em todo o Brasil. Dedicação, conhecimento, flexibilidade e respeito aos clientes são
                         princípios que
                         julgamos imprescindíveis e sobre os quais conduzimos os nossos negócios. A prática deles no dia
@@ -267,10 +267,10 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 useSeoMeta({
     title: 'Soda Cáustica Escorpião — Tradição capixaba, presença nacional',
     description:
-        'Fabricante de soda cáustica em escamas (98% de pureza) desde 1970, na Serra - ES. Linha de limpeza, receitas de sabão caseiro e rede nacional de distribuidores.',
+        'Fabricante de soda cáustica em escamas (98% de pureza) desde 1971, na Serra - ES. Linha de limpeza, receitas de sabão caseiro e rede nacional de distribuidores.',
     ogTitle: 'Soda Cáustica Escorpião',
     ogDescription:
-        'Referência nacional em soda cáustica desde 1970. Produtos, receitas de sabão e onde comprar.',
+        'Referência nacional em soda cáustica desde 1971. Produtos, receitas de sabão e onde comprar.',
     ogType: 'website',
     ogLocale: 'pt_BR',
 })
@@ -288,8 +288,8 @@ import { produtos } from '../data/produtos'
 import { receitas } from '../data/receitas'
 
 import Capa from '../assets/identidade/home-page-hero-banner.jpg'
-import BannerProdutos from '../assets/identidade/produtos-homepage.jpg'
-import BannerRevendedor from '../assets/identidade/revendedor-homepage.jpg'
+import BannerProdutos from '../assets/identidade/header-produtos-corrigido.jpg'
+import BannerRevendedor from '../assets/identidade/header-revendedor-escopião-correto.jpg'
 import Missao from '../assets/empresa/missao.png'
 import Visao from '../assets/empresa/visao.png'
 import Valor from '../assets/empresa/valor.png'
