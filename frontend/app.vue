@@ -15,7 +15,7 @@ const orgJsonLd = {
   legalName: 'Soda Cáustica Escorpião',
   url: 'https://sodaescorpiao.com.br',
   logo: 'https://sodaescorpiao.com.br/IconeEscorpiaoQuadrado.png',
-  foundingDate: '1970',
+  foundingDate: '1971',
   taxID: '04.548.633/0001-90',
   email: 'adm@sodaescorpiao.com.br',
   telephone: '+55-27-99850-7166',

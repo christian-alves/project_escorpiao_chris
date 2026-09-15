@@ -8,7 +8,7 @@
             une experiência, cuidado e comprometimento com a qualidade que nos tornou referência nacional.
             <br /><br />
             Mais do que colaboradores, somos uma grande família que cresce e se aperfeiçoa a cada dia, mantendo viva
-            a tradição capixaba iniciada em 1970.
+            a tradição capixaba iniciada em 1971.
         </p>
 
         <div class="grid grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">

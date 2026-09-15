@@ -8,7 +8,7 @@
                         <img :src="Logo" alt="Soda Cáustica Escorpião" class="h-16 w-auto object-contain" />
                     </NuxtLink>
                     <p class="text-gray-700 text-sm font-montserrat">
-                        Referência nacional em soda cáustica, tradição, qualidade e agilidade desde 1970.
+                        Referência nacional em soda cáustica, tradição, qualidade e agilidade desde 1971.
                     </p>
                 </div>
 
